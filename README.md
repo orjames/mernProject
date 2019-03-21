@@ -2,8 +2,6 @@
 
 Full MERN stack project
 
-Owen R. James
-
-Mickey Cowan
-
+Owen R. James, 
+Mickey Cowan, 
 Kenneth Hong 
