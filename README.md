@@ -1,4 +1,5 @@
 # mernProject
 Full MERN stack project
 
-Name: Kenneth Hong 
+Mickey Cowan
+Kenneth Hong 
