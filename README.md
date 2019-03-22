@@ -86,9 +86,9 @@ We decided to use The Color API which gives you options of colors to output give
 *quad
 We decided that allowing the user to select between these would be perfect.
 
-## Back-end planning
+## Back-end Planning
 
-### Entity relationship diagram 
+### Entity Relationship Diagram 
 
 - Link to the Entity Relationship Diagram made with <a href="https://www.draw.io/?libs=general;uml"> Draw.io </a>.
 
@@ -97,6 +97,11 @@ We decided that allowing the user to select between these would be perfect.
 
 
 
+## Front-end Planning
+
+### Components 
+   - Screenshot of the components: 
+   ![](./images/Components.png)
 
 
 ## App Development
