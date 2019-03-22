@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
-// Route for signup
+// Route for POST /signup
 router.post('/signup', (req, res) => {
   // see if email is already in the database
   // User model, findOne
@@ -44,7 +44,7 @@ router.post('/signup', (req, res) => {
   });
 });
 
-// Route for login
+// Route for POST /login
 router.post('/login', (req, res) => {
   // Find user in database
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -109,7 +109,5 @@ router.post('/me/from/token', (req, res) => {
     });
   }
 });
-
-// Route for logout
 
 module.exports = router;
