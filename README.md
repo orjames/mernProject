@@ -2,7 +2,6 @@
 
 ## Full MERN stack project
 
-
 # Image Attribution
 Link to spectrum image
 <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by starline - www.freepik.com</a>
@@ -86,6 +85,29 @@ We decided to use The Color API which gives you options of colors to output give
 *quad
 We decided that allowing the user to select between these would be perfect.
 
-## Back-end planning
+## Back-end Planning
+
+### Entity Relationship Diagram 
+
+- Link to the Entity Relationship Diagram made with <a href="https://www.draw.io/?libs=general;uml"> Draw.io </a>.
+
+- Screenshot of the Entity Relationship Diagram: 
+![](./images/ERD.png)
+
+
+## Front-end Planning
+
+### Components 
+- Screenshot of the components: 
+![](./images/Components.png)
+
+
+
+
+
+
+
+
+
 
 ## App Development
