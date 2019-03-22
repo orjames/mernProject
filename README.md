@@ -87,6 +87,19 @@ We decided that allowing the user to select between these would be perfect.
 - Screenshot of the Entity Relationship Diagram:
   ![](./images/ERD.png)
 
+###  Routes 
+
+| Method | Route | 
+|--------|-------|
+| POST   | /login | 
+| POST   | /signup | 
+| POST   | /index | 
+| GET    | /index/result | 
+| GET    | /profile |
+| PUT    | /profile | 
+| POST   | /profile/upload |
+| DELETE | /profile/upload/delete | 
+
 ### Getting the Cloudinary API to Jive
 
 We found a useful method in the cloudinary API that would analyze photos for colors. However, getting this API to function was a non-trivial task. I set out to create a test app with the sole purpose of attaining color information from a given picture. I made an express app using mongoose as the (Object Document Mapper) ODM for MongoDB.
@@ -128,7 +141,6 @@ app.get('/cloudinary-data', function(req, res) {
   });
 });
 ```
-
 ## Front-end Planning
 
 ### Components
