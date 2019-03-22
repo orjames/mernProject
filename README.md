@@ -101,11 +101,18 @@ We decided that allowing the user to select between these would be perfect.
 - Screenshot of the components: 
 ![](./images/Components.png)
 
+###  Routes 
 
-
-
-
-
+| Method | Route | 
+|--------|-------|
+| POST   | /login | 
+| POST   | /signup | 
+| POST   | /index | 
+| GET    | /index/result | 
+| GET    | /profile |
+| PUT    | /profile | 
+| POST   | /profile/upload |
+| DELETE | /profile/upload/delete | 
 
 
 
