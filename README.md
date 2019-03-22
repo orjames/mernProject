@@ -88,4 +88,15 @@ We decided that allowing the user to select between these would be perfect.
 
 ## Back-end planning
 
+### Entity relationship diagram 
+
+- Link to the Entity Relationship Diagram made with <a href="https://www.draw.io/?libs=general;uml"> Draw.io </a>.
+
+- Screenshot of the Entity Relationship Diagram: 
+   ![](./images/ERD.png)
+
+
+
+
+
 ## App Development
