@@ -1,0 +1,22 @@
+{
+  "name": "jwt-auth-boilerplate",
+  "version": "1.0.0",
+  "description": "Functional JWT Authentication Backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Owen R. James",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "express-rate-limit": "^3.4.0",
+    "helmet": "^3.16.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.19"
+  }
+}
