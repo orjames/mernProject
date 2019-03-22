@@ -24,7 +24,7 @@ const signupLimiter = new RateLimit({
   message: 'max number of accounts created please try later (begone hacker!)',
 });
 
-mongoose.connect('mongodb://localhost/jwtAuth', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log(`Connected to mongo on ${db.host}:${db.port}`);
@@ -36,6 +36,7 @@ db.on('error', (err) => {
 app.use('auth/login', loginLimiter);
 app.use('/auth/signup', signupLimiter);
 
+app.use('/index', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 app.use(
   '/locked',
