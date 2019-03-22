@@ -65,6 +65,19 @@ Home Page Scrolled(2):
 Profile Page:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
 
+## API
+
+We decided to use The Color API which gives you options of colors to output given an input color in either hex or rgb format. The options were:
+*monochrome
+*monochrome-dark
+*monochrome-light
+*analogic
+*complement
+*analogic-complement
+*triad
+*quad
+We decided that allowing the user to select between these would be perfect.
+
 ## Back-end planning
 
 ## App Development
