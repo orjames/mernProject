@@ -18,7 +18,7 @@ Complement is an app that recommends complimentary colors for your outfit. Users
 
 - Karen is an interior designer. She see's a room and knows she wants to add accents to the curtains and other part of it. She takes a picture of the room, and using Complement's intelligent algorithm she receives a variety of different color options. The room is vivacious, the client gives her many compliments.
 
-- Carlo is working on his car, he's more of a nuts and bolts guy, but wants to work on the interior. He snaps a photo of his car's interior, and uses Complement to find a spectrum of colors that shifts his design to a higher gear. Carlo now has the perfect color for his stitching accents, his wife is pleased, and pays him many compliments.
+- Carlo is working on his car. He's more of a nuts and bolts guy, but wants to work on the interior. He snaps a photo of his car's interior, and uses Complement to find a spectrum of colors that shifts his design to a higher gear. Carlo now has the perfect color for his stitching accents, his wife is pleased, and pays him many compliments.
 
 ### Under the Hood
 
@@ -64,6 +64,19 @@ Home Page Scrolled(2):
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
 Profile Page:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
+
+## API
+
+We decided to use The Color API which gives you options of colors to output given an input color in either hex or rgb format. The options were:
+*monochrome
+*monochrome-dark
+*monochrome-light
+*analogic
+*complement
+*analogic-complement
+*triad
+*quad
+We decided that allowing the user to select between these would be perfect.
 
 ## Back-end planning
 
