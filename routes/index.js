@@ -10,12 +10,14 @@ cloudinary.config({
 });
 
 //creating the test route
-router.get('/cloudinary-data', function(req, res) {
-  console.log('\x1b[36m%s\x1b[0m', 'in index GET route for /cloudinary-data');
+router.get('/cloudinary-data/:pid', function(req, res) {
+  console.log('in index GET route for /cloudinary-data');
+  console.log('in route');
   cloudinary.v2.api.resource(
-    'Owen_-_City_-_Small',
+    req.params.pid,
     { colors: true, quality_analysis: true },
     function(error, result) {
+      console.log(result);
       res.json(result);
     }
   );
@@ -23,15 +25,15 @@ router.get('/cloudinary-data', function(req, res) {
 
 // POST to /index
 // this takes an image file and uploads it then returns the data from that image
-router.post('/', function(req, res) {
-  console.log('\x1b[36m%s\x1b[0m', 'in index POST route for /index');
-  cloudinary.v2.uploader.upload(
-    'sample.jpg',
-    { colors: true, image_metadata: true, quality_analysis: true },
-    function(error, result) {
-      console.log(result, error);
-    }
-  );
-});
+// router.post('/', function(req, res) {
+//   console.log('\x1b[36m%s\x1b[0m', 'in index POST route for /index');
+//   cloudinary.v2.uploader.upload(
+//     'sample.jpg',
+//     { colors: true, image_metadata: true, quality_analysis: true },
+//     function(error, result) {
+//       console.log(result, error);
+//     }
+//   );
+// });
 
 module.exports = router;

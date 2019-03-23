@@ -33,6 +33,8 @@ class App extends Component {
       lockedResult: '',
       uploading: false,
       images: [],
+      cloudColors: [],
+      currentImgURL: '',
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
@@ -130,7 +132,7 @@ class App extends Component {
         errs.push(`'${file.type}' is not a supported format`);
       }
 
-      if (file.size > 200000) {
+      if (file.size > 21000000) {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
       }
 
@@ -179,6 +181,12 @@ class App extends Component {
     this.toast('Oops, something went wrong', 'custom', 2000, toastColor);
     this.setState({ images: this.filter(id) });
   };
+
+  getPhotoData = () => {
+    console.log('\x1b[36m%s\x1b[0m', 'click click clikc');
+    console.log(this.state.images[0].public_id);
+    axios.get(`/index/cloudinary-data/${this.state.images[0].public_id}`);
+  };
   // image function stuff above
 
   render() {
@@ -218,6 +226,7 @@ class App extends Component {
           </div>
           <p>
             <button onClick={this.handleClick}>test the protected route</button>
+            <button onClick={this.getPhotoData}>Get Data</button>
           </p>
           <p>{this.state.lockedResult}</p>
         </>
