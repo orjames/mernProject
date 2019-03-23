@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button, Form} from "react-bootstrap"
+
 
 class Login extends Component {
   constructor(props) {
@@ -56,17 +58,20 @@ class Login extends Component {
       <div className='login'>
         <h3>log in to your account:</h3>
         <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleEmailChange}
-            value={this.state.email}
-            type='email'
-            name='email'
-            placeholder='enter your email...'
-            minLength='5'
-            maxLength='99'
-          />
+        {/* Form.Control is needed for the Form Styling */}
+            <Form.Control  
+              input
+              onChange={this.handleEmailChange}
+              value={this.state.email}
+              type='email'
+              name='email'
+              placeholder='enter your email...'
+              minLength='5'
+              maxLength='99'
+            />
           <br />
-          <input
+          <Form.Control  
+            input
             onChange={this.handlePasswordChange}
             value={this.state.password}
             type='password'
@@ -76,11 +81,18 @@ class Login extends Component {
             maxLength='128'
           />
           <br />
-          <input className='button' type='submit' value='login' />
+          {/* This is your login button */}
+          <Button variant="primary" size="large" type='submit' value='login' active > Login </Button> 
+          
         </form>
+      
+
       </div>
     );
   }
 }
+
+
+
 
 export default Login;

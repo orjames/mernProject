@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button, Form} from "react-bootstrap"
+
 
 class Signup extends Component {
   constructor(props) {
@@ -75,7 +77,9 @@ class Signup extends Component {
       <div className='signup'>
         <h3>create a new account:</h3>
         <form onSubmit={this.handleSubmit}>
-          <input
+          {/* Form.Control is needed for the Form Styling */}
+          <Form.Control  
+            input
             onChange={this.handleFirstNameChange}
             value={this.state.firstName}
             type='text'
@@ -85,7 +89,8 @@ class Signup extends Component {
             maxLength='99'
           />
           <br />
-          <input
+          <Form.Control   
+            input
             onChange={this.handleLastNameChange}
             value={this.state.lastName}
             type='text'
@@ -95,7 +100,8 @@ class Signup extends Component {
             maxLength='99'
           />
           <br />
-          <input
+          <Form.Control   
+            input
             onChange={this.handleEmailChange}
             value={this.state.email}
             type='email'
@@ -105,7 +111,8 @@ class Signup extends Component {
             maxLength='99'
           />
           <br />
-          <input
+          <Form.Control             
+            input
             onChange={this.handlePasswordChange}
             value={this.state.password}
             type='password'
@@ -115,7 +122,9 @@ class Signup extends Component {
             maxLength='128'
           />
           <br />
-          <input className='button' type='submit' value='signup' />
+          {/* This is your Signup Button */}
+          <Button variant="primary" size="large" type='submit' value='signup' active > Register </Button> 
+
         </form>
       </div>
     );
