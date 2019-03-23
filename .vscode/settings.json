@@ -1,5 +1,19 @@
 {
   "cSpell.words": [
     "cloudinary"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#359268",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#d1b9e6",
+    "activityBarBadge.foreground": "#15202b",
+    "titleBar.activeBackground": "#359268",
+    "titleBar.inactiveBackground": "#35926899",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#359268",
+    "statusBarItem.hoverBackground": "#43b783",
+    "statusBar.foreground": "#e7e7e7"
+  }
 }
