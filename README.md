@@ -38,6 +38,8 @@ Complement is an app that recommends complimentary colors for your outfit. Users
 - helmet
 - jsonwebtoken
 - react-bootstrap
+- react-vis
+
 
 ## Project Timeline
 
@@ -141,6 +143,8 @@ app.get('/cloudinary-data', function(req, res) {
   });
 });
 ```
+
+
 ## Front-end Planning
 
 ### Components
@@ -150,7 +154,14 @@ app.get('/cloudinary-data', function(req, res) {
 
 ## App Development
 
+### Data Visualization 
+React-vis is a React visualization library created by Uber. With it you can easily create common charts, such as line, area, bar charts, pie and donut charts, tree maps and many more.
+
+
+
+
 #### Image Attribution
+
 
 Link to spectrum image
 <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by starline - www.freepik.com</a>
