@@ -10,6 +10,7 @@ import Images from './Images';
 import Buttons from './Buttons';
 import WakeUp from './WakeUp';
 import Footer from './Footer';
+import DataVis from './DataVis';
 import { API_URL } from './config';
 import Notifications, { notify } from 'react-notify-toast';
 // image function stuff above
@@ -34,7 +35,6 @@ class App extends Component {
       uploading: false,
       images: [],
       cloudColors: [],
-      currentImgURL: '',
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
@@ -174,7 +174,7 @@ class App extends Component {
   };
 
   removeImage = (id) => {
-    this.setState({ images: this.filter(id) });
+    this.setState({ images: this.filter(id), cloudColors: [] });
   };
 
   onError = (id) => {
@@ -184,14 +184,20 @@ class App extends Component {
 
   getPhotoData = () => {
     console.log('\x1b[36m%s\x1b[0m', 'click click clikc');
-    console.log(this.state.images[0].public_id);
-    axios.get(`/index/cloudinary-data/${this.state.images[0].public_id}`);
+    axios
+      .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
+      .then((res) => {
+        this.setState({
+          cloudColors: res.data.colors,
+        });
+      });
   };
   // image function stuff above
 
   render() {
     // image upload stuff below
     const { loading, uploading, images } = this.state;
+    let uploadButton;
 
     const content = () => {
       switch (true) {
@@ -212,6 +218,14 @@ class App extends Component {
       }
     };
     // image upload stuff above
+    if (this.state.images.length > 0) {
+      uploadButton = <button onClick={this.getPhotoData}>Get Data</button>;
+    } else {
+      // no image uploaded
+    }
+
+    if (this.state.cloudColors.length > 0) {
+    }
 
     let user = this.state.user;
     let contents;
@@ -226,9 +240,10 @@ class App extends Component {
           </div>
           <p>
             <button onClick={this.handleClick}>test the protected route</button>
-            <button onClick={this.getPhotoData}>Get Data</button>
+            {uploadButton}
           </p>
           <p>{this.state.lockedResult}</p>
+          <DataVis cloudColors={this.state.cloudColors} />
         </>
       );
     } else {

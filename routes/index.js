@@ -11,13 +11,10 @@ cloudinary.config({
 
 //creating the test route
 router.get('/cloudinary-data/:pid', function(req, res) {
-  console.log('in index GET route for /cloudinary-data');
-  console.log('in route');
   cloudinary.v2.api.resource(
     req.params.pid,
     { colors: true, quality_analysis: true },
     function(error, result) {
-      console.log(result);
       res.json(result);
     }
   );
