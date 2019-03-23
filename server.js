@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(helmet());
 
 // image stuff below
+// configuring cloudinary to user specific cloud name, API_KEY, and API_SECRET
 cloudinary.config({
   cloud_name: 'orjames',
   api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
@@ -31,6 +32,7 @@ app.use(formData.parse());
 
 app.get('/wake-up', (req, res) => res.send('👌'));
 
+// POST /image-upload posts the image
 app.post('/image-upload', (req, res) => {
   const values = Object.values(req.files);
   const promises = values.map((image) =>
@@ -43,6 +45,7 @@ app.post('/image-upload', (req, res) => {
 });
 // image stuff above
 
+// Limits how many times a user may attempt to login within a defined window
 const loginLimiter = new RateLimit({
   windowMs: 5 * 60 * 1000, // 5 mins
   max: 4, // login attempts
@@ -50,6 +53,7 @@ const loginLimiter = new RateLimit({
   message: 'max login attempts exceeded (begone hacker!)',
 });
 
+// Limits how many times a user may attempt to signup within a defined window
 const signupLimiter = new RateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   max: 3,
@@ -57,6 +61,7 @@ const signupLimiter = new RateLimit({
   message: 'max number of accounts created please try later (begone hacker!)',
 });
 
+// connects to the MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.once('open', () => {
