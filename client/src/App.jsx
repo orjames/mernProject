@@ -109,15 +109,16 @@ class App extends Component {
 
   toast = notify.createShowQueue();
   // image function stuff below
-  // This is where the real action happens. We are extracting the files to be uploaded out of the DOM
-  // and shipping them off to our server in a fetch request. It also allows us to update the state of our application
+  // Extracting the files to be uploaded out of the DOM and shipping them off to our server in a fetch request.
+  // It also allows us to update the state of our application
   // to show that something is happening (spinner) or show the images when they come back successfully.
   onChange = (e) => {
     const errs = [];
     const files = Array.from(e.target.files);
 
-    if (files.length > 3) {
-      const msg = 'Only 3 images can be uploaded at a time';
+    // limits user to only upload one image
+    if (files.length > 1) {
+      const msg = 'Only 1 image can be uploaded at a time';
       return this.toast(msg, 'custom', 2000, toastColor);
     }
 
@@ -129,7 +130,7 @@ class App extends Component {
         errs.push(`'${file.type}' is not a supported format`);
       }
 
-      if (file.size > 150000) {
+      if (file.size > 200000) {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
       }
 
@@ -142,7 +143,7 @@ class App extends Component {
 
     this.setState({ uploading: true });
 
-    fetch(`/image-upload`, {
+    fetch(`${API_URL}/image-upload`, {
       method: 'POST',
       body: formData,
     })
