@@ -2,13 +2,6 @@
 
 ## Full MERN stack project
 
-# Image Attribution
-Link to spectrum image
-<a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by starline - www.freepik.com</a>
-
-Link to 2nd spectrum image
-<a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by pinnacleanimates - www.freepik.com</a>
-
 #### Developers:
 
 Owen R. James,
@@ -45,6 +38,8 @@ Complement is an app that recommends complimentary colors for your outfit. Users
 - helmet
 - jsonwebtoken
 - react-bootstrap
+- react-vis
+
 
 ## Project Timeline
 
@@ -87,27 +82,89 @@ We decided that allowing the user to select between these would be perfect.
 
 ## Back-end Planning
 
-### Entity Relationship Diagram 
+### Entity Relationship Diagram
 
 - Link to the Entity Relationship Diagram made with <a href="https://www.draw.io/?libs=general;uml"> Draw.io </a>.
 
-- Screenshot of the Entity Relationship Diagram: 
-![](./images/ERD.png)
+- Screenshot of the Entity Relationship Diagram:
+  ![](./images/ERD.png)
+
+###  Routes 
+
+| Method | Route | 
+|--------|-------|
+| POST   | /login | 
+| POST   | /signup | 
+| POST   | /index | 
+| GET    | /index/result | 
+| GET    | /profile |
+| PUT    | /profile | 
+| POST   | /profile/upload |
+| DELETE | /profile/upload/delete | 
+
+### Getting the Cloudinary API to Jive
+
+We found a useful method in the cloudinary API that would analyze photos for colors. However, getting this API to function was a non-trivial task. I set out to create a test app with the sole purpose of attaining color information from a given picture. I made an express app using mongoose as the (Object Document Mapper) ODM for MongoDB.
+
+I required the packages necessary to use the most basic functionality of this test app.
+
+```javascript
+const express = require('express');
+const app = express();
+const cloudinary = require('cloudinary');
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
+app.use(express.urlencoded({ extended: false }));
+```
+
+Next, I had to configure the cloudinary package needed to access cloudinary to my specific API key and API secret which I stored in my .env file.
+
+```javascript
+cloudinary.config({
+  cloud_name: 'orjames',
+  api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
+  api_secret: process.env.REACT_APP_CLOUDINARY_API_SECRET,
+});
+```
+
+next I added a get simple GET route to access the cloudinary API analysis tools and set colors to true to output the color data from the image. The resulting JSON object would oupput the picture color information we needed. Success!
+
+```javascript
+//creating the test route
+app.get('/cloudinary-data', function(req, res) {
+  console.log('in get route');
+  cloudinary.v2.api.resource('Owen_-_City_-_Small', { colors: true }, function(
+    error,
+    result
+  ) {
+    res.json(result);
+  });
+});
+```
 
 
 ## Front-end Planning
 
-### Components 
-- Screenshot of the components: 
-![](./images/Components.png)
+### Components
 
-
-
-
-
-
-
-
-
+- Screenshot of the components:
+  ![](./images/Components.png)
 
 ## App Development
+
+### Data Visualization 
+React-vis is a React visualization library created by Uber. With it you can easily create common charts, such as line, area, bar charts, pie and donut charts, tree maps and many more.
+
+
+
+
+#### Image Attribution
+
+
+Link to spectrum image
+<a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by starline - www.freepik.com</a>
+
+Link to 2nd spectrum image
+<a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by pinnacleanimates - www.freepik.com</a>
