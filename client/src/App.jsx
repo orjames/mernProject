@@ -285,9 +285,7 @@ class App extends Component {
     } else {
       contents = (
         <>
-        
           {logbox}
-          
         </>
       );
     }
