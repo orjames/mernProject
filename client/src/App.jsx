@@ -194,8 +194,8 @@ class App extends Component {
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
         this.setState({
-          cloudColors: res.data.colors,
-        });
+          cloudColors: res.data.colors, 
+      });
       });
   };
   // image function stuff above
