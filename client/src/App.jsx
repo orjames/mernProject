@@ -36,6 +36,7 @@ class App extends Component {
       images: [],
       loginClick: false,
       cloudColors: [],
+      dataVizs: []
 
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
@@ -210,6 +211,12 @@ class App extends Component {
       loginClick: false
     })
   }
+
+    DataVis = (data) => {
+      this.setState({
+        DataVis: [data]
+      })
+    }
   
   
   
@@ -265,6 +272,7 @@ class App extends Component {
 
     let user = this.state.user;
     let contents;
+    let data; 
     if (user) {
       contents = (
         <>
@@ -279,7 +287,7 @@ class App extends Component {
             {uploadButton}
           </p>
           <p>{this.state.lockedResult}</p>
-          <DataVis cloudColors={this.state.cloudColors} />
+          <DataVis cloudColors={this.state.cloudColors} data={data} />
         </>
       );
     } else {
@@ -308,8 +316,5 @@ class App extends Component {
 }
 
 
-{/* <button onClick={activateLasers}>
-  Activate Lasers
-</button>
-  */}
+
 export default App;
