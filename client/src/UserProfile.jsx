@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from "axios"; 
+import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'; 
 
 const UserProfile = (props) => {
 
   // componentDidMount(){
-  //   // get data here! 
-  //   let cloudApi = ""
+  // //   // get data here! 
+  // //   let cloudApi = ""
     
-  // }
+  // // }
   
 
 
