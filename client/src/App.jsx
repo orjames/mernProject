@@ -13,7 +13,8 @@ import DataVis from './DataVis';
 import Jumbotron from './Jumbotron';
 import { API_URL } from './config';
 import Notifications, { notify } from 'react-notify-toast';
-import Header from './Header';
+// import Header from './Header';
+// import HeaderNavigation from './HeaderNavigation';
 import Recommendations from './Recommendations';
 
 const toastColor = {
@@ -308,22 +309,20 @@ class App extends Component {
     
     return (
       <div className='App'>
-        <Jumbotron>
-          <header>
-            <h1>HEADER OF APP</h1>
-          </header>
-        </Jumbotron>
-          <h2 onClick={this.loginClick}> Login </h2> 
+            {/* <header>
+              <h1>HEADER OF APP</h1>
+            </header> */}
+          <Jumbotron>  
+          </Jumbotron>
+          {/* <HeaderNavigation /> */}
+          {/* <h2 onClick={this.loginClick}> Login </h2> 
           <h2 onClick={this.signUpClick}> Register </h2>
-          {contents}
+          {contents} */}
           
       </div>
     );
   }
 }
 
-{/* <button onClick={activateLasers}>
-  Activate Lasers
-</button>
-  */}
+
 export default App;
