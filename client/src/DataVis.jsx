@@ -7,7 +7,7 @@ export default (props) => {
     // console.log(color)
     return {
       angle: color[1],
-      color: [color[0]],
+      color: color[0],
       label: `${color[0]} ${color[1]}`,
     };
   });
