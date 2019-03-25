@@ -37,7 +37,6 @@ class App extends Component {
       images: [],
       loginClick: false,
       cloudColors: [],
-
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
@@ -45,7 +44,6 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.loginClick = this.loginClick.bind(this);
     this.signUpClick = this.signUpClick.bind(this);
-    
   }
 
   checkForLocalToken = () => {
@@ -194,8 +192,8 @@ class App extends Component {
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
         this.setState({
-          cloudColors: res.data.colors, 
-      });
+          cloudColors: res.data.colors,
+        });
       });
   };
 
@@ -205,41 +203,37 @@ class App extends Component {
 
   loginClick = (e) => {
     this.setState({
-      loginClick: true
-    })
-  }
+      loginClick: true,
+    });
+  };
 
   signUpClick = (e) => {
     this.setState({
-      loginClick: false
-    })
-  }
+      loginClick: false,
+    });
+  };
 
-    DataVis = (data) => {
-      this.setState({
-        DataVis: [data]
-      })
-    }
-  
-  
-  
+  DataVis = (data) => {
+    this.setState({
+      DataVis: [data],
+    });
+  };
+
   render() {
-
-    let logbox 
-    if(this.state.loginClick === true){
+    let logbox;
+    if (this.state.loginClick === true) {
       logbox = (
         <>
           <Login liftTokenToState={this.liftTokenToState} />
         </>
-      ) 
+      );
     } else {
       logbox = (
         <>
           <Signup liftTokenToState={this.liftTokenToState} />
         </>
-      )
+      );
     }
-
 
     // image upload stuff below
     const { loading, uploading, images } = this.state;
@@ -274,7 +268,7 @@ class App extends Component {
 
     let user = this.state.user;
     let contents;
-    let data; 
+    let data;
     if (user) {
       contents = (
         <>
@@ -294,51 +288,31 @@ class App extends Component {
 
           <DataVis cloudColors={this.state.cloudColors} />
           <Recommendations cloudColors={this.state.cloudColors} />
-
         </>
       );
     } else {
-      contents = (
-<<<<<<< HEAD
-        <> 
-=======
-        <>
->>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
-          {logbox}
-        </>
-      );
+      contents = <>{logbox}</>;
     }
 
-    
     return (
       <div className='App'>
-<<<<<<< HEAD
         <Jumbotron>
           <header>
             <h1>HEADER OF APP</h1>
           </header>
         </Jumbotron>
-=======
-        <header>
-          <Header />
-        </header>
->>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
-          <h2 onClick={this.loginClick}> Login </h2> 
-          <h2 onClick={this.signUpClick}> Register </h2>
-          {contents}
-          
+        <h2 onClick={this.loginClick}> Login </h2>
+        <h2 onClick={this.signUpClick}> Register </h2>
+        {contents}
       </div>
     );
   }
 }
 
-<<<<<<< HEAD
-{/* <button onClick={activateLasers}>
+{
+  /* <button onClick={activateLasers}>
   Activate Lasers
 </button>
-  */}
-=======
-
-
->>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
+  */
+}
 export default App;
