@@ -4,10 +4,8 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import axios from 'axios';
-
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -134,37 +132,30 @@ class App extends Component {
     let contents;
     if (user) {
       contents = (
-        <>
-          <Router>
+        <Router>
+          <div>
             <Link to='/'>Home</Link> | <Link to='/profile'>Profile</Link> |{' '}
             <Route
               path='/'
               exact
-              render={Home}
               render={() => <Home user={this.state.user} />}
             />
             <Route
               path='/profile'
-              render={UserProfile}
               render={() => (
                 <UserProfile user={this.state.user} logout={this.logout} />
               )}
             />
-          </Router>
-        </>
+          </div>
+        </Router>
       );
     } else {
-      contents = (
-        <> 
-          {logbox}
-        </>
-      );
+      contents = <>{logbox}</>;
     }
 
     return (
       <div className='App'>
-
-        <nav />
+        {/* <nav /> */}
         {contents}
       </div>
     );

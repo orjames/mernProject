@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Login from './Login';
-import Signup from './Signup';
 import Images from './Images';
 import Buttons from './Buttons';
 import WakeUp from './WakeUp';
 import Recommendations from './Recommendations';
 import Notifications, { notify } from 'react-notify-toast';
-import Footer from './Footer';
+import WidgetFooter from './WidgetFooter';
 import DataVis from './DataVis';
 import Spinner from './Spinner';
 import { API_URL } from './config';
@@ -24,6 +22,7 @@ class Home extends Component {
       uploading: false,
       images: [],
       cloudColors: [],
+      loading: false,
     };
   }
 
@@ -175,7 +174,7 @@ class Home extends Component {
           <div className='container'>
             <Notifications />
             <div className='buttons'>{content()}</div>
-            <Footer />
+            <WidgetFooter />
           </div>
           <p>
             <button onClick={this.handleClick}>test the protected route</button>
