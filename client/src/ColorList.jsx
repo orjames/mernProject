@@ -1,17 +1,25 @@
 import React from 'react';
-import Recommendations from "./Recommendations" 
 
 
 const ColorList = (props) => {
-let colorRecs = ["#17BEBB", "#2E282A", "#CD5334", "#EDB88B", "#FAD8D6", "#FF521B"] 
+console.log(props, "this is your props")
+let colors = props.colorRec.colors.map((color, index) => {
+   return (
+   <div className="colorRecsList" key="index">
 
-
+{/* 
+            <h1>
+            {color.hex.value}, {color.name.value}
+            </h1>
+            <img src={color.image.named} alt='' /> */}
+   </div>
+   );
+})
 
 return (
-   <div className="colorRecsList">
-      <h1> {colorRecs} </h1> 
-   </div>  
-)}
+   <h1> Color List </h1>
+)
+}
 
 export default ColorList; 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { RadialChart } from 'react-vis';
 
-
 export default (props) => {
   // To Do click functionality
   let dataArr = props.cloudColors.map((color, index) => {
@@ -9,9 +8,9 @@ export default (props) => {
     return {
       angle: color[1],
       color: color[0],
-      label: `${color[0]} ${color[1]}`
-      };
-    });
+      label: `${color[0]} ${color[1]}`,
+    };
+  });
   return (
     <div className='radialChart'>
       <RadialChart
@@ -24,6 +23,3 @@ export default (props) => {
     </div>
   );
 };
-
-
-

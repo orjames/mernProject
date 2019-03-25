@@ -234,11 +234,9 @@ class App extends Component {
         </>
       );
     }
-
     // image upload stuff below
     const { loading, uploading, images } = this.state;
     let uploadButton;
-
     const content = () => {
       switch (true) {
         case loading:
@@ -262,8 +260,13 @@ class App extends Component {
     } else {
       // no image uploaded
     }
-
+    let recommendations;
     if (this.state.cloudColors.length > 0) {
+      recommendations = (
+        <Recommendations cloudColors={this.state.cloudColors} />
+      );
+    } else {
+      recommendations = '';
     }
 
     let user = this.state.user;
@@ -284,8 +287,8 @@ class App extends Component {
           </p>
           <p>{this.state.lockedResult}</p>
 
-          <DataVis cloudColors={this.state.cloudColors} className="DataVis"/>
-          <Recommendations cloudColors={this.state.cloudColors} />
+          <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
+          {recommendations}
         </>
       );
     } else {

@@ -1,43 +1,46 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ColorList from "./ColorList"
+import ColorList from "./ColorList"; 
 
 class Recommendations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colorRecs: '',
+      colorRec: [],
     };
   }
+
   componentDidMount() {
-    let colorApi =
-      'http://www.thecolorapi.com/scheme?hex=0047AB&format=json&mode=complement&count=6';
+    let primaryColorHex = this.props.cloudColors[0][0];
+    while (primaryColorHex.charAt(0) === '#') {
+      primaryColorHex = primaryColorHex.substr(1);
+    }
+    let colorApi = `http://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=complement&count=6`;
     // fetch a color complementary color thing
     axios
       .get(colorApi)
       .then((response) => {
         // set state
-        this.setState({ colorRecs: response.data });
-        console.log(response.data);
+        this.setState({ colorRec: response.data });
       })
       .catch((err) => console.log(err));
   }
+
   render() {
-    let colors;
-    if (this.state.colorRecs) {
-      colors = this.state.colorRecs.colors.map((color, index) => {
+    if (Object.keys(this.state.colorRec).length > 0) {
         return (
-          <div key={index}>
-            <ColorList colorRecs={this.props.colorRecs} ColorList={ColorList}/> 
+          <div>
+            <ColorList colorRec={this.state.colorRec} />
+            
           </div>
         );
-      });
+    } else {
+      return (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      );
     }
-    return (
-      <div>
-        <h1> Loading... </h1>
-      </div>
-    );
   }
 }
 
