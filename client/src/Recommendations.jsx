@@ -28,16 +28,14 @@ class Recommendations extends Component {
       colors = this.state.colorRecs.colors.map((color, index) => {
         return (
           <div key={index}>
-            
-            <ColorList colorRecs={this.props.colorRecs} /> 
-
+            <ColorList colorRecs={this.props.colorRecs} ColorList={ColorList}/> 
           </div>
         );
       });
     }
     return (
       <div>
-        <h1>Loading...</h1>
+        <h1> Loading... </h1>
       </div>
     );
   }
