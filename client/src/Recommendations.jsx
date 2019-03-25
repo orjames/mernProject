@@ -30,6 +30,7 @@ class Recommendations extends Component {
       let colors = this.state.colorRec.colors.map((color, index) => {
         return (
           <div key={index}>
+            {/* <ColorList colorRec={this.state.colorRec}/> */}
             <h1>
               {color.hex.value}, {color.name.value}
             </h1>
