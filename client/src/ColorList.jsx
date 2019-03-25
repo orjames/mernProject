@@ -1,6 +1,5 @@
 import React from 'react';
-import  {Image, Col} from "react-bootstrap"
-
+import { Image, Col } from 'react-bootstrap';
 
 const ColorList = (props) => {
 console.log(props, "this is your props")
