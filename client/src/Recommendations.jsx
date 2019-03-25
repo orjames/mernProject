@@ -1,39 +1,45 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
-class Home extends Component {
-
+class Recommendations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shakespeare: ""
-    }
+      colorRecs: '',
+    };
   }
 
   componentDidMount() {
-    let poemApi = 'http://shakeitspeare.com/api/poem';
-    // fetch a poem
-    axios.get(poemApi).then( response => {
-      // set state
-      this.setState{shakespeare: response.data}
-    }).catch(err => console.log(err))
+    let colorApi =
+      'http://www.thecolorapi.com/scheme?hex=0047AB&format=json&mode=complement&count=6';
+    // fetch a color complementary color thing
+    axios
+      .get(colorApi)
+      .then((response) => {
+        // set state
+        this.setState({ colorRecs: response.data });
+        console.log(response.data);
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
-    let poetry = this.state.shakespeare;
-    if (this.state.shakespeare){
-      return (
-        <div>
-          <h1>My favorite Shakespeare poem:</h1>
-          {poetry}
-        </div>
-      )
+    let colors;
+    if (this.state.colorRecs) {
+      colors = this.state.colorRecs.colors.map((color, index) => {
+        return (
+          <div key={index}>
+            <h1>{color}</h1>
+          </div>
+        );
+      });
     }
     return (
       <div>
-        <h1>My favorite Shakespeare poem:</h1>
-        Loading...
+        <h1>Loading...</h1>
       </div>
-    )
- }
+    );
+  }
 }
+
+export default Recommendations;
