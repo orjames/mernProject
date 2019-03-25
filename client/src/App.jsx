@@ -36,7 +36,6 @@ class App extends Component {
       images: [],
       loginClick: false,
       cloudColors: [],
-      dataVizs: []
 
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
