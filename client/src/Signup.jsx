@@ -79,7 +79,7 @@ class Signup extends Component {
         <form onSubmit={this.handleSubmit}>
           {/* Form.Control is needed for the Form Styling */}
           <Form.Control  
-            input
+            
             onChange={this.handleFirstNameChange}
             value={this.state.firstName}
             type='text'
@@ -90,7 +90,7 @@ class Signup extends Component {
           />
           <br />
           <Form.Control   
-            input
+            
             onChange={this.handleLastNameChange}
             value={this.state.lastName}
             type='text'
@@ -101,7 +101,7 @@ class Signup extends Component {
           />
           <br />
           <Form.Control   
-            input
+            
             onChange={this.handleEmailChange}
             value={this.state.email}
             type='email'
@@ -111,8 +111,8 @@ class Signup extends Component {
             maxLength='99'
           />
           <br />
-          <Form.Control             
-            input
+          <Form.Control          
+            
             onChange={this.handlePasswordChange}
             value={this.state.password}
             type='password'
