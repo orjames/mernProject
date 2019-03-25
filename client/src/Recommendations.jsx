@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ColorList from "./ColorList"; 
 
 class Recommendations extends Component {
   constructor(props) {
@@ -27,18 +28,14 @@ class Recommendations extends Component {
 
   render() {
     if (Object.keys(this.state.colorRec).length > 0) {
-      let colors = this.state.colorRec.colors.map((color, index) => {
         return (
-          <div key={index}>
-            {/* <ColorList colorRec={this.state.colorRec}/> */}
-            <h1>
-              {color.hex.value}, {color.name.value}
-            </h1>
-            <img src={color.image.named} alt='' />
+
+          <div>
+            <ColorList colorRec={this.state.colorRec} />
+            
+
           </div>
         );
-      });
-      return <div>{colors}</div>;
     } else {
       return (
         <div>
