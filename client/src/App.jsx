@@ -4,23 +4,8 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import axios from 'axios';
-// import Spinner from './Spinner';
-// import Images from './Images';
-// import Buttons from './Buttons';
-// import WakeUp from './WakeUp';
-// import Footer from './Footer';
-// import DataVis from './DataVis';
-// import Jumbotron from './Jumbotron';
-import { API_URL } from './config';
 import Home from './Home';
-// import Notifications, { notify } from 'react-notify-toast';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-// import Recommendations from './Recommendations';
-
-// const toastColor = {
-//   background: '#ff0000',
-//   text: '#fff',
-// };
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
