@@ -163,8 +163,13 @@ app.get('/cloudinary-data', function(req, res) {
 ## App Development
 
 ### Data Visualization 
-React-vis is a React visualization library created by Uber. With it you can easily create common charts, such as line, area, bar charts, pie and donut charts, tree maps and many more.
+React-vis is a React visualization library created by Uber. With it you can easily create common charts, such as line, area, bar charts, pie and donut charts, tree maps and many more. We are using React-vis to display the color hex data from the image and also the percentage of promienence it holds. From here the user can see the color data. 
 
+- Code Snippet:
+![](./images/dataVisCode.png)
+
+- React Vis Example:
+![](./images/dataVisRadialChart.png)
 
 
 
