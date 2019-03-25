@@ -287,8 +287,13 @@ class App extends Component {
           </p>
           <p>{this.state.lockedResult}</p>
 
+<<<<<<< HEAD
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
+=======
+          <DataVis cloudColors={this.state.cloudColors} className="DataVis"/>
+          <Recommendations cloudColors={this.state.cloudColors} />
+>>>>>>> d38ff852a414407ee647d7c7aa57617f52a21d01
         </>
       );
     } else {
