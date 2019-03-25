@@ -12,10 +12,12 @@ import axios from 'axios';
 // import DataVis from './DataVis';
 // import Jumbotron from './Jumbotron';
 import { API_URL } from './config';
+
 import Home from './Home';
 // import Notifications, { notify } from 'react-notify-toast';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import Recommendations from './Recommendations';
+
 
 // const toastColor = {
 //   background: '#ff0000',
@@ -167,11 +169,16 @@ class App extends Component {
         </>
       );
     } else {
-      contents = <>{logbox}</>;
+      contents = (
+        <> 
+          {logbox}
+        </>
+      );
     }
 
     return (
       <div className='App'>
+
         <nav />
         {contents}
       </div>

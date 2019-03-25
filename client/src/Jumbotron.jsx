@@ -1,28 +1,20 @@
 import React from 'react';
 import './App.css';
-import bgImage from './images/andrej-lisakov-568541-unsplash.jpg'
+import bgImage from './images/andrej-lisakov-568541-unsplash-2560.png';
 
-
-var sectionStyle = {
-  background: "url('" + bgImage + "')",
-  height: "100vh",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover"
-};
-
-class Jumbotron extends React.Component {
+export default class Jumbotron extends React.Component {
   render() {
-    return (
-      <section style={ sectionStyle }>
+    let sectionStyle = {
+      background: "url('" + bgImage + "')",
+      height: "100vh",
+      backgroundSize: "cover",
+      backgroundAttachment: "fixed",
+      backgroundRepeat: "no-repeat"
+    };
+  return (
+      <div style={ sectionStyle }>
         {this.props.children}
-      </section>
-    );
+      </div>
+    )
   }
 }
-// export default () => (
-//       <div className="bg">
-//       </div>
-//   );
-
-export default Jumbotron;
