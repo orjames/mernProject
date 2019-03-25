@@ -242,3 +242,13 @@ footer .small-button.medium {
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.55);
   }
 }
+
+
+.colorCircle{
+  display: grid;
+  grid-template-rows: 100fr, ; 
+  grid-template-columns: 100fr, ;
+  grid-template-areas:
+    "colorCircle"
+  
+}
