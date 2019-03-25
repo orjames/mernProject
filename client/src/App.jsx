@@ -4,7 +4,6 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import axios from 'axios';
-// image function stuff below
 import Spinner from './Spinner';
 import Images from './Images';
 import Buttons from './Buttons';
@@ -14,7 +13,8 @@ import DataVis from './DataVis';
 import Jumbotron from './Jumbotron';
 import { API_URL } from './config';
 import Notifications, { notify } from 'react-notify-toast';
-// image function stuff above
+import Header from './Header';
+import Recommendations from './Recommendations';
 
 const toastColor = {
   background: '#ff0000',
@@ -116,9 +116,9 @@ class App extends Component {
   }
 
   toast = notify.createShowQueue();
-  // image function stuff below
+
   // Extracting the files to be uploaded out of the DOM and shipping them off to our server in a fetch request.
-  // It also allows us to update the state of our application
+  // updates the state of our application
   // to show that something is happening (spinner) or show the images when they come back successfully.
   onChange = (e) => {
     const errs = [];
@@ -194,11 +194,14 @@ class App extends Component {
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
         this.setState({
-          cloudColors: res.data.colors,
-        });
+          cloudColors: res.data.colors, 
+      });
       });
   };
-  // image function stuff above
+
+  getColorRecommendations = () => {
+    console.log('in get color recs funciton');
+  };
 
   loginClick = (e) => {
     this.setState({
@@ -211,11 +214,17 @@ class App extends Component {
       loginClick: false
     })
   }
+
+    DataVis = (data) => {
+      this.setState({
+        DataVis: [data]
+      })
+    }
   
   
   
   render() {
-    
+
     let logbox 
     if(this.state.loginClick === true){
       logbox = (
@@ -254,7 +263,6 @@ class App extends Component {
           return <Buttons onChange={this.onChange} />;
       }
     };
-    // image upload stuff above
     if (this.state.images.length > 0) {
       uploadButton = <button onClick={this.getPhotoData}>Get Data</button>;
     } else {
@@ -266,6 +274,7 @@ class App extends Component {
 
     let user = this.state.user;
     let contents;
+    let data; 
     if (user) {
       contents = (
         <>
@@ -280,12 +289,21 @@ class App extends Component {
             {uploadButton}
           </p>
           <p>{this.state.lockedResult}</p>
+
+          <DataVis cloudColors={this.state.cloudColors} data={data} />
+
           <DataVis cloudColors={this.state.cloudColors} />
+          <Recommendations cloudColors={this.state.cloudColors} />
+
         </>
       );
     } else {
       contents = (
+<<<<<<< HEAD
         <> 
+=======
+        <>
+>>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
           {logbox}
         </>
       );
@@ -294,11 +312,17 @@ class App extends Component {
     
     return (
       <div className='App'>
+<<<<<<< HEAD
         <Jumbotron>
           <header>
             <h1>HEADER OF APP</h1>
           </header>
         </Jumbotron>
+=======
+        <header>
+          <Header />
+        </header>
+>>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
           <h2 onClick={this.loginClick}> Login </h2> 
           <h2 onClick={this.signUpClick}> Register </h2>
           {contents}
@@ -308,8 +332,13 @@ class App extends Component {
   }
 }
 
+<<<<<<< HEAD
 {/* <button onClick={activateLasers}>
   Activate Lasers
 </button>
   */}
+=======
+
+
+>>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
 export default App;
