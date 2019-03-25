@@ -4,22 +4,10 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import axios from 'axios';
-import Spinner from './Spinner';
-import Images from './Images';
-import Buttons from './Buttons';
-import WakeUp from './WakeUp';
-import Footer from './Footer';
-import DataVis from './DataVis';
-import Jumbotron from './Jumbotron';
-import { API_URL } from './config';
-import Notifications, { notify } from 'react-notify-toast';
-import Header from './Header';
-import Recommendations from './Recommendations';
 
-const toastColor = {
-  background: '#ff0000',
-  text: '#fff',
-};
+import Home from './Home';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -33,10 +21,7 @@ class App extends Component {
       user: null,
       errorMessage: '',
       lockedResult: '',
-      uploading: false,
-      images: [],
-      loginClick: false,
-      cloudColors: [],
+      loginSelected: false,
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
@@ -113,197 +98,73 @@ class App extends Component {
     });
   }
 
-  toast = notify.createShowQueue();
-
-  // Extracting the files to be uploaded out of the DOM and shipping them off to our server in a fetch request.
-  // updates the state of our application
-  // to show that something is happening (spinner) or show the images when they come back successfully.
-  onChange = (e) => {
-    const errs = [];
-    const files = Array.from(e.target.files);
-
-    // limits user to only upload one image
-    if (files.length > 1) {
-      const msg = 'Only 1 image can be uploaded at a time';
-      return this.toast(msg, 'custom', 2000, toastColor);
-    }
-
-    const formData = new FormData();
-    const types = ['image/png', 'image/jpeg', 'image/gif'];
-
-    files.forEach((file, i) => {
-      if (types.every((type) => file.type !== type)) {
-        errs.push(`'${file.type}' is not a supported format`);
-      }
-
-      if (file.size > 21000000) {
-        errs.push(`'${file.name}' is too large, please pick a smaller file`);
-      }
-
-      formData.append(i, file);
-    });
-
-    if (errs.length) {
-      return errs.forEach((err) => this.toast(err, 'custom', 2000, toastColor));
-    }
-
-    this.setState({ uploading: true });
-
-    fetch(`${API_URL}/image-upload`, {
-      method: 'POST',
-      body: formData,
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw res;
-        }
-        return res.json();
-      })
-      .then((images) => {
-        this.setState({
-          uploading: false,
-          images,
-        });
-      })
-      .catch((err) => {
-        this.toast(err.message, 'custom', 2000, toastColor);
-        this.setState({ uploading: false });
-      });
-  };
-
-  // This allows us to pull images off the DOM and put the application back in the state where we can upload more images.
-  //  Its also helpful to deal with errors that happen in the application. More on that below.
-  filter = (id) => {
-    return this.state.images.filter((image) => image.public_id !== id);
-  };
-
-  removeImage = (id) => {
-    this.setState({ images: this.filter(id), cloudColors: [] });
-  };
-
-  onError = (id) => {
-    this.toast('Oops, something went wrong', 'custom', 2000, toastColor);
-    this.setState({ images: this.filter(id) });
-  };
-
-  getPhotoData = () => {
-    console.log('\x1b[36m%s\x1b[0m', 'click click clikc');
-    axios
-      .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
-      .then((res) => {
-        this.setState({
-          cloudColors: res.data.colors,
-        });
-      });
-  };
-
-  getColorRecommendations = () => {
-    console.log('in get color recs funciton');
-  };
-
   loginClick = (e) => {
     this.setState({
-      loginClick: true,
+      loginSelected: true,
     });
   };
 
   signUpClick = (e) => {
     this.setState({
-      loginClick: false,
-    });
-  };
-
-  DataVis = (data) => {
-    this.setState({
-      DataVis: [data],
+      loginSelected: false,
     });
   };
 
   render() {
     let logbox;
-    if (this.state.loginClick === true) {
+    if (this.state.loginSelected === true) {
       logbox = (
         <>
+          <h2 onClick={this.loginClick}> Login </h2>
+          <h2 onClick={this.signUpClick}> Register </h2>
           <Login liftTokenToState={this.liftTokenToState} />
         </>
       );
     } else {
       logbox = (
         <>
+          <h2 onClick={this.loginClick}> Login </h2>
+          <h2 onClick={this.signUpClick}> Register </h2>
           <Signup liftTokenToState={this.liftTokenToState} />
         </>
       );
     }
-    // image upload stuff below
-    const { loading, uploading, images } = this.state;
-    let uploadButton;
-    const content = () => {
-      switch (true) {
-        case loading:
-          return <WakeUp />;
-        case uploading:
-          return <Spinner />;
-        case images.length > 0:
-          return (
-            <Images
-              images={images}
-              removeImage={this.removeImage}
-              onError={this.onError}
-            />
-          );
-        default:
-          return <Buttons onChange={this.onChange} />;
-      }
-    };
-    if (this.state.images.length > 0) {
-      uploadButton = <button onClick={this.getPhotoData}>Get Data</button>;
-    } else {
-      // no image uploaded
-    }
-    let recommendations;
-    if (this.state.cloudColors.length > 0) {
-      recommendations = (
-        <Recommendations cloudColors={this.state.cloudColors} />
-      );
-    } else {
-      recommendations = '';
-    }
 
     let user = this.state.user;
     let contents;
-    let data;
     if (user) {
       contents = (
         <>
-          <UserProfile user={user} logout={this.logout} />
-          <div className='container'>
-            <Notifications />
-            <div className='buttons'>{content()}</div>
-            <Footer />
-          </div>
-          <p>
-            <button onClick={this.handleClick}>test the protected route</button>
-            {uploadButton}
-          </p>
-          <p>{this.state.lockedResult}</p>
-
-          <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
-          {recommendations}
+          <Router>
+            <Link to='/'>Home</Link> | <Link to='/profile'>Profile</Link> |{' '}
+            <Route
+              path='/'
+              exact
+              render={Home}
+              render={() => <Home user={this.state.user} />}
+            />
+            <Route
+              path='/profile'
+              render={UserProfile}
+              render={() => (
+                <UserProfile user={this.state.user} logout={this.logout} />
+              )}
+            />
+          </Router>
         </>
       );
     } else {
-      contents = <>{logbox}</>;
+      contents = (
+        <> 
+          {logbox}
+        </>
+      );
     }
 
     return (
       <div className='App'>
-        <Jumbotron>
-          <header>
-            <h1>HEADER OF APP</h1>
-          </header>
-        </Jumbotron>
-        <h2 onClick={this.loginClick}> Login </h2>
-        <h2 onClick={this.signUpClick}> Register </h2>
+
+        <nav />
         {contents}
       </div>
     );
