@@ -193,8 +193,8 @@ class App extends Component {
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
         this.setState({
-          cloudColors: res.data.colors,
-        });
+          cloudColors: res.data.colors, 
+      });
       });
   };
 
@@ -213,6 +213,12 @@ class App extends Component {
       loginClick: false
     })
   }
+
+    DataVis = (data) => {
+      this.setState({
+        DataVis: [data]
+      })
+    }
   
   
   
@@ -267,6 +273,7 @@ class App extends Component {
 
     let user = this.state.user;
     let contents;
+    let data; 
     if (user) {
       contents = (
         <>
@@ -281,16 +288,18 @@ class App extends Component {
             {uploadButton}
           </p>
           <p>{this.state.lockedResult}</p>
+
+          <DataVis cloudColors={this.state.cloudColors} data={data} />
+
           <DataVis cloudColors={this.state.cloudColors} />
           <Recommendations cloudColors={this.state.cloudColors} />
+
         </>
       );
     } else {
       contents = (
         <>
-        
           {logbox}
-          
         </>
       );
     }
@@ -313,8 +322,5 @@ class App extends Component {
 }
 
 
-{/* <button onClick={activateLasers}>
-  Activate Lasers
-</button>
-  */}
+
 export default App;
