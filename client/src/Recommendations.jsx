@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ColorList from "./ColorList"; 
+import ColorList from './ColorList';
 
 class Recommendations extends Component {
   constructor(props) {
@@ -28,14 +28,11 @@ class Recommendations extends Component {
 
   render() {
     if (Object.keys(this.state.colorRec).length > 0) {
-        return (
-
-          <div>
-            <ColorList colorRec={this.state.colorRec} />
-            
-
-          </div>
-        );
+      return (
+        <div>
+          <ColorList colorRec={this.state.colorRec} />
+        </div>
+      );
     } else {
       return (
         <div>
