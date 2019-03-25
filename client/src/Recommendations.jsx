@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ColorList from "./ColorList"
 
 class Recommendations extends Component {
   constructor(props) {
@@ -8,7 +9,6 @@ class Recommendations extends Component {
       colorRecs: '',
     };
   }
-
   componentDidMount() {
     let colorApi =
       'http://www.thecolorapi.com/scheme?hex=0047AB&format=json&mode=complement&count=6';
@@ -22,14 +22,15 @@ class Recommendations extends Component {
       })
       .catch((err) => console.log(err));
   }
-
   render() {
     let colors;
     if (this.state.colorRecs) {
       colors = this.state.colorRecs.colors.map((color, index) => {
         return (
           <div key={index}>
-            <h1>{color}</h1>
+            
+            <ColorList colorRecs={this.props.colorRecs} /> 
+
           </div>
         );
       });

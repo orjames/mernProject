@@ -4,13 +4,6 @@ import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 
 const UserProfile = (props) => {
 
-  // componentDidMount(){
-  // //   // get data here! 
-  // //   let cloudApi = ""
-    
-  // // }
-  
-
 
 
   return (

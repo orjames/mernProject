@@ -21,8 +21,6 @@ export default (props) => {
             height={550}
             showLabels={true}
             colorType='literal' /> 
-            
-      
     </div>
   );
 };
