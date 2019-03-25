@@ -60,7 +60,6 @@ class Login extends Component {
         <form onSubmit={this.handleSubmit}>
         {/* Form.Control is needed for the Form Styling */}
             <Form.Control  
-              input
               onChange={this.handleEmailChange}
               value={this.state.email}
               type='email'
@@ -70,8 +69,7 @@ class Login extends Component {
               maxLength='99'
             />
           <br />
-          <Form.Control  
-            input
+          <Form.Control 
             onChange={this.handlePasswordChange}
             value={this.state.password}
             type='password'

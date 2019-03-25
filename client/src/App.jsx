@@ -14,7 +14,7 @@ import Jumbotron from './Jumbotron';
 import { API_URL } from './config';
 import Notifications, { notify } from 'react-notify-toast';
 // import Header from './Header';
-// import HeaderNavigation from './HeaderNavigation';
+import HeaderNavigation from './HeaderNavigation';
 import Recommendations from './Recommendations';
 
 const toastColor = {
@@ -38,7 +38,6 @@ class App extends Component {
       images: [],
       loginClick: false,
       cloudColors: [],
-
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
@@ -46,7 +45,6 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.loginClick = this.loginClick.bind(this);
     this.signUpClick = this.signUpClick.bind(this);
-    
   }
 
   checkForLocalToken = () => {
@@ -195,8 +193,8 @@ class App extends Component {
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
         this.setState({
-          cloudColors: res.data.colors, 
-      });
+          cloudColors: res.data.colors,
+        });
       });
   };
 
@@ -206,46 +204,40 @@ class App extends Component {
 
   loginClick = (e) => {
     this.setState({
-      loginClick: true
-    })
-  }
+      loginClick: true,
+    });
+  };
 
   signUpClick = (e) => {
     this.setState({
-      loginClick: false
-    })
-  }
+      loginClick: false,
+    });
+  };
 
-    DataVis = (data) => {
-      this.setState({
-        DataVis: [data]
-      })
-    }
-  
-  
-  
+  DataVis = (data) => {
+    this.setState({
+      DataVis: [data],
+    });
+  };
+
   render() {
-
-    let logbox 
-    if(this.state.loginClick === true){
+    let logbox;
+    if (this.state.loginClick === true) {
       logbox = (
         <>
           <Login liftTokenToState={this.liftTokenToState} />
         </>
-      ) 
+      );
     } else {
       logbox = (
         <>
           <Signup liftTokenToState={this.liftTokenToState} />
         </>
-      )
+      );
     }
-
-
     // image upload stuff below
     const { loading, uploading, images } = this.state;
     let uploadButton;
-
     const content = () => {
       switch (true) {
         case loading:
@@ -269,13 +261,18 @@ class App extends Component {
     } else {
       // no image uploaded
     }
-
+    let recommendations;
     if (this.state.cloudColors.length > 0) {
+      recommendations = (
+        <Recommendations cloudColors={this.state.cloudColors} />
+      );
+    } else {
+      recommendations = '';
     }
 
     let user = this.state.user;
     let contents;
-    let data; 
+    let data;
     if (user) {
       contents = (
         <>
@@ -291,11 +288,8 @@ class App extends Component {
           </p>
           <p>{this.state.lockedResult}</p>
 
-          <DataVis cloudColors={this.state.cloudColors} data={data} />
-
-          <DataVis cloudColors={this.state.cloudColors} />
-          <Recommendations cloudColors={this.state.cloudColors} />
-
+          <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
+          {recommendations}
         </>
       );
     } else {
@@ -306,23 +300,23 @@ class App extends Component {
       );
     }
 
-    
     return (
       <div className='App'>
-            {/* <header>
-              <h1>HEADER OF APP</h1>
-            </header> */}
-          <Jumbotron>  
-          </Jumbotron>
-          {/* <HeaderNavigation /> */}
-          {/* <h2 onClick={this.loginClick}> Login </h2> 
-          <h2 onClick={this.signUpClick}> Register </h2>
-          {contents} */}
+          <>
+              <header>
+            <HeaderNavigation />
+                <h1>HEADER OF APP</h1>
+              </header> 
+            <Jumbotron>  
+              <h2 onClick={this.loginClick}> Login </h2> 
+              <h2 onClick={this.signUpClick}> Register </h2>
+              {contents}
+            </Jumbotron>
+          </>
           
       </div>
     );
   }
 }
-
 
 export default App;
