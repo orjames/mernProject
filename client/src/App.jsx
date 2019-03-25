@@ -299,11 +299,7 @@ class App extends Component {
       );
     } else {
       contents = (
-<<<<<<< HEAD
         <> 
-=======
-        <>
->>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
           {logbox}
         </>
       );
@@ -312,17 +308,11 @@ class App extends Component {
     
     return (
       <div className='App'>
-<<<<<<< HEAD
         <Jumbotron>
           <header>
             <h1>HEADER OF APP</h1>
           </header>
         </Jumbotron>
-=======
-        <header>
-          <Header />
-        </header>
->>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
           <h2 onClick={this.loginClick}> Login </h2> 
           <h2 onClick={this.signUpClick}> Register </h2>
           {contents}
@@ -332,13 +322,8 @@ class App extends Component {
   }
 }
 
-<<<<<<< HEAD
 {/* <button onClick={activateLasers}>
   Activate Lasers
 </button>
   */}
-=======
-
-
->>>>>>> bffd0997c469088f3eb47195addfc7b731fb99ea
 export default App;

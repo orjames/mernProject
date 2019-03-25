@@ -11,7 +11,7 @@ export default (props) => {
   })
   return(
     <div className="colorList">
-    <RadialChart data={dataArr} width={500} height={550} showLabels={true} labelsStyle={"white"} colorType="literal"/>
+    <RadialChart data={dataArr} width={500} height={550} showLabels={true}  colorType="literal"/>
     </div>
   )
 }
