@@ -243,12 +243,3 @@ footer .small-button.medium {
   }
 }
 
-
-.colorCircle{
-  display: grid;
-  grid-template-rows: 100fr, ; 
-  grid-template-columns: 100fr, ;
-  grid-template-areas:
-    "colorCircle"
-  
-}
