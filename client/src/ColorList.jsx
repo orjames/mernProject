@@ -7,7 +7,7 @@ console.log(props, "this is your props")
 
 let colors = props.colorRec.colors.map((color, index) => {
    return (
-   <div className="colorRecsList" key="index">
+   <div className="colorRecsList" key={index}>
       <row>
          <h3 className="compleColorName">{color.name.value}</h3>
          <h3 className="compleColorHex">{color.hex.value}</h3>
@@ -28,6 +28,9 @@ return (
 
 
 export default ColorList; 
+
+
+
 
 
 
