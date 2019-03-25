@@ -284,9 +284,7 @@ class App extends Component {
           </p>
           <p>{this.state.lockedResult}</p>
 
-          <DataVis cloudColors={this.state.cloudColors} data={data} />
-
-          <DataVis cloudColors={this.state.cloudColors} />
+          <DataVis cloudColors={this.state.cloudColors} className="DataVis"/>
           <Recommendations cloudColors={this.state.cloudColors} />
         </>
       );
@@ -308,6 +306,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
