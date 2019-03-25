@@ -34,12 +34,17 @@ class App extends Component {
       lockedResult: '',
       uploading: false,
       images: [],
+      loginClick: false,
       cloudColors: [],
+
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
     this.logout = this.logout.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.loginClick = this.loginClick.bind(this);
+    this.signUpClick = this.signUpClick.bind(this);
+    
   }
 
   checkForLocalToken = () => {
@@ -197,7 +202,39 @@ class App extends Component {
     console.log('in get color recs funciton');
   };
 
+  loginClick = (e) => {
+    this.setState({
+      loginClick: true
+    })
+  }
+
+  signUpClick = (e) => {
+    this.setState({
+      loginClick: false
+    })
+  }
+  
+  
+  
   render() {
+
+    let logbox 
+    if(this.state.loginClick === true){
+      logbox = (
+        <>
+          <Login liftTokenToState={this.liftTokenToState} />
+        </>
+      ) 
+    } else {
+      logbox = (
+        <>
+          <Signup liftTokenToState={this.liftTokenToState} />
+        </>
+      )
+    }
+
+
+    // image upload stuff below
     const { loading, uploading, images } = this.state;
     let uploadButton;
 
@@ -251,20 +288,33 @@ class App extends Component {
     } else {
       contents = (
         <>
-          <Signup liftTokenToState={this.liftTokenToState} />
-          <Login liftTokenToState={this.liftTokenToState} />
+        
+          {logbox}
+          
         </>
       );
     }
+
+  
+
+    
     return (
       <div className='App'>
         <header>
           <Header />
         </header>
-        <div className='contentBox'>{contents}</div>
+          <h2 onClick={this.loginClick}> Login </h2> 
+          <h2 onClick={this.signUpClick}> Register </h2>
+          {contents}
+          
       </div>
     );
   }
 }
 
+
+{/* <button onClick={activateLasers}>
+  Activate Lasers
+</button>
+  */}
 export default App;
