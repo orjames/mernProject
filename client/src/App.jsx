@@ -269,7 +269,6 @@ class App extends Component {
     if (user) {
       contents = (
         <>
-          <Jumbotron>
           <UserProfile user={user} logout={this.logout} />
           <div className='container'>
             <Notifications />
@@ -282,7 +281,6 @@ class App extends Component {
           </p>
           <p>{this.state.lockedResult}</p>
           <DataVis cloudColors={this.state.cloudColors} />
-          </Jumbotron>
         </>
       );
     } else {
@@ -293,14 +291,14 @@ class App extends Component {
       );
     }
 
-  
-
     
     return (
       <div className='App'>
-        <header>
-          <h1>HEADER OF APP</h1>
-        </header>
+        <Jumbotron>
+          <header>
+            <h1>HEADER OF APP</h1>
+          </header>
+        </Jumbotron>
           <h2 onClick={this.loginClick}> Login </h2> 
           <h2 onClick={this.signUpClick}> Register </h2>
           {contents}
@@ -309,7 +307,6 @@ class App extends Component {
     );
   }
 }
-
 
 {/* <button onClick={activateLasers}>
   Activate Lasers
