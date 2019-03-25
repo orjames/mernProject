@@ -4,8 +4,10 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import axios from 'axios';
+
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -152,11 +154,16 @@ class App extends Component {
         </>
       );
     } else {
-      contents = <>{logbox}</>;
+      contents = (
+        <> 
+          {logbox}
+        </>
+      );
     }
 
     return (
       <div className='App'>
+
         <nav />
         {contents}
       </div>
