@@ -10,19 +10,19 @@ Kenneth Hong
 
 ## About the App
 
-Complement is an app that recommends complimentary colors for your outfit. Users can upload an image, and receive a collection of complimentary colors to add to that outfit.
+Complé is an app that recommends complimentary colors for your outfit. Users can upload an image, and receive a collection of complimentary colors to add to that outfit.
 
-### User Stories
+### User Stories/Personae
 
-- Ken can't decide what to decide to wear to an upcoming event. He knows he wants to wear his favorite blue shirt. However, he has no idea what goes well with it. Stylistically challenged, Ken decides to use Complement to get complementary colors for potential outfits. He goes to the event, receives many compliments.
+- Ken can't decide what to decide to wear to an upcoming event. He knows he wants to wear his favorite blue shirt. However, he has no idea what goes well with it. Stylistically challenged, Ken decides to use Compléto get complementary colors for potential outfits. He goes to the event, receives many compliments.
 
 - Karen is an interior designer. She see's a room and knows she wants to add accents to the curtains and other part of it. She takes a picture of the room, and using Complement's intelligent algorithm she receives a variety of different color options. The room is vivacious, the client gives her many compliments.
 
-- Carlo is working on his car. He's more of a nuts and bolts guy, but wants to work on the interior. He snaps a photo of his car's interior, and uses Complement to find a spectrum of colors that shifts his design to a higher gear. Carlo now has the perfect color for his stitching accents, his wife is pleased, and pays him many compliments.
+- Carlo is working on his car. He's more of a nuts and bolts guy, but wants to work on the interior. He snaps a photo of his car's interior, and uses Compléto find a spectrum of colors that shifts his design to a higher gear. Carlo now has the perfect color for his stitching accents, his wife is pleased, and pays him many compliments.
 
 ### Under the Hood
 
-#### Key Technologies Used:
+#### Technologies Used:
 
 - React
 - React Router
@@ -35,11 +35,13 @@ Complement is an app that recommends complimentary colors for your outfit. Users
 - express
 - express-jwt
 - express-rate-limit
+- express-form-data
 - helmet
 - jsonwebtoken
 - react-bootstrap
 - react-vis
-
+- fontawesome
+- cors
 
 ## Project Timeline
 
@@ -48,24 +50,30 @@ Complement is an app that recommends complimentary colors for your outfit. Users
 - Discussed app ideas
 - Researched API's
 - [Trello Board](https://trello.com/b/KzDYzqsH/project-3-wdi)
-- [Wireframing](link.com)
+- [Wireframing](https://xd.adobe.com/spec/8f4f013d-ffe9-4e2a-6a21-dbe328a2932d-f97e/)
 
 ## WireFraming
 
-We created wireframes in AdobeXD and made an interactive UI.
+We created wireframes in Adobe XD and made an interactive UI.
 
-Login Page:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-Signup Page:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-Home Page:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-Home Page Scrolled(1):
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-Home Page Scrolled(2):
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-Profile Page:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
+<div style="float: left; margin: 0px 0px 20px 20px;">Login Page:<br>
+  <img src="planning/wireframing/Login.png" width="200" title="Login"></div>
+<div style="float: left; margin: 0px 0px 20px 20px;">Signup Page:<br>
+  <img src="planning/wireframing/Register.png" width="200" title="Signup"></div>
+<div style="float: left; margin: 0px 0px 20px 20px;">Home Page:<br>
+  <img src="/Users/Michael/code/Unit3/mernProject/planning/wireframing/Home.png" width="200" title="Home"></div>
+<div style="float: left; margin: 0px 0px 20px 20px;">Analysis:<br>
+  <img src="planning/wireframing/Analysis.png" width="200" title="Analysis"></div>
+    <br style="clear:both" />
+<div style="float: left; margin: 0px 0px 20px 20px;">Save Complé:<br>
+  <img src="planning/wireframing/Save Comple.png" width="200" title="Save Complé"></div>
+<div style="float: left; margin: 0px 0px 20px 20px;">Profile Create:<br>
+  <img src="planning/wireframing/Profile Entry.png" width="200" title="Profile Create"></div>
+<div style="float: left; margin: 0px 0px 20px 20px;">Show Profile:<br>
+  <img src="planning/wireframing/Profile Display.png" width="200" title="Show Profile"></div>
+<div style="float: left; margin: 0px 0px 20px 20px;">Complé Collection:<br>
+  <img src="planning/wireframing/Complé-Collection.png" width="200" title="Complé Collection"></div>
+    <br style="clear:both" />
 
 ## API
 

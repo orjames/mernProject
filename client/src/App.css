@@ -95,6 +95,14 @@ img {
   padding: 10px;
   border: 1px dashed #999;
 }
+.jumbotron {
+  background-image: url(/Users/Michael/code/Unit3/mernProject/client/public/images/andrej-lisakov-568541-unsplash.jpg);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 /* Loading */
 .loading-wrapper,

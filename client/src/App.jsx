@@ -11,12 +11,13 @@ import Buttons from './Buttons';
 import WakeUp from './WakeUp';
 import Footer from './Footer';
 import DataVis from './DataVis';
+import Jumbotron from './Jumbotron';
 import { API_URL } from './config';
 import Notifications, { notify } from 'react-notify-toast';
 // image function stuff above
 
 const toastColor = {
-  background: '#505050',
+  background: '#ff0000',
   text: '#fff',
 };
 
@@ -268,6 +269,7 @@ class App extends Component {
     if (user) {
       contents = (
         <>
+          <Jumbotron>
           <UserProfile user={user} logout={this.logout} />
           <div className='container'>
             <Notifications />
@@ -280,14 +282,13 @@ class App extends Component {
           </p>
           <p>{this.state.lockedResult}</p>
           <DataVis cloudColors={this.state.cloudColors} />
+          </Jumbotron>
         </>
       );
     } else {
       contents = (
-        <>
-        
+        <> 
           {logbox}
-          
         </>
       );
     }
