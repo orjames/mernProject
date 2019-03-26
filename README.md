@@ -103,11 +103,11 @@ We decided that allowing the user to select between these would be perfect.
 |--------|-------|
 | POST   | /login | 
 | POST   | /signup | 
-| POST   | /index | 
-| GET    | /index/result | 
-| GET    | /profile |
-| PUT    | /profile | 
-| POST   | /profile/upload |
+| POST   | /me/from/token | 
+| GET    | /cloudinary-data/:pid | 
+| GET    | /profile/:userId/uploads |
+| GET    | /profile/:userId/uploads/:uid |
+| POST   | /profile/:userId/uploads |
 | DELETE | /profile/upload/delete | 
 
 ### Getting the Cloudinary API to Jive
@@ -172,7 +172,49 @@ React-vis is a React visualization library created by Uber. With it you can easi
 ![](./images/dataVisRadialChart.png)
 
 
+## Back End Routes
+I wanted to allow the user to be able to post to their uploads (comple's) to their profile, this meant a handfull of routes written in the profile.js routes file. The trick was getting axios from the front end to call the routes from back end. Here's what our post route  ( // POST /profile/:userId/uploads ) looks like:
 
+The axios call lives in the Recommendations component:
+```javascript
+postUpload = (object) => {
+    console.log('axios should e posting this');
+    axios
+      .post(`/profile/${object.userId}/uploads`, {
+        publicId: object.publicId,
+        cloudColors: object.cloudColors,
+        colorRec: object.colorRec,
+        date: object.date,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+  ```
+
+The POST route lives in the profile.js route file:
+```javascript
+// POST /profile/:userId/uploads - POST an upload associated with given user
+router.post('/:userId/uploads', (req, res) => {
+  User.findById(req.params.userId).then((user, err) => {
+    let newUpload = new Upload({
+      publicId: req.body.publicId,
+      cloudColors: req.body.cloudColors,
+      colorRec: req.body.colorRec,
+      date: req.body.date,
+    });
+    newUpload.save((err, upload) => {
+      user.uploads.push(upload);
+      user.save((err, user) => {
+        res.status(201).json(user);
+      });
+    });
+  });
+});
+```
 #### Image Attribution
 
 
