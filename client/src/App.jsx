@@ -136,8 +136,9 @@ class App extends Component {
       contents = (
         <Router>
           <div>
-            <Link to='/'> <button className="homeIcon"class="btn"><i class="fa fa-home"></i></button></Link> 
-            <Link to={`/profile/${this.state.user._id}`}><button className="profileIcon"class="btn"><i class="fa fa-male"></i></button></Link> 
+            {/* *****************  DO NOT TOUCH PLEASE FOR NOW ******************************* */}
+            {/* <Link to='/'> <button className="homeIcon"class="btn"><i class="fa fa-home"></i></button></Link> 
+            <Link to={`/profile/${this.state.user._id}`}><button className="profileIcon"class="btn"><i class="fa fa-male"></i></button></Link>  */}
             <Route
               path='/'
               exact
