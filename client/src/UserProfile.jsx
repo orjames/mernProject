@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button} from "react-bootstrap"
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -83,20 +84,22 @@ class UserProfile extends Component {
       });
     } else {
       // no data yet
-      uploads = <p>No Upload Data!</p>;
+      uploads = <p className="noUploadDataHeader">No Upload Data!</p>;
     }
     return (
       <div className='uploadList'>
-        <p>
+        <p className="userData">
           hello I am {this.props.user.firstName}, my userid is{' '}
           {this.props.user._id}{' '}
         </p>
-        <h1>All uploads</h1>
+        <h1 className="uploadHeader">All uploads</h1>
         {uploads}
-        <button onClick={this.props.logout}>Logout</button>
+        <Button variant="primary" size="medium" value="logout"onClick={this.props.logout}>Logout</Button>
       </div>
     );
   }
 }
+
+
 
 export default UserProfile;
