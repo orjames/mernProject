@@ -14,7 +14,6 @@ body {
   justify-content: center; */
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -31,9 +30,7 @@ body {
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
-  background-color:	#DCDCDC; 
-
-
+  background-color: #dcdcdc;
 }
 
 .containerForDataVis {
@@ -41,7 +38,7 @@ body {
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
-  background-color:	#DCDCDC; 
+  background-color: #dcdcdc;
   text-align: center;
   margin: auto;
 }
@@ -113,7 +110,6 @@ img {
 .jumbotron {
   margin-top: 48px;
 }
-
 
 /* Loading */
 .loading-wrapper,
@@ -253,89 +249,81 @@ footer .small-button.medium {
   }
 }
 
-.colorRecsList{
+.colorRecsList {
   text-align: center;
-  background-color:	#DCDCDC; 
+  background-color: #dcdcdc;
   width: 79.5vw;
   margin: auto;
 }
 
-.imageColor{
+.imageColor {
   margin: auto;
 }
 
-.RadialChartOfficial{
+.RadialChartOfficial {
   text-align: center;
   margin: auto;
 }
 
-.Colors{
+.Colors {
   text-align: center;
 }
 
-.login{
+.login {
   text-align: center;
   width: 20em;
   margin: 0 auto;
-  border: 3px solid grey;  
-  top: 27em; 
-  position: absolute; 
+  border: 3px solid grey;
+  top: 27em;
+  position: absolute;
 }
 
-
-.signup{
+.signup {
   text-align: center;
   width: 20em;
   margin: 0 auto;
-  border: 3px solid grey;  
-  top: 30em; 
+  border: 3px solid grey;
+  top: 30em;
   position: relative;
 }
 
-.loginConrender{
+.loginConrender {
   position: relative;
   text-align: center;
 
-  top: 30em; 
+  top: 30em;
   left: 35em;
   width: 5em;
-  
 }
 
-.registerConrender{
+.registerConrender {
   position: relative;
-  top: 27.5em; 
-  left: 40em; 
+  top: 27.5em;
+  left: 40em;
   width: 5em;
 }
 
-.SecondregisterConRender{
+.SecondregisterConRender {
   position: absolute;
-  border: 1px solid pink; 
+  border: 1px solid pink;
   top: 38em;
-  left: 13em; 
+  left: 13em;
   width: 5em;
 }
 
-.SecondloginConRender{
+.SecondloginConRender {
   position: absolute;
   border: 2px sold magenta;
   top: 20em;
-  left: 35em; 
-  width: 5em; 
+  left: 35em;
+  width: 5em;
 }
 
-.elseConRender{
+.elseConRender {
   height: 100vh;
-  
 }
 
-.App{
-  text-align: center;
-}
-
-.logBox{
+.logBox {
   border: 5px solid green;
-  padding: 10em; 
-
+  padding: 10em;
 }
