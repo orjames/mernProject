@@ -161,6 +161,35 @@ app.get('/cloudinary-data', function(req, res) {
   ![](./images/Components.png)
 
 ## App Development
+The main functionality of the app, when simplified, is three components: the upload/image analysis widget, the data visualization and the recommendations.
+
+### Image Analysis & Upload
+This was the crux of our app, to get the upload functionality working, I built a custom widget based on cloudinary. This ended up being a massive time sink, and the most difficult part of the app. A LOT more was involved but an the code that does the analyis is shown below
+
+Front End:
+```javascript
+getPhotoData = () => {
+    axios
+      .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
+      .then((res) => {
+        this.setState({
+          cloudColors: res.data.colors,
+        });
+      });
+  };
+```
+Back End:
+```javascript
+router.get('/cloudinary-data/:pid', function(req, res) {
+  cloudinary.v2.api.resource(
+    req.params.pid,
+    { colors: true, quality_analysis: true },
+    function(error, result) {
+      res.json(result);
+    }
+  );
+});
+```
 
 ### Data Visualization 
 React-vis is a React visualization library created by Uber. With it you can easily create common charts, such as line, area, bar charts, pie and donut charts, tree maps and many more. We are using React-vis to display the color hex data from the image and also the percentage of promienence it holds. From here the user can see the color data. 
@@ -171,6 +200,11 @@ React-vis is a React visualization library created by Uber. With it you can easi
 - React Vis Example:
 ![](./images/dataVisRadialChart.png)
 
+### Recommendations
+Recommedations required me to use another API - humbly named The Color API. This took an input of one color and returned complementary colors depending on some parameters selected. This was fairly smooth sailing, and I was able to do it all on the front end. The string template literal used to access the URI is shown below.
+```javascript
+let colorApi = `http://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=complement&count=6`;
+```
 
 ## Back End Routes
 I wanted to allow the user to be able to post to their uploads (comple's) to their profile, this meant a handfull of routes written in the profile.js routes file. The trick was getting axios from the front end to call the routes from back end. Here's what our post route  ( // POST /profile/:userId/uploads ) looks like:
@@ -215,9 +249,10 @@ router.post('/:userId/uploads', (req, res) => {
   });
 });
 ```
+
+
+
 #### Image Attribution
-
-
 Link to spectrum image
 <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by starline - www.freepik.com</a>
 
