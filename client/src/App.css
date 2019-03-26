@@ -33,6 +33,7 @@ body {
   justify-content: space-around;
   background-color:	#DCDCDC; 
 
+
 }
 
 .containerForDataVis {
@@ -41,7 +42,6 @@ body {
   height: 100vh;
   justify-content: space-around;
   background-color:	#DCDCDC; 
-  width: 79.5vw;
   text-align: center;
   margin: auto;
 }
@@ -277,7 +277,7 @@ footer .small-button.medium {
   text-align: center;
   width: 20em;
   margin: 0 auto;
-  border: 3px solid red;  
+  border: 3px solid grey;  
   top: 27em; 
   position: relative; 
 }
@@ -287,40 +287,46 @@ footer .small-button.medium {
   text-align: center;
   width: 20em;
   margin: 0 auto;
-  border: 3px solid red;  
+  border: 3px solid grey;  
   top: 20em; 
   position: relative; ;
 }
 
 .loginConrender{
   position: relative;
+  text-align: center;
   top: 30em; 
-  left: 35em; 
-  border: 1px solid red;
+  left: 35em;
   width: 5em;
   
 }
 
 .registerConrender{
   position: relative;
-  top: 27.4em; 
+  top: 27.5em; 
   left: 40em; 
-  border: 1px solid red;
   width: 5em;
 }
 
 .SecondregisterConRender{
-  border: 1px solid green;
   position: relative;
-  top: 21em;
+  top: 20em;
   left: 40em; 
   width: 5em;
 }
 
 .SecondloginConRender{
-  border: 1px solid purple;
   position: relative;
-  top: 23.6em;
+  top: 22.5em;
   left: 35em; 
   width: 5em; 
+}
+
+.elseConRender{
+  height: 100vh;
+  
+}
+
+.App{
+  text-align: center;
 }
