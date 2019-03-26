@@ -132,12 +132,6 @@ class App extends Component {
       );
     }
 
-
-
-
-
-
-
     let user = this.state.user;
     let contents;
     if (user) {

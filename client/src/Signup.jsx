@@ -94,45 +94,44 @@ class Signup extends Component {
                   minLength='1'
                   maxLength='99'
                 />
-            </Row>
-            <Row>
-              <Form.Control   
+              </Row>
+              <Row>
+                <Form.Control   
+                
+                onChange={this.handleLastNameChange}
+                value={this.state.lastName}
+                type='text'
+                name='lastName'
+                placeholder='your last name...'
+                minLength='1'
+                maxLength='99'
+              />
+              </Row>
+              <Row>
+                <Form.Control   
               
-              onChange={this.handleLastNameChange}
-              value={this.state.lastName}
-              type='text'
-              name='lastName'
-              placeholder='your last name...'
-              minLength='1'
-              maxLength='99'
-            />
-            </Row>
-            <Row>
-            <Form.Control   
+                onChange={this.handleEmailChange}
+                value={this.state.email}
+                type='email'
+                name='email'
+                placeholder='your email...'
+                minLength='5'
+                maxLength='99'
+              />
+              </Row>
+                <Form.Control          
               
-              onChange={this.handleEmailChange}
-              value={this.state.email}
-              type='email'
-              name='email'
-              placeholder='your email...'
-              minLength='5'
-              maxLength='99'
-            />
-            </Row>
-            <Form.Control          
-              
-              onChange={this.handlePasswordChange}
-              value={this.state.password}
-              type='password'
-              name='password'
-              placeholder='choose a password...'
-              minLength='8'
-              maxLength='128'
-            />
+                onChange={this.handlePasswordChange}
+                value={this.state.password}
+                type='password'
+                name='password'
+                placeholder='choose a password...'
+                minLength='8'
+                maxLength='128'
+              />
             <br />
             {/* This is your Signup Button */}
-            <Button variant="primary" size="large" type='submit' value='signup' active > Register </Button> 
-
+              <Button variant="primary" size="large" type='submit' value='signup' active > Register </Button> 
             </Form.Group>
           </Form>
         </div>

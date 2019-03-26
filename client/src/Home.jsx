@@ -119,23 +119,6 @@ class Home extends Component {
     });
   };
 
-  // postUpload = (e, object) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post(`/profile/${object.userId}/uploads`, {
-  //       publicId: object.publicId,
-  //       cloudColors: object.cloudColors,
-  //       colorRec: object.colorRec,
-  //       date: object.date,
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     });
-  // };
-
   render() {
     const { loading, uploading, images } = this.state;
     let uploadButton;
@@ -184,7 +167,7 @@ class Home extends Component {
             <button onClick={this.handleClick}>test the protected route</button>
             {uploadButton}
           </p>
-          <p classname="dataButton">{this.state.lockedResult}</p>
+          <p classname='dataButton'>{this.state.lockedResult}</p>
 
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
