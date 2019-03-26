@@ -180,7 +180,7 @@ class Home extends Component {
             <button onClick={this.handleClick}>test the protected route</button>
             {uploadButton}
           </p>
-          <p>{this.state.lockedResult}</p>
+          <p classname="dataButton">{this.state.lockedResult}</p>
 
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}

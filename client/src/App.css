@@ -1,7 +1,7 @@
 /* Colors: red: rgb(65,56,56) */
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,6 +12,10 @@ body {
   /* display: flex;
   align-items: center;
   justify-content: center; */
+}
+.App{
+  text-align: center;
+
 }
 
 code {
@@ -25,12 +29,17 @@ body {
   color: #757575;
 }
 
-.container {
+.container, .containerForDataVis {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
+  border: 3px solid blue;
+  background-color:	#DCDCDC; 
+
 }
+
+
 
 .buttons {
   display: flex;
@@ -238,4 +247,43 @@ footer .small-button.medium {
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.55);
   }
 }
+
+.colorRecsList{
+  text-align: center;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 1fr ;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+"imageColor" "imageColor"  "imageColor"  "imageColor" "imageColor"     ;
+  
+}
+
+.RadialChartOfficial{
+  text-align: center;
+  margin: auto;
+  color: red;
+}
+
+.imageColor{
+  padding: 0;
+  margin: auto;
+  
+}
+.Colors{
+  text-align: center;
+}
+
+.login .loginForm {
+  text-align: center;
+  width: 20em;
+  margin: 0 auto;
+}
+
+.signup .signupForm{
+  text-align: center;
+  width: 20em;
+  margin: 0 auto;
+}
+
 

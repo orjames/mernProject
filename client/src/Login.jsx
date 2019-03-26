@@ -56,8 +56,8 @@ class Login extends Component {
   render() {
     return (
       <div className='login'>
-        <h3>log in to your account:</h3>
-        <form onSubmit={this.handleSubmit}>
+        <h3 className="loginHeader">Log in to Your Account:</h3>
+        <form className="loginForm" onSubmit={this.handleSubmit}>
         {/* Form.Control is needed for the Form Styling */}
             <Form.Control  
               onChange={this.handleEmailChange}

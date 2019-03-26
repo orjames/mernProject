@@ -12,14 +12,16 @@ export default (props) => {
     };
   });
   return (
+  <div className="containerForDataVis">
     <div className='radialChart'>
       <RadialChart
             data= {dataArr}
             className = "RadialChartOfficial"
-            width={500}
-            height={550}
+            width={400}
+            height={450}
             showLabels={true}
             colorType='literal' /> 
     </div>
+  </div>
   );
 };

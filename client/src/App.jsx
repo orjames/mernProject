@@ -113,16 +113,16 @@ class App extends Component {
     if (this.state.loginSelected === true) {
       logbox = (
         <>
-          <h2 onClick={this.loginClick}> Login </h2>
-          <h2 onClick={this.signUpClick}> Register </h2>
+          <h2 className="loginConrender"onClick={this.loginClick}> Login </h2>
+          <h2 className="registerConrender"onClick={this.signUpClick}> Register </h2>
           <Login liftTokenToState={this.liftTokenToState} />
         </>
       );
     } else {
       logbox = (
         <>
-          <h2 onClick={this.loginClick}> Login </h2>
-          <h2 onClick={this.signUpClick}> Register </h2>
+          <h2 className="loginConRender" onClick={this.loginClick}> Login </h2>
+          <h2 className="registerConRender" onClick={this.signUpClick}> Register </h2>
           <Signup liftTokenToState={this.liftTokenToState} />
         </>
       );
