@@ -11,7 +11,6 @@ class UserProfile extends Component {
       loading: false,
     };
     this.selectUpload = this.selectUpload.bind(this);
-    this.postUpload = this.postUpload.bind(this);
   }
 
   componentDidMount = () => {
@@ -29,23 +28,6 @@ class UserProfile extends Component {
         this.setState({
           currentUpload: res.data,
         });
-      });
-  };
-
-  postUpload = (e) => {
-    e.preventDefault();
-    axios
-      .post(`/profile/${this.props.user._id}/uploads`, {
-        publicId: req.body.publicId,
-        cloudColors: req.body.cloudColors,
-        colorRec: req.body.colorRec,
-        date: req.body.date,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch(function(error) {
-        console.log(error);
       });
   };
 

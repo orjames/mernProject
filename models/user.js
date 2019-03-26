@@ -47,6 +47,7 @@ userSchema.set('toObject', {
       email: ret.email,
       firstName: ret.firstName,
       lastName: ret.lastName,
+      uploads: ret.uploads,
     };
     return returnJson; //this removes the password every time we want this to be
   },
