@@ -11,7 +11,6 @@ class UserProfile extends Component {
       loading: false,
     };
     this.selectUpload = this.selectUpload.bind(this);
-    this.postUpload = this.postUpload.bind(this);
   }
 
   componentDidMount = () => {
@@ -32,6 +31,7 @@ class UserProfile extends Component {
       });
   };
 
+<<<<<<< HEAD
   postUpload = (e) => {
     e.preventDefault();
     axios
@@ -49,6 +49,8 @@ class UserProfile extends Component {
       });
   };
 
+=======
+>>>>>>> a373bd05494281834e6873270ad1ea49956269f3
   render() {
     let uploads;
     if (this.state.uploads.length) {

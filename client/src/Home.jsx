@@ -45,10 +45,12 @@ class Home extends Component {
     const types = ['image/png', 'image/jpeg', 'image/gif'];
 
     files.forEach((file, i) => {
+      // filtering to make sure correct image format sent through
       if (types.every((type) => file.type !== type)) {
         errs.push(`'${file.type}' is not a supported format`);
       }
 
+      // filtering by file size
       if (file.size > 21000000) {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
       }
@@ -99,6 +101,7 @@ class Home extends Component {
     this.setState({ images: this.filter(id) });
   };
 
+  // button to initiate cloudinary analysis of colors
   getPhotoData = () => {
     console.log('\x1b[36m%s\x1b[0m', 'click click clikc');
     axios
@@ -110,27 +113,29 @@ class Home extends Component {
       });
   };
 
-  getColorRecommendations = () => {
-    console.log('in get color recs funciton');
-  };
-
-  loginClick = (e) => {
-    this.setState({
-      loginSelected: true,
-    });
-  };
-
-  signUpClick = (e) => {
-    this.setState({
-      loginSelected: false,
-    });
-  };
-
+  // Adding data vis array to state
   DataVis = (data) => {
     this.setState({
       DataVis: [data],
     });
   };
+
+  // postUpload = (e, object) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post(`/profile/${object.userId}/uploads`, {
+  //       publicId: object.publicId,
+  //       cloudColors: object.cloudColors,
+  //       colorRec: object.colorRec,
+  //       date: object.date,
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
+  // };
 
   render() {
     const { loading, uploading, images } = this.state;
