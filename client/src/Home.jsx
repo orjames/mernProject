@@ -191,7 +191,6 @@ class Home extends Component {
             {uploadButton}
           </p>
           <p classname="dataButton">{this.state.lockedResult}</p>
-
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
         </>
