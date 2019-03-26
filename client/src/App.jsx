@@ -159,7 +159,6 @@ class App extends Component {
         {contents}{' '}
         <p>
           <button onClick={this.handleClick}>test the protected route</button>
-          {uploadButton}
         </p>
         <p>{this.state.lockedResult}</p>
       </div>
