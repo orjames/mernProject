@@ -89,12 +89,12 @@ input[type='file'] {
   position: absolute;
 }
 
-/* img {
-  max-height: 420px;
-  max-width: 420px;
+img {
+  max-height: 80vh;
+  max-width: 80vw;
   padding: 10px;
   border: 1px dashed #999;
-} */
+}
 
 .jumbotron {
   margin-top: 48px;

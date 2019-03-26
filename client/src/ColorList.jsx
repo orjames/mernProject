@@ -10,7 +10,7 @@ let colors = props.colorRec.colors.map((color, index) => {
       <row>
          <h3 className="compleColorName">{color.name.value}</h3>
          <h3 className="compleColorHex">{color.hex.value}</h3>
-         <Col xs={6} md={3}>
+            <Col xs={6} md={3}>
                <Image className="colorCircle"src={color.image.bare} roundedCircle />
             </Col>
       </row>
