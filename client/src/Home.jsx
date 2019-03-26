@@ -103,7 +103,6 @@ class Home extends Component {
 
   // button to initiate cloudinary analysis of colors
   getPhotoData = () => {
-    console.log('\x1b[36m%s\x1b[0m', 'click click clikc');
     axios
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
