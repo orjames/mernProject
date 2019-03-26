@@ -76,6 +76,7 @@ app.use('/auth/signup', signupLimiter);
 
 app.use('/index', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
+app.use('/profile', require('./routes/profile'));
 app.use(
   '/locked',
   expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }),

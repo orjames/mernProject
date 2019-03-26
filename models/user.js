@@ -35,6 +35,7 @@ const userSchema = new Schema({
       message: (props) => `${props.value} is not a valid email`,
     },
   },
+  uploads: [{ type: Schema.Types.ObjectId, ref: 'Upload' }],
 });
 
 // this returns an object without a password
