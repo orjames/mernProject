@@ -8,17 +8,18 @@ export default (props) => {
     return {
       angle: color[1],
       color: color[0],
-      label: `${color[0]} ${color[1]}`,
     };
   });
   return (
   <div className="containerForDataVis">
     <div className='radialChart'>
+    <h2> Your Color Data </h2>
       <RadialChart
             data= {dataArr}
             className = "RadialChartOfficial"
             width={400}
-            height={450}
+            height={400}
+            padAngle={0.004}
             showLabels={true}
             colorType='literal' /> 
     </div>

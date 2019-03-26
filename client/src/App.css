@@ -29,16 +29,25 @@ body {
   color: #757575;
 }
 
-.container, .containerForDataVis {
+.container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
-  border: 3px solid blue;
   background-color:	#DCDCDC; 
 
 }
 
+.containerForDataVis {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+  background-color:	#DCDCDC; 
+  width: 79.5vw;
+  text-align: center;
+  margin: auto;
+}
 
 
 .buttons {
@@ -250,26 +259,20 @@ footer .small-button.medium {
 
 .colorRecsList{
   text-align: center;
+  background-color:	#DCDCDC; 
+  width: 79.5vw;
   margin: auto;
-  display: grid;
-  grid-template-rows: 1fr ;
-  grid-template-columns: 1fr;
-  grid-template-areas: 
-"imageColor" "imageColor"  "imageColor"  "imageColor" "imageColor"     ;
-  
+}
+
+.imageColor{
+  margin: auto;
 }
 
 .RadialChartOfficial{
   text-align: center;
   margin: auto;
-  color: red;
 }
 
-.imageColor{
-  padding: 0;
-  margin: auto;
-  
-}
 .Colors{
   text-align: center;
 }

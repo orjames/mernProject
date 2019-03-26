@@ -18,7 +18,7 @@ let colors = props.colorRec.colors.map((color, index) => {
 
 return (
    <div id="returnedColors">
-      <h1 className="Colors"> Colors</h1>
+      <h1 className="Colors"> Color Compliments</h1>
       {colors}
    </div>
 )}
