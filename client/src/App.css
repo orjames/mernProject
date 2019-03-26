@@ -279,7 +279,7 @@ footer .small-button.medium {
   margin: 0 auto;
   border: 3px solid grey;  
   top: 27em; 
-  position: relative; 
+  position: absolute; 
 }
 
 
@@ -288,13 +288,14 @@ footer .small-button.medium {
   width: 20em;
   margin: 0 auto;
   border: 3px solid grey;  
-  top: 20em; 
-  position: relative; ;
+  top: 30em; 
+  position: relative;
 }
 
 .loginConrender{
   position: relative;
   text-align: center;
+
   top: 30em; 
   left: 35em;
   width: 5em;
@@ -309,15 +310,17 @@ footer .small-button.medium {
 }
 
 .SecondregisterConRender{
-  position: relative;
-  top: 20em;
-  left: 40em; 
+  position: absolute;
+  border: 1px solid pink; 
+  top: 38em;
+  left: 13em; 
   width: 5em;
 }
 
 .SecondloginConRender{
-  position: relative;
-  top: 22.5em;
+  position: absolute;
+  border: 2px sold magenta;
+  top: 20em;
   left: 35em; 
   width: 5em; 
 }
@@ -329,4 +332,10 @@ footer .small-button.medium {
 
 .App{
   text-align: center;
+}
+
+.logBox{
+  border: 5px solid green;
+  padding: 10em; 
+
 }

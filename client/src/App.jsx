@@ -114,9 +114,11 @@ class App extends Component {
     if (this.state.loginSelected === true) {
       logbox = (
         <div className="ifConRender">
-          <p className="loginConrender"onClick={this.loginClick}> Login </p>
-          <p className="registerConrender"onClick={this.signUpClick}> Register </p>
-          <Login className="liftStateLogin"liftTokenToState={this.liftTokenToState} />
+          <div className="insideDiv">
+            <p className="loginConrender"onClick={this.loginClick}> Login </p>
+            <p className="registerConrender"onClick={this.signUpClick}> Register </p>
+            <Login className="liftStateLogin"liftTokenToState={this.liftTokenToState} />
+          </div>
         </div>
       );
     } else {
@@ -158,7 +160,10 @@ class App extends Component {
         </Router>
       );
     } else {
-      contents = <>{logbox}</>;
+      contents =
+      <div className="logBox">
+      {logbox}
+      </div>
     }
 
     return (

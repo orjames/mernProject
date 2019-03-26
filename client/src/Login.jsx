@@ -51,10 +51,10 @@ class Login extends Component {
             'maximum login attempts exceeded. Please try again later. (begone hacker!)',
         });
       });
-  };
-
-  render() {
-    return (
+    };
+    
+    render() {
+      return (
       <div className='login'>
         <h3 className="loginHeader">Log in to Your Account:</h3>
         <form className="loginForm" onSubmit={this.handleSubmit}>
@@ -83,8 +83,6 @@ class Login extends Component {
           <Button variant="primary" size="large" type='submit' value='login' active > Login </Button> 
           
         </form>
-      
-
       </div>
     );
   }
