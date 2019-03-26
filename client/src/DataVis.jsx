@@ -13,12 +13,12 @@ export default (props) => {
   return (
   <div className="containerForDataVis">
     <div className='radialChart'>
-    <h2> Your Color Data </h2>
+    <h2 className="colorDataHeader"> Your Color Data </h2>
       <RadialChart
             data= {dataArr}
             className = "RadialChartOfficial"
-            width={400}
-            height={400}
+            width={350}
+            height={350}
             padAngle={0.004}
             showLabels={true}
             colorType='literal' /> 

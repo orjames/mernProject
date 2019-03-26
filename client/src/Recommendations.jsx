@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
+import {Button} from "react-bootstrap"; 
 
 class Recommendations extends Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class Recommendations extends Component {
       return (
         <div>
           <ColorList colorRec={this.state.colorRec} />
-          <button onClick={this.saveRecommendations}>Add to Profile</button>
+          <Button variant="primary" size="large" onClick={this.saveRecommendations}>Add to Profile</Button>
         </div>
       );
     } else {
@@ -77,3 +78,5 @@ class Recommendations extends Component {
 }
 
 export default Recommendations;
+
+
