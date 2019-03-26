@@ -1,7 +1,7 @@
 /* Colors: red: rgb(65,56,56) */
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,6 +13,7 @@ body {
   align-items: center;
   justify-content: center; */
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -30,6 +31,19 @@ body {
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
+  background-color:	#DCDCDC; 
+
+
+}
+
+.containerForDataVis {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+  background-color:	#DCDCDC; 
+  text-align: center;
+  margin: auto;
 }
 
 .buttons {
@@ -89,12 +103,12 @@ input[type='file'] {
   position: absolute;
 }
 
-/* img {
-  max-height: 420px;
-  max-width: 420px;
+img {
+  max-height: 80vh;
+  max-width: 80vw;
   padding: 10px;
   border: 1px dashed #999;
-} */
+}
 
 .jumbotron {
   margin-top: 48px;
@@ -239,3 +253,89 @@ footer .small-button.medium {
   }
 }
 
+.colorRecsList{
+  text-align: center;
+  background-color:	#DCDCDC; 
+  width: 79.5vw;
+  margin: auto;
+}
+
+.imageColor{
+  margin: auto;
+}
+
+.RadialChartOfficial{
+  text-align: center;
+  margin: auto;
+}
+
+.Colors{
+  text-align: center;
+}
+
+.login{
+  text-align: center;
+  width: 20em;
+  margin: 0 auto;
+  border: 3px solid grey;  
+  top: 27em; 
+  position: absolute; 
+}
+
+
+.signup{
+  text-align: center;
+  width: 20em;
+  margin: 0 auto;
+  border: 3px solid grey;  
+  top: 30em; 
+  position: relative;
+}
+
+.loginConrender{
+  position: relative;
+  text-align: center;
+
+  top: 30em; 
+  left: 35em;
+  width: 5em;
+  
+}
+
+.registerConrender{
+  position: relative;
+  top: 27.5em; 
+  left: 40em; 
+  width: 5em;
+}
+
+.SecondregisterConRender{
+  position: absolute;
+  border: 1px solid pink; 
+  top: 38em;
+  left: 13em; 
+  width: 5em;
+}
+
+.SecondloginConRender{
+  position: absolute;
+  border: 2px sold magenta;
+  top: 20em;
+  left: 35em; 
+  width: 5em; 
+}
+
+.elseConRender{
+  height: 100vh;
+  
+}
+
+.App{
+  text-align: center;
+}
+
+.logBox{
+  border: 5px solid green;
+  padding: 10em; 
+
+}

@@ -184,7 +184,12 @@ class Home extends Component {
             <div className='buttons'>{content()}</div>
             <WidgetFooter />
           </div>
-          {uploadButton}
+          <p>
+            <button onClick={this.handleClick}>test the protected route</button>
+            {uploadButton}
+          </p>
+          <p classname="dataButton">{this.state.lockedResult}</p>
+
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
         </>
