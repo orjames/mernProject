@@ -161,11 +161,7 @@ class Home extends Component {
     let recommendations;
     if (this.state.cloudColors.length > 0) {
       recommendations = (
-        <Recommendations
-          user={this.props.user}
-          publicId={this.state.images[0].public_id}
-          cloudColors={this.state.cloudColors}
-        />
+        <Recommendations cloudColors={this.state.cloudColors} />
       );
     } else {
       recommendations = '';
@@ -180,6 +176,12 @@ class Home extends Component {
             <div className='buttons'>{content()}</div>
             <WidgetFooter />
           </div>
+          <p>
+            <button onClick={this.handleClick}>test the protected route</button>
+            {uploadButton}
+          </p>
+          <p>{this.state.lockedResult}</p>
+
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
         </>

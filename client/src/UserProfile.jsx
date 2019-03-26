@@ -36,10 +36,10 @@ class UserProfile extends Component {
     e.preventDefault();
     axios
       .post(`/profile/${this.props.user._id}/uploads`, {
-        publicId: req.body.publicId,
-        cloudColors: req.body.cloudColors,
-        colorRec: req.body.colorRec,
-        date: req.body.date,
+        // publicId: req.body.publicId,
+        // cloudColors: req.body.cloudColors,
+        // colorRec: req.body.colorRec,
+        // date: req.body.date
       })
       .then((res) => {
         console.log(res);

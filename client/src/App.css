@@ -90,16 +90,22 @@ input[type='file'] {
 }
 
 /* img {
-  max-height: 420px;
-  max-width: 420px;
+  max-height: 80vh;
+  max-width: 80vw;
   padding: 10px;
   border: 1px dashed #999;
 } */
 
 .jumbotron {
-  margin-top: 48px;
+  background: url(./images/andrej-lisakov-568541-unsplash-1280.png);
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
+.logo {
+}
 
 /* Loading */
 .loading-wrapper,
@@ -238,4 +244,3 @@ footer .small-button.medium {
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.55);
   }
 }
-

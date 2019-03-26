@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Signup from './Signup';
+import Image from 'react-bootstrap/Image'
 import Login from './Login';
 import UserProfile from './UserProfile';
 import axios from 'axios';
@@ -155,14 +156,22 @@ class App extends Component {
     }
 
     return (
-      <div className='App'>
-        {contents}{' '}
-        <p>
-          <button onClick={this.handleClick}>test the protected route</button>
-          {uploadButton}
-        </p>
-        <p>{this.state.lockedResult}</p>
-      </div>
+      <>
+        <div className="jumbotron">
+          <div className="container">
+            <div className="navbar fixed = top" >
+              {/* <Image src={require("./images/comple-logo-1920.png") } height = "auto" maxWidth = "100%" />;{" "} */}
+            </div>
+            {contents}{" "}
+            <p>
+              {/* {uploadButton}=<button onClick={this.handleClick}>
+            test the protected route
+          </button> */}
+            </p>
+            <p>{this.state.lockedResult}</p>
+          </div>
+        </div>
+      </>
     );
   }
 }
