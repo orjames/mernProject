@@ -130,21 +130,14 @@ class App extends Component {
         </div>
       );
     }
-
-
-
-
-
-
-
     let user = this.state.user;
     let contents;
     if (user) {
       contents = (
         <Router>
           <div>
-            <Link to='/'>Home</Link> |{' '}
-            <Link to={`/profile/${this.state.user._id}`}>Profile</Link> |{' '}
+            <Link to='/'> <button className="homeIcon"class="btn"><i class="fa fa-home"></i></button></Link> 
+            <Link to={`/profile/${this.state.user._id}`}><button className="profileIcon"class="btn"><i class="fa fa-male"></i></button></Link> 
             <Route
               path='/'
               exact
@@ -166,6 +159,7 @@ class App extends Component {
       </div>
     }
 
+   
     return (
       <div className='App'>
         {contents}{' '}

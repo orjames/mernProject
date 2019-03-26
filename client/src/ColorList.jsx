@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
+import { Image, container } from 'react-bootstrap';
 
 const ColorList = (props) => {
 console.log(props, "this is your props")
@@ -17,7 +17,7 @@ let colors = props.colorRec.colors.map((color, index) => {
 })
 
 return (
-   <div id="returnedColors">
+   <div id="container-fluid">
       <h1 className="Colors"> Color Compliments</h1>
       {colors}
    </div>
