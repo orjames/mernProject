@@ -141,14 +141,15 @@ class App extends Component {
       contents = (
         <Router>
           <div>
-            <Link to='/'>Home</Link> | <Link to='/profile'>Profile</Link> |{' '}
+            <Link to='/'>Home</Link> |{' '}
+            <Link to={`/profile/${this.state.user._id}`}>Profile</Link> |{' '}
             <Route
               path='/'
               exact
               render={() => <Home user={this.state.user} />}
             />
             <Route
-              path='/profile'
+              path={`/profile/${this.state.user._id}`}
               render={() => (
                 <UserProfile user={this.state.user} logout={this.logout} />
               )}
@@ -162,8 +163,11 @@ class App extends Component {
 
     return (
       <div className='App'>
-        {/* <nav /> */}
-        {contents}
+        {contents}{' '}
+        <p>
+          <button onClick={this.handleClick}>test the protected route</button>
+        </p>
+        <p>{this.state.lockedResult}</p>
       </div>
     );
   }

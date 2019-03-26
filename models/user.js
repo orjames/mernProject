@@ -35,6 +35,7 @@ const userSchema = new Schema({
       message: (props) => `${props.value} is not a valid email`,
     },
   },
+  uploads: [{ type: Schema.Types.ObjectId, ref: 'Upload' }],
 });
 
 // this returns an object without a password
@@ -46,6 +47,7 @@ userSchema.set('toObject', {
       email: ret.email,
       firstName: ret.firstName,
       lastName: ret.lastName,
+      uploads: ret.uploads,
     };
     return returnJson; //this removes the password every time we want this to be
   },
