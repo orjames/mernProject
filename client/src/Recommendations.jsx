@@ -1,31 +1,84 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
-import {Button} from "react-bootstrap"; 
+import { Button } from 'react-bootstrap';
+import ModeSelector from './ModeSelector';
 
 class Recommendations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colorRec: [],
+      colorRec: {
+        monochrome: [],
+        monochromeDark: [],
+        monochromeLight: [],
+        analogic: [],
+        complement: [],
+        analogicComplement: [],
+        triad: [],
+        quad: [],
+      },
+      currentRec: { colors: [] },
+      mode: 'complement',
+      modes: {},
     };
     this.saveRecommendations = this.saveRecommendations.bind(this);
+    this.changeMode = this.changeMode.bind(this);
   }
 
   // when the component mounts, it looks at the primary color and then recommends complementary ones
   componentDidMount() {
+    const modes = [
+      'monochrome',
+      'monochrome-dark',
+      'monochrome-light',
+      'analogic',
+      'complement',
+      'analogic-complement',
+      'triad',
+      'quad',
+    ];
     let primaryColorHex = this.props.cloudColors[0][0];
     while (primaryColorHex.charAt(0) === '#') {
       primaryColorHex = primaryColorHex.substr(1);
     }
-    let colorApi = `http://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=complement&count=6`;
     // fetch a color complementary color thing
+    const getRequests = modes.map((mode) => {
+      return axios.get(
+        `http://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=${mode}&count=6`
+      );
+    });
     axios
-      .get(colorApi)
-      .then((response) => {
-        // set state
-        this.setState({ colorRec: response.data });
-      })
+      .all(getRequests)
+      .then(
+        axios.spread(
+          (
+            monochrome,
+            monochromeDark,
+            monochromeLight,
+            analogic,
+            complement,
+            analogicComplement,
+            triad,
+            quad
+          ) => {
+            let colorRecs = {
+              monochrome: monochrome.data,
+              monochromeDark: monochromeDark.data,
+              monochromeLight: monochromeLight.data,
+              analogic: analogic.data,
+              complement: complement.data,
+              analogicComplement: analogicComplement.data,
+              triad: triad.data,
+              quad: quad.data,
+            };
+            this.setState({
+              colorRec: colorRecs,
+              currentRec: colorRecs.complement,
+            });
+          }
+        )
+      )
       .catch((err) => console.log(err));
   }
 
@@ -59,12 +112,26 @@ class Recommendations extends Component {
     this.postUpload(postObject);
   };
 
+  changeMode = (e) => {
+    this.setState({
+      mode: e.target.value,
+      currentRec: this.state.colorRec[e.target.value],
+    });
+  };
+
   render() {
     if (Object.keys(this.state.colorRec).length > 0) {
       return (
         <div>
-          <ColorList colorRec={this.state.colorRec} />
-          <Button variant="primary" size="large" onClick={this.saveRecommendations}>Add to Profile</Button>
+          <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
+          <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
+          <Button
+            variant='primary'
+            size='large'
+            onClick={this.saveRecommendations}
+          >
+            Add to Profile
+          </Button>
         </div>
       );
     } else {
@@ -78,5 +145,3 @@ class Recommendations extends Component {
 }
 
 export default Recommendations;
-
-

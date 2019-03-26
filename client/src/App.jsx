@@ -6,7 +6,6 @@ import UserProfile from './UserProfile';
 import axios from 'axios';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -113,19 +112,34 @@ class App extends Component {
     let logbox;
     if (this.state.loginSelected === true) {
       logbox = (
-        <div className="ifConRender">
-          <div className="insideDiv">
-            <p className="loginConrender"onClick={this.loginClick}> Login </p>
-            <p className="registerConrender"onClick={this.signUpClick}> Register </p>
-            <Login className="liftStateLogin"liftTokenToState={this.liftTokenToState} />
+        <div className='ifConRender'>
+          <div className='insideDiv'>
+            <p className='loginConrender' onClick={this.loginClick}>
+              {' '}
+              Login{' '}
+            </p>
+            <p className='registerConrender' onClick={this.signUpClick}>
+              {' '}
+              Register{' '}
+            </p>
+            <Login
+              className='liftStateLogin'
+              liftTokenToState={this.liftTokenToState}
+            />
           </div>
         </div>
       );
     } else {
       logbox = (
-        <div className="elseConRender">
-          <p className="SecondloginConRender" onClick={this.loginClick}> Login </p>
-          <p className="SecondregisterConRender" onClick={this.signUpClick}> Register </p>
+        <div className='elseConRender'>
+          <p className='SecondloginConRender' onClick={this.loginClick}>
+            {' '}
+            Login{' '}
+          </p>
+          <p className='SecondregisterConRender' onClick={this.signUpClick}>
+            {' '}
+            Register{' '}
+          </p>
           <Signup liftTokenToState={this.liftTokenToState} />
         </div>
       );
@@ -136,8 +150,17 @@ class App extends Component {
       contents = (
         <Router>
           <div>
-            <Link to='/'> <button className="homeIcon"class="btn"><i class="fa fa-home"></i></button></Link> 
-            <Link to={`/profile/${this.state.user._id}`}><button className="profileIcon"class="btn"><i class="fa fa-male"></i></button></Link> 
+            <Link to='/'>
+              {' '}
+              <button className='homeIcon' class='btn'>
+                <i class='fa fa-home' />
+              </button>
+            </Link>
+            <Link to={`/profile/${this.state.user._id}`}>
+              <button className='profileIcon' class='btn'>
+                <i class='fa fa-male' />
+              </button>
+            </Link>
             <Route
               path='/'
               exact
@@ -153,13 +176,9 @@ class App extends Component {
         </Router>
       );
     } else {
-      contents =
-      <div className="logBox">
-      {logbox}
-      </div>
+      contents = <div className='logBox'>{logbox}</div>;
     }
 
-   
     return (
       <div className='App'>
         {contents}{' '}
