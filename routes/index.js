@@ -9,7 +9,7 @@ cloudinary.config({
   api_secret: process.env.REACT_APP_CLOUDINARY_API_SECRET,
 });
 
-//creating the test route
+// GET /cloudinary-data/:pid, gets cloudColors from cloudinary API
 router.get('/cloudinary-data/:pid', function(req, res) {
   cloudinary.v2.api.resource(
     req.params.pid,
@@ -19,18 +19,5 @@ router.get('/cloudinary-data/:pid', function(req, res) {
     }
   );
 });
-
-// POST to /index
-// this takes an image file and uploads it then returns the data from that image
-// router.post('/', function(req, res) {
-//   console.log('\x1b[36m%s\x1b[0m', 'in index POST route for /index');
-//   cloudinary.v2.uploader.upload(
-//     'sample.jpg',
-//     { colors: true, image_metadata: true, quality_analysis: true },
-//     function(error, result) {
-//       console.log(result, error);
-//     }
-//   );
-// });
 
 module.exports = router;

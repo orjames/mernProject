@@ -9,17 +9,19 @@ export default (props) => {
       angle: color[1],
       color: color[0],
       label: `${color[0]} ${color[1]}`,
+      radius: 5,
     };
   });
   return (
     <div className='radialChart'>
       <RadialChart
-            data= {dataArr}
-            className = "RadialChartOfficial"
-            width={500}
-            height={550}
-            showLabels={true}
-            colorType='literal' /> 
+        data={dataArr}
+        className='RadialChartOfficial'
+        width={500}
+        height={550}
+        showLabels={true}
+        colorType='literal'
+      />
     </div>
   );
 };
