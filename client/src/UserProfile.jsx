@@ -31,26 +31,6 @@ class UserProfile extends Component {
       });
   };
 
-<<<<<<< HEAD
-  postUpload = (e) => {
-    e.preventDefault();
-    axios
-      .post(`/profile/${this.props.user._id}/uploads`, {
-        // publicId: req.body.publicId,
-        // cloudColors: req.body.cloudColors,
-        // colorRec: req.body.colorRec,
-        // date: req.body.date
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  };
-
-=======
->>>>>>> a373bd05494281834e6873270ad1ea49956269f3
   render() {
     let uploads;
     if (this.state.uploads.length) {

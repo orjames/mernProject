@@ -55,7 +55,7 @@ class Login extends Component {
     
     render() {
       return (
-      <div className='login'>
+      <div className='container-fluid'>
         <h3 className="loginHeader">Log in to Your Account:</h3>
         <form className="loginForm" onSubmit={this.handleSubmit}>
         {/* Form.Control is needed for the Form Styling */}
