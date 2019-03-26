@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Col, Container, Row } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 const ColorList = (props) => {
 console.log(props, "this is your props")
@@ -27,9 +27,7 @@ return (
 export default ColorList; 
 
 
-   //  <Col xs>First, but unordered</Col>
-   //  <Col xs={{ order: 12 }}>Second, but last</Col>
-   //  <Col xs={{ order: 1 }}>Third, but second</Col>
+
 
 
 

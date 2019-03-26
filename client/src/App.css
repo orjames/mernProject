@@ -13,10 +13,7 @@ body {
   align-items: center;
   justify-content: center; */
 }
-.App{
-  text-align: center;
 
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -48,7 +45,6 @@ body {
   text-align: center;
   margin: auto;
 }
-
 
 .buttons {
   display: flex;
@@ -277,16 +273,54 @@ footer .small-button.medium {
   text-align: center;
 }
 
-.login .loginForm {
+.login{
   text-align: center;
   width: 20em;
   margin: 0 auto;
+  border: 3px solid red;  
+  top: 27em; 
+  position: relative; 
 }
 
-.signup .signupForm{
+
+.signup{
   text-align: center;
   width: 20em;
   margin: 0 auto;
+  border: 3px solid red;  
+  top: 20em; 
+  position: relative; ;
 }
 
+.loginConrender{
+  position: relative;
+  top: 30em; 
+  left: 35em; 
+  border: 1px solid red;
+  width: 5em;
+  
+}
 
+.registerConrender{
+  position: relative;
+  top: 27.4em; 
+  left: 40em; 
+  border: 1px solid red;
+  width: 5em;
+}
+
+.SecondregisterConRender{
+  border: 1px solid green;
+  position: relative;
+  top: 21em;
+  left: 40em; 
+  width: 5em;
+}
+
+.SecondloginConRender{
+  border: 1px solid purple;
+  position: relative;
+  top: 23.6em;
+  left: 35em; 
+  width: 5em; 
+}
