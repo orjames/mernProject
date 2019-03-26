@@ -7,6 +7,7 @@ import UserProfile from './UserProfile';
 import axios from 'axios';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -113,21 +114,29 @@ class App extends Component {
     let logbox;
     if (this.state.loginSelected === true) {
       logbox = (
-        <>
-          <h2 onClick={this.loginClick}> Login </h2>
-          <h2 onClick={this.signUpClick}> Register </h2>
-          <Login liftTokenToState={this.liftTokenToState} />
-        </>
+        <div className="ifConRender">
+          <div className="insideDiv">
+            <p className="loginConrender"onClick={this.loginClick}> Login </p>
+            <p className="registerConrender"onClick={this.signUpClick}> Register </p>
+            <Login className="liftStateLogin"liftTokenToState={this.liftTokenToState} />
+          </div>
+        </div>
       );
     } else {
       logbox = (
-        <>
-          <h2 onClick={this.loginClick}> Login </h2>
-          <h2 onClick={this.signUpClick}> Register </h2>
+        <div className="elseConRender">
+          <p className="SecondloginConRender" onClick={this.loginClick}> Login </p>
+          <p className="SecondregisterConRender" onClick={this.signUpClick}> Register </p>
           <Signup liftTokenToState={this.liftTokenToState} />
-        </>
+        </div>
       );
     }
+
+
+
+
+
+
 
     let user = this.state.user;
     let contents;
@@ -152,7 +161,10 @@ class App extends Component {
         </Router>
       );
     } else {
-      contents = <>{logbox}</>;
+      contents =
+      <div className="logBox">
+      {logbox}
+      </div>
     }
 
     return (

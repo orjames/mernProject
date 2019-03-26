@@ -103,7 +103,6 @@ class Home extends Component {
 
   // button to initiate cloudinary analysis of colors
   getPhotoData = () => {
-    console.log('\x1b[36m%s\x1b[0m', 'click click clikc');
     axios
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
       .then((res) => {
@@ -185,7 +184,11 @@ class Home extends Component {
             <button onClick={this.handleClick}>test the protected route</button>
             {uploadButton}
           </p>
+<<<<<<< HEAD
           <p>{this.state.lockedResult}</p>
+=======
+          <p classname="dataButton">{this.state.lockedResult}</p>
+>>>>>>> b4548ab81e45bd1dd0ae4cd20c63e9904443fff1
 
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}

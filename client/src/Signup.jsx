@@ -75,8 +75,8 @@ class Signup extends Component {
   render() {
     return (
       <div className='signup'>
-        <h3>create a new account:</h3>
-        <form onSubmit={this.handleSubmit}>
+        <h3 className="signupHeader">Create a New Account:</h3>
+        <form className="signupForm" onSubmit={this.handleSubmit}>
           {/* Form.Control is needed for the Form Styling */}
           <Form.Control  
             
