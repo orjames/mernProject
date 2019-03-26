@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { RadialChart } from 'react-vis';
 
@@ -26,3 +27,4 @@ export default (props) => {
   </div>
   );
 };
+

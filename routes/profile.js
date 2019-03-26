@@ -56,4 +56,20 @@ router.get('/:userId/uploads/:uid', (req, res) => {
     });
 });
 
+// DELETE profile/:userId/uploads/:uid - DELETE ONE upload associated with specific user
+router.delete('/:userId/uploads/:uid', (req, res) => {
+  console.log('in the start of delete route');
+  Upload.findOneAndDelete({ _id: req.params.uid }, (err, upload) => {
+    User.findById(req.params.userId, (err, user) => {
+      if (err) {
+        throw err;
+      } else {
+        console.log('in the else statement of /:userId/uploads/:uid');
+        user.update({ $pull: { uploads: { _id: req.params.uid } } });
+        res.status(200).json({ message: 'it wokred' });
+      }
+    });
+  });
+});
+
 module.exports = router;

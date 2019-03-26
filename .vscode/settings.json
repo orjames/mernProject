@@ -12,5 +12,9 @@
     "statusBar.background": "#1accff",
     "statusBarItem.hoverBackground": "#00b3e6",
     "statusBar.foreground": "#15202b"
-  }
+  },
+  "cSpell.words": [
+    "cloudinary",
+    "context"
+  ]
 }
