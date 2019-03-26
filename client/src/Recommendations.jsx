@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
+import AddToProfileButton from './AddToProfileButton';
 
 class Recommendations extends Component {
   constructor(props) {
@@ -31,6 +32,12 @@ class Recommendations extends Component {
       return (
         <div>
           <ColorList colorRec={this.state.colorRec} />
+          <AddToProfileButton
+            postUpload={this.postUpload}
+            user={this.props.user}
+            colorRec={this.state.colorRec}
+            cloudColors={this.props.cloudColors}
+          />
         </div>
       );
     } else {
