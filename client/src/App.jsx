@@ -8,6 +8,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { Container, Col, Row, Jumbotron } from 'react-bootstrap';
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -176,7 +177,9 @@ class App extends Component {
             <Route
               path='/'
               exact
-              render={() => <Home user={this.state.user} />}
+              render={() => (
+                <Home user={this.state.user} logout={this.logout} />
+              )}
             />
             <Route
               path={`/profile/${this.state.user._id}`}

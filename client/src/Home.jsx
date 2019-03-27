@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import Images from "./Images";
-import Buttons from "./Buttons";
-import WakeUp from "./WakeUp";
-import Recommendations from "./Recommendations";
-import Notifications, { notify } from "react-notify-toast";
-import WidgetFooter from "./WidgetFooter";
-import DataVis from "./DataVis";
-import Spinner from "./Spinner";
-import { API_URL } from "./config";
-import axios from "axios";
-import { Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import Images from './Images';
+import Buttons from './Buttons';
+import WakeUp from './WakeUp';
+import Recommendations from './Recommendations';
+import Notifications, { notify } from 'react-notify-toast';
+import WidgetFooter from './WidgetFooter';
+import DataVis from './DataVis';
+import Spinner from './Spinner';
+import { API_URL } from './config';
+import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 const toastColor = {
-  background: "#ff0000",
-  text: "#fff"
+  background: '#ff0000',
+  text: '#fff',
 };
 
 class Home extends Component {
@@ -23,7 +23,7 @@ class Home extends Component {
       uploading: false,
       images: [],
       cloudColors: [],
-      loading: false
+      loading: false,
     };
   }
 
@@ -32,22 +32,22 @@ class Home extends Component {
   // Extracting the files to be uploaded out of the DOM and shipping them off to our server in a fetch request.
   // updates the state of our application
   // to show that something is happening (spinner) or show the images when they come back successfully.
-  onChange = e => {
+  onChange = (e) => {
     const errs = [];
     const files = Array.from(e.target.files);
 
     // limits user to only upload one image
     if (files.length > 1) {
-      const msg = "Only 1 image can be uploaded at a time";
-      return this.toast(msg, "custom", 2000, toastColor);
+      const msg = 'Only 1 image can be uploaded at a time';
+      return this.toast(msg, 'custom', 2000, toastColor);
     }
 
     const formData = new FormData();
-    const types = ["image/png", "image/jpeg", "image/gif"];
+    const types = ['image/png', 'image/jpeg', 'image/gif'];
 
     files.forEach((file, i) => {
       // filtering to make sure correct image format sent through
-      if (types.every(type => file.type !== type)) {
+      if (types.every((type) => file.type !== type)) {
         errs.push(`'${file.type}' is not a supported format`);
       }
 
@@ -60,45 +60,45 @@ class Home extends Component {
     });
 
     if (errs.length) {
-      return errs.forEach(err => this.toast(err, "custom", 2000, toastColor));
+      return errs.forEach((err) => this.toast(err, 'custom', 2000, toastColor));
     }
 
     this.setState({ uploading: true });
 
     fetch(`${API_URL}/image-upload`, {
-      method: "POST",
-      body: formData
+      method: 'POST',
+      body: formData,
     })
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           throw res;
         }
         return res.json();
       })
-      .then(images => {
+      .then((images) => {
         this.setState({
           uploading: false,
-          images
+          images,
         });
       })
-      .catch(err => {
-        this.toast(err.message, "custom", 2000, toastColor);
+      .catch((err) => {
+        this.toast(err.message, 'custom', 2000, toastColor);
         this.setState({ uploading: false });
       });
   };
 
   // This allows us to pull images off the DOM and put the application back in the state where we can upload more images.
   //  Its also helpful to deal with errors that happen in the application. More on that below.
-  filter = id => {
-    return this.state.images.filter(image => image.public_id !== id);
+  filter = (id) => {
+    return this.state.images.filter((image) => image.public_id !== id);
   };
 
-  removeImage = id => {
+  removeImage = (id) => {
     this.setState({ images: this.filter(id), cloudColors: [] });
   };
 
-  onError = id => {
-    this.toast("Oops, something went wrong", "custom", 2000, toastColor);
+  onError = (id) => {
+    this.toast('Oops, something went wrong', 'custom', 2000, toastColor);
     this.setState({ images: this.filter(id) });
   };
 
@@ -106,17 +106,17 @@ class Home extends Component {
   getPhotoData = () => {
     axios
       .get(`/index/cloudinary-data/${this.state.images[0].public_id}`)
-      .then(res => {
+      .then((res) => {
         this.setState({
-          cloudColors: res.data.colors
+          cloudColors: res.data.colors,
         });
       });
   };
 
   // Adding data vis array to state
-  DataVis = data => {
+  DataVis = (data) => {
     this.setState({
-      DataVis: [data]
+      DataVis: [data],
     });
   };
 
@@ -143,7 +143,7 @@ class Home extends Component {
     };
     if (this.state.images.length > 0) {
       uploadButton = (
-        <Button variant="primary" size="large" onClick={this.getPhotoData}>
+        <Button variant='primary' size='large' onClick={this.getPhotoData}>
           Get Data
         </Button>
       );
@@ -154,31 +154,32 @@ class Home extends Component {
     if (this.state.cloudColors.length > 0) {
       recommendations = (
         <Recommendations
+          logout={this.logout}
           user={this.props.user}
           publicId={this.state.images[0].public_id}
           cloudColors={this.state.cloudColors}
         />
       );
     } else {
-      recommendations = "";
+      recommendations = '';
     }
 
     let contents;
     if (this.props.user) {
       contents = (
         <>
-          <div className="container">
+          <div className='container'>
             <Notifications />
-            <div className="buttons">{content()}</div>
+            <div className='buttons'>{content()}</div>
             <WidgetFooter />
           </div>
           <p>
             <button onClick={this.handleClick}>test the protected route</button>
             {uploadButton}
           </p>
-          <p classname="dataButton">{this.state.lockedResult}</p>
+          <p classname='dataButton'>{this.state.lockedResult}</p>
 
-          <DataVis cloudColors={this.state.cloudColors} className="DataVis" />
+          <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
         </>
       );
@@ -190,7 +191,7 @@ class Home extends Component {
       );
     }
 
-    return <div className="App">{contents}</div>;
+    return <div className='App'>{contents}</div>;
   }
 }
 

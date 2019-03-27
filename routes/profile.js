@@ -32,7 +32,6 @@ router.post('/:userId/uploads', (req, res) => {
 // GET /profile/:userId/uploads - GET ALL uploads associated with given user
 router.get('/:userId/uploads', (req, res) => {
   console.log('hitting the get route to profile\n\n');
-
   User.findById(req.params.userId)
     .populate('uploads')
     .exec((err, user) => {
