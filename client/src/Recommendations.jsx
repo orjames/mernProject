@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
-import { Button, Row, Col, Jumbotron, Container } from 'react-bootstrap';
 import ModeSelector from './ModeSelector';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {withRouter} from "react-router-dom";
@@ -128,10 +127,27 @@ class Recommendations extends Component {
     if (Object.keys(this.state.colorRec).length > 0) {
       return (
         <div>
-          <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
+          <div className='userProfileRecommendationRadioButtons'>
+            <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
+          </div>
           <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
-        <Router>
-          <Button variant='primary' size='large' onClick={this.saveRecommendations}>  Add to Profile</Button>
+          <Router>
+            <Route
+              path={`/profile/${this.props.user._id}`}
+              render={() => (
+                <UserProfile
+                  user={this.props.user}
+                  logout={this.props.logout}
+                />
+              )}
+            />
+            <Link to={`/profile/${this.props.user._id}`}>
+              <div className='addToProfileButtonDiv'>
+                <button onClick={this.saveRecommendations}>
+                  Add to Profile
+                </button>
+              </div>
+            </Link>
           </Router>
         </div>
       );

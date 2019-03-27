@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { RadialChart } from 'react-vis';
 import {Jumbotron, Container, Row, Col, Card} from "react-bootstrap"; 
@@ -14,24 +13,18 @@ export default (props) => {
     };
   });
   return (
-<div className="container-fluid"> 
-{/* <div className="jumbotron"> */}
-    <Row>
-      <Col>
-        <div>
-          <div className='radialChart'>
-            <Card className="carDataVis" style={{}}>
-              <Card.Body>
-                <h2 className="colorDataHeader"> Your Color Data </h2>
-                <RadialChart data= {dataArr} className = "RadialChartOfficial" width={350} height={350} padAngle={0.004} showLabels={true} colorType='literal' /> 
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
-      </Col>
-    </Row>
-    {/* </div> */}
-</div>
+    <div className='containerForDataVis'>
+      <div className='radialChart'>
+        <RadialChart
+          data={dataArr}
+          className='RadialChartOfficial'
+          width={350}
+          height={350}
+          padAngle={0.004}
+          showLabels={true}
+          colorType='literal'
+        />
+      </div>
+    </div>
   );
 };
-

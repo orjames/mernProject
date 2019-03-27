@@ -15,11 +15,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgba(256, 256, 256, .5); */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: url(./images/andrej-lisakov-568541-unsplash-1280.png); */
+  background: url(./images/andrej-lisakov-568541-unsplash-1280.png);
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 code {
@@ -27,13 +30,7 @@ code {
     monospace;
 }
 
-/* body {
-  font-family: Roboto, sans-serif;
-  background-color: rgb(40, 44, 53);
-  color: #757575;
-} */
-
-.container-fluid{
+.container-fluid {
   display: flex;
   flex-direction: column;
   max-width: 30em; 
@@ -122,19 +119,6 @@ img {
   padding: 10px;
 }
 
-/* .jumbotron {
-  background: url(./images/andrej-lisakov-568541-unsplash-1280.png);
-  height: 100vh;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat; 
-} */
-
-
-
-.logo {
-}
-
 /* Loading */
 .loading-wrapper,
 .loading {
@@ -189,21 +173,6 @@ footer .small-button {
   transition: 0.3s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
-}
-
-footer .small-button:hover {
-  /* background: #767676; */
-  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.45);
-}
-
-footer .small-button.github {
-  /* background: #6e5494; */
-}
-
-footer .small-button.medium {
-  background: #00ab6c;
-  font-size: 0.85em;
-  padding: 0.65em;
 }
 
 @keyframes pulse-colors {
@@ -375,8 +344,96 @@ margin: auto;
   opacity: 0.75;
 }
 
+/* where Owen's CSS begins 
+
+
+
+
+
+
+Owen's CSS
+*/
+a {
+  padding-bottom: 0.5rem;
+}
+a:hover {
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.45);
+}
+
+.logoImage {
+  border: 0;
+  margin: 0 auto;
+  padding: 0;
+  width: 1920px;
+}
+
+.bannerLogo {
+  margin-top: 1rem;
+  border: 3px solid lightcyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.navButtonDiv {
+  border: 3px solid lightgreen;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.navBarDiv {
+  border: 3px solid rosybrown;
+  z-index: 10;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  height: 8rem;
+}
+
+.addToProfileButtonDiv {
+  border: 3px solid teal;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.getDataButtonDiv {
+  border: 3px solid teal;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.uploadWidget {
+  border: 3px solid black;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.radialChart {
+  border: 3px solid purple;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .userProfileUploadPage {
-  /* border: 3px solid pink; */
+  border: 3px solid pink;
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -385,7 +442,7 @@ margin: auto;
 }
 
 .userProfileName {
-  /* border: 3px solid pink; */
+  border: 3px solid pink;
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   margin-bottom: 0;
@@ -397,7 +454,7 @@ margin: auto;
 }
 
 .userProfileUploadImages {
-  /* border: 3px solid brown; */
+  border: 3px solid brown;
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   margin-top: 0;
@@ -408,7 +465,7 @@ margin: auto;
 }
 
 .userProfileRecommendationRadioButtons {
-  /* border: 3px solid orangered; */
+  border: 3px solid orangered;
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   display: flex;
@@ -418,7 +475,7 @@ margin: auto;
 }
 
 .userProfileRecommendationBoxOutputs {
-  /* border: 3px solid navy; */
+  border: 3px solid navy;
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   display: flex;
@@ -428,7 +485,7 @@ margin: auto;
 }
 
 .userProfileRecommendation {
-  /* border: 3px solid maroon; */
+  border: 3px solid maroon;
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   display: flex;

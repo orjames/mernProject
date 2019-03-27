@@ -9,33 +9,24 @@ const ColorList = (props) => {
       return color !== null;
     })
     .map((color, index) => {
+      let imgStyle = {
+        backgroundColor: color.hex.value,
+        height: '10vh',
+        width: '80vw',
+      };
       return (
-        <div className='container-fluid'>
-        <Card className="cardColorCircle" style={{width: "70%" }}>
-          <Card.Body>
-          <Row>
-            <Col>
-              <div className='colorRecsList' key={index}>
-              <h3 className='compleColorName'>{color.name.value}</h3>
-              <h3 className='compleColorHex'>{color.hex.value}</h3>
-              <div className='imageColor'>
-              <Image className='colorCircle' src={color.image.bare} roundedCircle />
-            </div>
-          </div>
-        </Col>
-        </Row>
-      </Card.Body>
-        </Card>
-      </div>
-    
+        <div className='userProfileRecommendation'>
+          <div style={imgStyle} />
+          <h3 className='userProfileColorName'>
+            {color.name.value} <small>{color.hex.value}</small>
+          </h3>
+        </div>
       );
     });
 
   return (
-
-    <div className='container-fluid'>
-      <h1 className='Colors'> {props.mode} Colors</h1>
-      {colors}
+    <div id='container-fluid'>
+      <div className='userProfileRecommendationBoxOutputs'>{colors}</div>
     </div>
  
   );

@@ -36,6 +36,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": "http://localhost:3001"
+  ],  
+  "proxy": "http://localhost:3001" 
 }
