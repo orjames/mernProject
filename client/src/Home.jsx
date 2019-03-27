@@ -143,7 +143,12 @@ class Home extends Component {
     };
     if (this.state.images.length > 0) {
       uploadButton = (
-        <Button variant='primary' size='large' onClick={this.getPhotoData}>
+        <Button
+          className='getDataButton'
+          variant='primary'
+          size='large'
+          onClick={this.getPhotoData}
+        >
           Get Data
         </Button>
       );
@@ -167,21 +172,16 @@ class Home extends Component {
     let contents;
     if (this.props.user) {
       contents = (
-        <>
-          <div className='container'>
+        <div>
+          <div className='uploadWidget'>
             <Notifications />
             <div className='buttons'>{content()}</div>
             <WidgetFooter />
           </div>
-          <p>
-            <button onClick={this.handleClick}>test the protected route</button>
-            {uploadButton}
-          </p>
-          <p classname='dataButton'>{this.state.lockedResult}</p>
-
+          <div className='getDataButtonDiv'>{uploadButton}</div>
           <DataVis cloudColors={this.state.cloudColors} className='DataVis' />
           {recommendations}
-        </>
+        </div>
       );
     } else {
       contents = (
