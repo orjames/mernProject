@@ -152,14 +152,10 @@ class App extends Component {
           <div>
             <Link to='/'>
               {' '}
-              <button className='homeIcon' class='btn'>
-                <i class='fa fa-home' />
-              </button>
+              Home
             </Link>
             <Link to={`/profile/${this.state.user._id}`}>
-              <button className='profileIcon' class='btn'>
-                <i class='fa fa-male' />
-              </button>
+              Profile
             </Link>
             <Route
               path='/'

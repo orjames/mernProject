@@ -66,7 +66,7 @@ class UserProfile extends Component {
             >
               <p>{upload.publicId}</p>
               <FontAwesomeIcon icon={faTimesCircle} size='2x' />
-            </div>
+          </div>
             <CloudinaryContext
               cloudName='orjames'
               api_key={process.env.REACT_APP_CLOUDINARY_API_KEY}
