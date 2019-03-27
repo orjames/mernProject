@@ -177,7 +177,9 @@ class App extends Component {
             <Route
               path='/'
               exact
-              render={() => <Home user={this.state.user} />}
+              render={() => (
+                <Home user={this.state.user} logout={this.logout} />
+              )}
             />
             <Route
               path={`/profile/${this.state.user._id}`}

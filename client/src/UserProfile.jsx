@@ -198,7 +198,9 @@ class UserProfile extends Component {
     }
     return (
       <div className='userProfileUploadPage'>
-        <h1 className='userData'>{this.props.user.firstName}'s Uploads</h1>
+        <div className='userProfileName'>
+          <h1>{this.props.user.firstName}'s Uploads</h1>
+        </div>
         <div className='userProfileUploadImages'>{uploads}</div>
         <div className='userProfileRecommendationRadioButtons'>
           {radioButton}

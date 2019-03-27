@@ -129,20 +129,24 @@ class Recommendations extends Component {
           <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
           {/* <Router>
             <Route
-              path={`/profile/${this.state.user._id}`}
+              path={`/profile/${this.props.user._id}`}
               render={() => (
-                <UserProfile user={this.state.user} logout={this.logout} />
+                <UserProfile
+
+                  user={this.props.user}
+                  logout={this.props.logout}
+                />
               )}
             />
-            <Link to={`/profile/${this.state.user._id}`}>
-              <Button
-                variant='primary'
-                size='large'
-                onClick={this.saveRecommendations}
-              >
-                Add to Profile
-              </Button>
-            </Link>
+            <Link to={`/profile/${this.props.user._id}`}> */}
+          <Button
+            variant='primary'
+            size='large'
+            onClick={this.saveRecommendations}
+          >
+            Add to Profile
+          </Button>
+          {/* </Link>
           </Router> */}
         </div>
       );
