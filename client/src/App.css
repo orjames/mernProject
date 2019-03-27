@@ -30,7 +30,8 @@ code {
 .container-fluid {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  max-height: 80em;
+  max-width: 30em;
   justify-content: space-around;
   /* background-color: rgb (256, 256, 256);  */
   /* background-color: #dcdcdc; */
@@ -39,7 +40,8 @@ code {
 .containerForDataVis {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 40em;
+  max-width: 30em;
   justify-content: space-around;
   background-color:	#DCDCDC;
   background-color: #dcdcdc;
@@ -52,11 +54,15 @@ code {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: 75vh;
+  height: 50vh;
 }
 
 .button {
   margin: 0 10vw;
+  max-width: 15em;
+  max-height: 10em;
+  text-align: center;
+
 }
 
 .images {
@@ -106,8 +112,8 @@ input[type='file'] {
 
 
 img {
-  max-height: 80vh;
-  max-width: 80vw;
+  max-height: 20em;
+  max-width: 20em;
   padding: 10px;
   border: 1px dashed #999;
 }
@@ -303,8 +309,7 @@ footer .small-button.medium {
 .loginConrender {
   position: relative;
   text-align: center;
-
-  top: 30em;
+  top: 30em; 
   left: 35em;
   width: 5em;
 }
