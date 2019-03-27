@@ -7,8 +7,10 @@ import axios from 'axios';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
 import { Container, Col, Row, Jumbotron } from 'react-bootstrap';
+import Logo from './Logo';
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -170,10 +172,16 @@ class App extends Component {
       contents = (
         <Router>
           <div>
-            <Link to='/'>
-              <FontAwesomeIcon icon={faIgloo} size='3x' color='#000000' />{' '}
-            </Link>
-            <Link to={`/profile/${this.state.user._id}`}>Profile</Link>
+            <div className='navBarDiv'>
+              <div className='navButtonDiv'>
+                <Link to='/'>
+                  <FontAwesomeIcon icon={faHome} size='3x' color='#000000' />{' '}
+                </Link>
+                <Link to={`/profile/${this.state.user._id}`}>
+                  <FontAwesomeIcon icon={faIdBadge} size='3x' color='#000000' />{' '}
+                </Link>
+              </div>
+            </div>
             <Route
               path='/'
               exact
@@ -196,17 +204,10 @@ class App extends Component {
 
     return (
       <>
-        <Jumbotron>
-          <div className='App'>
-            {contents}{' '}
-            <p>
-              <button onClick={this.handleClick}>
-                test the protected route
-              </button>
-            </p>
-            <p>{this.state.lockedResult}</p>
-          </div>
-        </Jumbotron>
+        <div className='bannerLogo'>
+          <Logo />
+        </div>
+        <div className='App'>{contents}</div>
       </>
     );
   }
