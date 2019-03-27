@@ -9,7 +9,7 @@ import DataVis from "./DataVis";
 import Spinner from "./Spinner";
 import { API_URL } from "./config";
 import axios from "axios";
-import { Button, Row, Col, Jumbotron, Container} from "react-bootstrap";
+import { Button, Row, Col, Jumbotron, Container, Card} from "react-bootstrap";
 
 
 const toastColor = {
@@ -132,11 +132,17 @@ class Home extends Component {
           return <Spinner />;
         case images.length > 0:
           return (
-            <Images
-              images={images}
-              removeImage={this.removeImage}
-              onError={this.onError}
-            />
+          <div className="container-fluid">
+            <Card className="cardUpload">
+              <Card.Body>
+                <Images
+                images={images}
+                removeImage={this.removeImage}
+                onError={this.onError}/>
+              </Card.Body>
+            </Card>
+          </div>
+
           );
         default:
           return <Buttons onChange={this.onChange} />;
@@ -144,9 +150,15 @@ class Home extends Component {
     };
     if (this.state.images.length > 0) {
       uploadButton = (
-        <Button variant="primary" size="large" onClick={this.getPhotoData}>
-          Get Data
-        </Button>
+    <div className="container-fluid">
+      <Row>
+        <Col md="auto">
+          <Button variant="primary" size="large" onClick={this.getPhotoData}>
+            Get Data
+          </Button>
+        </Col>
+      </Row>
+    </div>
       );
     } else {
       // no image uploaded
@@ -167,25 +179,22 @@ class Home extends Component {
     let contents;
     if (this.props.user) {
       contents = (
-
-          <div className="container-fluid">
-          <Container>
-          <Row>
-            <Col>
-              <Notifications />
-              <div className="buttons">{content()}</div>
-              <WidgetFooter />
-              <p>
-              {/* <button onClick={this.handleClick}>test the protected route</button> */}
-              {uploadButton}
-            </p>
-            <p classname="dataButton">{this.state.lockedResult}</p>
-            <DataVis cloudColors={this.state.cloudColors} className="DataVis" />
-            {recommendations}
-          </Col>
-        </Row>
-        </Container>
-      </div>
+<div className="container-fluid">
+    <Row>
+      <Col>
+          <Notifications />
+          <div className="buttons">{content()}</div>
+          <WidgetFooter />
+          {/* <p> */}
+          {/* <button onClick={this.handleClick}>test the protected route</button> */}
+          {uploadButton}
+          {/* </p> */}
+          <p classname="dataButton">{this.state.lockedResult}</p>
+          <DataVis cloudColors={this.state.cloudColors} className="DataVis" />
+          {recommendations}
+        </Col>
+    </Row>
+</div>
       );
     } else {
       contents = (
@@ -195,11 +204,10 @@ class Home extends Component {
       );
     }
     return(
-      
+
       <div className="App">
               {contents}
       </div>
-      
     )} 
    
 }

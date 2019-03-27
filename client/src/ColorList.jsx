@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Row, Col, Jumbotron } from 'react-bootstrap';
+import { Image, Row, Col, Jumbotron, Card} from 'react-bootstrap';
 
 const ColorList = (props) => {
   console.log(props, 'this is your props');
@@ -11,9 +11,11 @@ const ColorList = (props) => {
     .map((color, index) => {
       return (
         <div className='container-fluid'>
+        <Card className="cardColorCircle" style={{width: "70%" }}>
+          <Card.Body>
           <Row>
             <Col>
-            <div className='colorRecsList' key={index}>
+              <div className='colorRecsList' key={index}>
               <h3 className='compleColorName'>{color.name.value}</h3>
               <h3 className='compleColorHex'>{color.hex.value}</h3>
               <div className='imageColor'>
@@ -22,6 +24,8 @@ const ColorList = (props) => {
           </div>
         </Col>
         </Row>
+      </Card.Body>
+        </Card>
       </div>
     
       );

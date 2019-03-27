@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+import { Button, Card, Jumbotron, Col, Row} from "react-bootstrap";
 import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
@@ -64,7 +64,7 @@ class UserProfile extends Component {
               onClick={() => this.removeUpload(upload._id)}
               className="delete"
             >
-              <p>{upload.publicId}</p>
+              {/* <p>{upload.publicId}</p> */}
               <FontAwesomeIcon icon={faTimesCircle} size="2x" />
             </div>
             <CloudinaryContext
@@ -87,22 +87,36 @@ class UserProfile extends Component {
       uploads = <p className="noUploadDataHeader">No Upload Data!</p>;
     }
     return (
+
+    <div className="container-fluid">
       <div className="uploadList">
         <p className="userData">
-          hello I am {this.props.user.firstName}, my userid is{" "}
-          {this.props.user._id}{" "}
+          hello I am {this.props.user.firstName}, 
+          {/* my userid is{" "} */}
+          {/* {this.props.user._id}{" "} */}
         </p>
         <h1 className="uploadHeader">All uploads</h1>
-        {uploads}
+        <Card className="cardUpload">
+          <Card.Body>
+            {uploads}
+          </Card.Body>
+        </Card>
+        <Row>
+        <Col>
         <Button
+          className="logOutButton"
           variant="primary"
           size="medium"
           value="logout"
           onClick={this.props.logout}
         >
           Logout
-        </Button>
+        </Button> 
+        </Col>
+        </Row>
       </div>
+    </div>
+
     );
   }
 }

@@ -123,17 +123,21 @@ class Recommendations extends Component {
     if (Object.keys(this.state.colorRec).length > 0) {
       return (
         <div className="container-fluid">
-          <Jumbotron>
+        <Jumbotron fluid>
             <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
             <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
-            <Button
-              variant='primary'
-              size='large'
-              onClick={this.saveRecommendations}
-              > 
-              Add to Profile
-            </Button>
-          </Jumbotron>
+              <Row>
+              <Col>
+                <Button
+                  variant='primary'
+                  size='large'
+                  onClick={this.saveRecommendations}
+                  > 
+                  Add to Profile
+                </Button>
+              </Col>
+            </Row>
+      </Jumbotron>
           </div>
 
       );

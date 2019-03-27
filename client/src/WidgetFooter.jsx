@@ -4,7 +4,7 @@ import { faIgloo } from '@fortawesome/free-solid-svg-icons';
 
 export default () => (
   <footer>
-    <a
+    {/* <a
       href='https://medium.com/p/cc96430eaece'
       title='Medium Article'
       className={'small-button medium'}
@@ -13,6 +13,6 @@ export default () => (
     
 
       
-    </a>
+    </a> */}
   </footer>
 );

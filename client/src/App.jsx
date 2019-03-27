@@ -7,7 +7,6 @@ import axios from 'axios';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIgloo } from '@fortawesome/free-solid-svg-icons';
 import { Container, Col, Row, Jumbotron } from "react-bootstrap";
 
 class App extends Component {
@@ -169,12 +168,15 @@ class App extends Component {
     if (user) {
       contents = (
         <Router>
-          <Jumbotron>
           <div className="container-fluid">
-            <Link to='/'>
-            <button class="btn"><i class="fa fa-home"></i></button>
-            </Link>
-            <Link to={`/profile/${this.state.user._id}`}><button class="btn"><i class="fa fa-male"></i></button></Link>
+          <Container>
+            <Row>
+              <Col md={{ span: 4, offset: 10 }}>
+                <Link to='/'> <button className="btnHome"><i class="fa fa-home"></i></button> </Link>
+                <Link to={`/profile/${this.state.user._id}`}><button className="btnProfile"><i class="fa fa-male"></i></button></Link>
+              </Col>
+            </Row>
+          </Container>
             <Route
               path='/'
               exact
@@ -187,7 +189,6 @@ class App extends Component {
               )}
             />
           </div>
-          </Jumbotron>
         </Router>
       );
     } else {
@@ -195,19 +196,19 @@ class App extends Component {
     }
 
     return (
-      <>
-        
+          // <Jumbotron>
           <div className='App'>
             {contents}{' '}
-            <p>
+            {/* <p>
               <button onClick={this.handleClick}>
                 test the protected route
               </button>
-            </p>
+            </p> */}
             <p>{this.state.lockedResult}</p>
           </div>
         
-      </>
+          // </Jumbotron>
+
     );
   }
 }
