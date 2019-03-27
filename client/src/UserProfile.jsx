@@ -10,7 +10,7 @@ class UserProfile extends Component {
     super(props);
     this.state = {
       uploads: [],
-      currentUpload: { colors: [] },
+      currentUpload: null,
       mode: 'complement',
       loading: false,
     };
@@ -58,106 +58,114 @@ class UserProfile extends Component {
   changeMode = (e) => {
     this.setState({
       mode: e.target.value,
-      currentRec: this.state.colorRec[e.target.value],
     });
   };
 
   render() {
     let selectedUpload;
-    if (Object.keys(this.state.currentUpload).length > 1) {
+    let selectedColors;
+    if (!this.state.currentUpload) {
       selectedUpload = <p>select an upload</p>;
     } else {
-      // selectedUpload = this.state.currentUpload.colorRec.complement.colors;
-      // selectedUpload
-      //   .filter((color) => {
-      //     return color !== null;
-      //   })
-      //   .map((color, index) => {
-      //     return (
-      //       <>
-      //         <div className='radioButtonDiv'>
-      //           <form>
-      //             <input
-      //               checked={this.state.mode === 'monochrome'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='monochrome'
-      //             />
-      //             monochrome{'  '}
-      //             <input
-      //               checked={this.state.mode === 'monochromeDark'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='monochromeDark'
-      //             />
-      //             monochrome-dark{'  '}
-      //             <input
-      //               checked={this.state.mode === 'monochromeLight'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='monochromeLight'
-      //             />
-      //             monochrome-light{'  '}
-      //             <input
-      //               checked={this.state.mode === 'analogic'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='analogic'
-      //             />
-      //             analogic{'  '}
-      //             <input
-      //               checked={this.state.mode === 'complement'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='complement'
-      //             />
-      //             complement{'  '}
-      //             <input
-      //               checked={this.state.mode === 'analogicComplement'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='analogicComplement'
-      //             />
-      //             analogic-complement{'  '}
-      //             <input
-      //               checked={this.state.mode === 'triad'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='triad'
-      //             />
-      //             triad{'  '}
-      //             <input
-      //               checked={this.state.mode === 'quad'}
-      //               onChange={this.changeMode}
-      //               type='radio'
-      //               name='mode'
-      //               value='quad'
-      //             />
-      //             quad
-      //           </form>
-      //         </div>
-      //         <div className='colorRecsList' key={index}>
-      //           <div className='imageColor'>
-      //             <Image
-      //               className='colorCircle'
-      //               src={color.image.bare}
-      //               roundedCircle
-      //             />
-      //           </div>
-      //           <h3 className='compleColorName'>{color.name.value}</h3>
-      //           <small className='compleColorHex'>{color.hex.value}</small>
-      //         </div>
-      //       </>
-      //     );
-      //   });
+      console.log(this.state.currentUpload);
+      selectedColors = this.state.currentUpload.colorRec[this.state.mode]
+        .colors;
+      selectedUpload = selectedColors
+        .filter((color) => {
+          return color !== null;
+        })
+        .map((color, index) => {
+          let imgStyle = {
+            backgroundColor: color.hex.value,
+            height: '10vh',
+            width: '80vw',
+          };
+          return (
+            <div className='userProfileRecommendation'>
+              <div style={imgStyle} />
+              <h3 className='userProfileColorName'>
+                {color.name.value} <small>{color.hex.value}</small>
+              </h3>
+            </div>
+          );
+        });
     }
+    let radioButton;
+    if (this.state.currentUpload) {
+      radioButton = (
+        <div className='radioButtonDiv'>
+          <form>
+            <input
+              checked={this.state.mode === 'monochrome'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='monochrome'
+            />
+            monochrome{'  '}
+            <input
+              checked={this.state.mode === 'monochromeDark'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='monochromeDark'
+            />
+            monochrome-dark{'  '}
+            <input
+              checked={this.state.mode === 'monochromeLight'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='monochromeLight'
+            />
+            monochrome-light{'  '}
+            <input
+              checked={this.state.mode === 'analogic'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='analogic'
+            />
+            analogic{'  '}
+            <input
+              checked={this.state.mode === 'complement'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='complement'
+            />
+            complement{'  '}
+            <input
+              checked={this.state.mode === 'analogicComplement'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='analogicComplement'
+            />
+            analogic-complement{'  '}
+            <input
+              checked={this.state.mode === 'triad'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='triad'
+            />
+            triad{'  '}
+            <input
+              checked={this.state.mode === 'quad'}
+              onChange={this.changeMode}
+              type='radio'
+              name='mode'
+              value='quad'
+            />
+            quad
+          </form>
+        </div>
+      );
+    } else {
+      radioButton = '';
+    }
+
     let uploads;
     if (this.state.uploads.length) {
       uploads = this.state.uploads.map((upload, index) => {
@@ -189,15 +197,15 @@ class UserProfile extends Component {
       uploads = <p className='noUploadDataHeader'>No Upload Data...</p>;
     }
     return (
-      <div className='uploadList'>
-        <h1 className='userData'>
-          {this.props.user.firstName}'s Uploads
-          <br />
-          <small>user._id is {this.props.user._id}</small>
-        </h1>
-        <h1 className='uploadHeader'>All uploads</h1>
-        {uploads}
-        {selectedUpload}
+      <div className='userProfileUploadPage'>
+        <h1 className='userData'>{this.props.user.firstName}'s Uploads</h1>
+        <div className='userProfileUploadImages'>{uploads}</div>
+        <div className='userProfileRecommendationRadioButtons'>
+          {radioButton}
+        </div>
+        <div className='userProfileRecommendationBoxOutputs'>
+          {selectedUpload}
+        </div>
         <Button
           variant='primary'
           size='medium'

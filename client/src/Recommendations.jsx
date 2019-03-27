@@ -3,6 +3,8 @@ import axios from 'axios';
 import ColorList from './ColorList';
 import { Button } from 'react-bootstrap';
 import ModeSelector from './ModeSelector';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import UserProfile from './UserProfile';
 
 class Recommendations extends Component {
   constructor(props) {
@@ -125,13 +127,23 @@ class Recommendations extends Component {
         <div>
           <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
           <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
-          <Button
-            variant='primary'
-            size='large'
-            onClick={this.saveRecommendations}
-          >
-            Add to Profile
-          </Button>
+          {/* <Router>
+            <Route
+              path={`/profile/${this.state.user._id}`}
+              render={() => (
+                <UserProfile user={this.state.user} logout={this.logout} />
+              )}
+            />
+            <Link to={`/profile/${this.state.user._id}`}>
+              <Button
+                variant='primary'
+                size='large'
+                onClick={this.saveRecommendations}
+              >
+                Add to Profile
+              </Button>
+            </Link>
+          </Router> */}
         </div>
       );
     } else {
