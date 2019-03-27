@@ -20,7 +20,6 @@ body {
   align-items: center;
   justify-content: center;
   /* background: url(./images/andrej-lisakov-568541-unsplash-1280.png); */
-
 }
 
 code {
@@ -117,7 +116,6 @@ input[type='file'] {
   position: absolute;
 }
 
-
 img {
   max-height: 20em;
   max-width: 20em;
@@ -131,6 +129,11 @@ img {
   background-attachment: fixed;
   background-repeat: no-repeat; 
 } */
+
+
+
+.logo {
+}
 
 /* Loading */
 .loading-wrapper,
@@ -368,3 +371,72 @@ margin: auto;
   text-align: center;
   margin: auto;
 } */
+.cardOpacity {
+  opacity: 0.75;
+}
+
+.userProfileUploadPage {
+  /* border: 3px solid pink; */
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.userProfileName {
+  /* border: 3px solid pink; */
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 3px;
+  margin-bottom: 0;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.userProfileUploadImages {
+  /* border: 3px solid brown; */
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 3px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.userProfileRecommendationRadioButtons {
+  /* border: 3px solid orangered; */
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.userProfileRecommendationBoxOutputs {
+  /* border: 3px solid navy; */
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.userProfileRecommendation {
+  /* border: 3px solid maroon; */
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.userProfileColorName {
+  display: block;
+}

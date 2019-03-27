@@ -3,6 +3,9 @@ import axios from 'axios';
 import ColorList from './ColorList';
 import { Button, Row, Col, Jumbotron, Container } from 'react-bootstrap';
 import ModeSelector from './ModeSelector';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {withRouter} from "react-router-dom";
+import UserProfile from './UserProfile';
 
 class Recommendations extends Component {
   constructor(props) {
@@ -24,6 +27,7 @@ class Recommendations extends Component {
     };
     this.saveRecommendations = this.saveRecommendations.bind(this);
     this.changeMode = this.changeMode.bind(this);
+   
   }
 
   // when the component mounts, it looks at the primary color and then recommends complementary ones
@@ -93,6 +97,7 @@ class Recommendations extends Component {
       })
       .then((res) => {
         console.log(res);
+        this.props.history.push(`profile/${this.props.user._id}`)
       })
       .catch(function(error) {
         console.log(error);
@@ -111,7 +116,6 @@ class Recommendations extends Component {
     };
     this.postUpload(postObject);
   };
-
   changeMode = (e) => {
     this.setState({
       mode: e.target.value,
@@ -119,27 +123,17 @@ class Recommendations extends Component {
     });
   };
 
+
   render() {
     if (Object.keys(this.state.colorRec).length > 0) {
       return (
-        <div className="container-fluid">
-        <Jumbotron fluid>
-            <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
-            <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
-              <Row>
-              <Col>
-                <Button
-                  variant='primary'
-                  size='large'
-                  onClick={this.saveRecommendations}
-                  > 
-                  Add to Profile
-                </Button>
-              </Col>
-            </Row>
-      </Jumbotron>
-          </div>
-
+        <div>
+          <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
+          <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
+        <Router>
+          <Button variant='primary' size='large' onClick={this.saveRecommendations}>  Add to Profile</Button>
+          </Router>
+        </div>
       );
     } else {
       return (
@@ -151,6 +145,15 @@ class Recommendations extends Component {
   }
 }
 
-export default Recommendations;
+export default withRouter(Recommendations);
 
 
+{/* <Route exact path="/Procedures" */}
+
+{/* <Link to={`/profile/${this.state.user._id}`}><button className="btnProfile"><i class="fa fa-male"></i></button></Link> */}
+
+
+
+
+{/* <button onClick={() => hashHistory.push(`/profile/${this.props.user._id}`})}></button> */}
+ 
