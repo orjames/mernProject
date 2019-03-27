@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
-import { Button } from 'react-bootstrap';
+import { Button, Row, Col, Jumbotron, Container } from 'react-bootstrap';
 import ModeSelector from './ModeSelector';
 
 class Recommendations extends Component {
@@ -122,17 +122,20 @@ class Recommendations extends Component {
   render() {
     if (Object.keys(this.state.colorRec).length > 0) {
       return (
-        <div>
-          <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
-          <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
-          <Button
-            variant='primary'
-            size='large'
-            onClick={this.saveRecommendations}
-          >
-            Add to Profile
-          </Button>
-        </div>
+        <div className="container-fluid">
+          <Jumbotron>
+            <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
+            <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
+            <Button
+              variant='primary'
+              size='large'
+              onClick={this.saveRecommendations}
+              > 
+              Add to Profile
+            </Button>
+          </Jumbotron>
+          </div>
+
       );
     } else {
       return (
@@ -145,3 +148,5 @@ class Recommendations extends Component {
 }
 
 export default Recommendations;
+
+

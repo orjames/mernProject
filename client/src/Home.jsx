@@ -9,7 +9,8 @@ import DataVis from "./DataVis";
 import Spinner from "./Spinner";
 import { API_URL } from "./config";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col, Jumbotron, Container} from "react-bootstrap";
+
 
 const toastColor = {
   background: "#ff0000",
@@ -166,21 +167,25 @@ class Home extends Component {
     let contents;
     if (this.props.user) {
       contents = (
-        <>
-          <div className="container">
-            <Notifications />
-            <div className="buttons">{content()}</div>
-            <WidgetFooter />
-          </div>
-          <p>
-            <button onClick={this.handleClick}>test the protected route</button>
-            {uploadButton}
-          </p>
-          <p classname="dataButton">{this.state.lockedResult}</p>
 
-          <DataVis cloudColors={this.state.cloudColors} className="DataVis" />
-          {recommendations}
-        </>
+          <div className="container-fluid">
+          <Container>
+          <Row>
+            <Col>
+              <Notifications />
+              <div className="buttons">{content()}</div>
+              <WidgetFooter />
+              <p>
+              {/* <button onClick={this.handleClick}>test the protected route</button> */}
+              {uploadButton}
+            </p>
+            <p classname="dataButton">{this.state.lockedResult}</p>
+            <DataVis cloudColors={this.state.cloudColors} className="DataVis" />
+            {recommendations}
+          </Col>
+        </Row>
+        </Container>
+      </div>
       );
     } else {
       contents = (
@@ -189,9 +194,14 @@ class Home extends Component {
         </>
       );
     }
-
-    return <div className="App">{contents}</div>;
-  }
+    return(
+      
+      <div className="App">
+              {contents}
+      </div>
+      
+    )} 
+   
 }
 
 export default Home;

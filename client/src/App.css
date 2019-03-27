@@ -36,18 +36,17 @@ code {
   /* background-color: rgb (256, 256, 256);  */
   /* background-color: #dcdcdc; */
 }
-/* 
+
 .containerForDataVis {
   display: flex;
   flex-direction: column;
-  height: 40em;
-  max-width: 30em;
+  max-height: 35em;
+  max-width: 40em;
   justify-content: space-around;
   background-color:	#DCDCDC;
-  background-color: #dcdcdc;
   text-align: center;
   margin: auto;
-} */
+}
 
 .buttons {
   display: flex;
@@ -56,7 +55,10 @@ code {
   flex-wrap: wrap;
   height: 50vh;
 }
-
+.dataButton{
+  text-align: center;
+  margin: auto;
+}
 .button {
   margin: 0 10vw;
   max-width: 15em;
@@ -124,9 +126,6 @@ img {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat; 
-}
-
-.logo {
 }
 
 /* Loading */
@@ -268,22 +267,21 @@ footer .small-button.medium {
 }
 
 .colorRecsList {
-  text-align: center;
-  /* background-color: #dcdcdc; */
-  width: 79.5vw;
-  margin: auto;
+margin: auto;
 }
 
 .imageColor {
   margin: auto;
+  text-align: center;
 }
 
 .RadialChartOfficial {
-  text-align: center;
   margin: auto;
+  text-align: center
 }
 
-.Colors {
+.compleColorName, .compleColorHex{
+  margin: auto;
   text-align: center;
 }
 

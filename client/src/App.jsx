@@ -8,6 +8,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { Container, Col, Row, Jumbotron } from "react-bootstrap";
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -168,11 +169,12 @@ class App extends Component {
     if (user) {
       contents = (
         <Router>
-          <div>
+          <Jumbotron>
+          <div className="container-fluid">
             <Link to='/'>
-              <FontAwesomeIcon icon={faIgloo} size='3x' color='#000000' />{' '}
+            <button class="btn"><i class="fa fa-home"></i></button>
             </Link>
-            <Link to={`/profile/${this.state.user._id}`}>Profile</Link>
+            <Link to={`/profile/${this.state.user._id}`}><button class="btn"><i class="fa fa-male"></i></button></Link>
             <Route
               path='/'
               exact
@@ -185,6 +187,7 @@ class App extends Component {
               )}
             />
           </div>
+          </Jumbotron>
         </Router>
       );
     } else {
@@ -193,7 +196,7 @@ class App extends Component {
 
     return (
       <>
-        <Jumbotron>
+        
           <div className='App'>
             {contents}{' '}
             <p>
@@ -203,7 +206,7 @@ class App extends Component {
             </p>
             <p>{this.state.lockedResult}</p>
           </div>
-        </Jumbotron>
+        
       </>
     );
   }
