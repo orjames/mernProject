@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { Container} from 'react-bootstrap';
+import React, { Component } from "react";
+import axios from "axios";
+import { Button } from "react-bootstrap";
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -11,44 +11,44 @@ class UserProfile extends Component {
     this.state = {
       uploads: [],
       currentUpload: {},
-      loading: false,
+      loading: false
     };
     this.selectUpload = this.selectUpload.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/profile/${this.props.user._id}/uploads`).then((res) => {
+    axios.get(`/profile/${this.props.user._id}/uploads`).then(res => {
       this.setState({
-        uploads: res.data,
+        uploads: res.data
       });
     });
   }
 
-  selectUpload = (uploadId) => {
+  selectUpload = uploadId => {
     axios
       .get(`/profile/${this.props.user._id}/uploads/${uploadId}`)
-      .then((res) => {
+      .then(res => {
         this.setState({
-          currentUpload: res.data,
+          currentUpload: res.data
         });
       });
   };
 
-  filter = (id) => {
-    console.log('filter filter filter');
+  filter = id => {
+    console.log("filter filter filter");
     console.log(id);
-    return this.state.uploads.filter((upload) => upload._id !== id);
+    return this.state.uploads.filter(upload => upload._id !== id);
   };
 
-  removeUpload = (id) => {
-    console.log('clikc lcik click');
+  removeUpload = id => {
+    console.log("clikc lcik click");
     this.setState({ uploads: this.filter(id) });
     axios
       .delete(`/profile/${this.props.user._id}/uploads/${id}`)
-      .then((res) => {
-        console.log('axios delete route hit', res);
+      .then(res => {
+        console.log("axios delete route hit", res);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
@@ -58,48 +58,50 @@ class UserProfile extends Component {
     if (this.state.uploads.length) {
       uploads = this.state.uploads.map((upload, index) => {
         return (
-    <Container>
           // TODO: add click functionality
-          <div key={index} className='fadein'>
+          <div key={index} className="fadein">
             <div
               onClick={() => this.removeUpload(upload._id)}
-              className='delete'
+              className="delete"
             >
               <p>{upload.publicId}</p>
-              <FontAwesomeIcon icon={faTimesCircle} size='2x' />
+              <FontAwesomeIcon icon={faTimesCircle} size="2x" />
             </div>
             <CloudinaryContext
-              cloudName='orjames'
+              cloudName="orjames"
               api_key={process.env.REACT_APP_CLOUDINARY_API_KEY}
               api_secret={process.env.REACT_APP_CLOUDINARY_API_SECRET}
             >
               <Image
                 publicId={upload.publicId}
-                width='300'
-                crop='scale'
+                width="300"
+                crop="scale"
                 onClick={() => this.selectUpload(upload._id)}
               />
             </CloudinaryContext>
           </div>
-        </Container>
         );
       });
     } else {
       // no data yet
-      uploads = <p>No Upload Data!</p>;
+      uploads = <p className="noUploadDataHeader">No Upload Data!</p>;
     }
     return (
-      <div className="Fluid Container">
-      <div className='uploadList'>
-        <p>
-          hello I am {this.props.user.firstName}, my userid is{' '}
-          {this.props.user._id}{' '}
+      <div className="uploadList">
+        <p className="userData">
+          hello I am {this.props.user.firstName}, my userid is{" "}
+          {this.props.user._id}{" "}
         </p>
-        <h1>All uploads</h1>
+        <h1 className="uploadHeader">All uploads</h1>
         {uploads}
-        <button onClick={this.props.logout}>Logout</button>
-      </div>
-      
+        <Button
+          variant="primary"
+          size="medium"
+          value="logout"
+          onClick={this.props.logout}
+        >
+          Logout
+        </Button>
       </div>
     );
   }

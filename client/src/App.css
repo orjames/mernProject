@@ -341,3 +341,11 @@ footer .small-button.medium {
   padding: 10em; 
 
 */
+
+.p-3 {
+  padding: $spacer !important;
+}
+
+.cardOpacity {
+  opacity: .75;
+}
