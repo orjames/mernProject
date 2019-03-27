@@ -8,10 +8,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgb(40, 44, 53); */
-  /* display: flex;
+  /* background-color: rgba(256, 256, 256, .5); */
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
+  /* background: url(./images/andrej-lisakov-568541-unsplash-1280.png); */
+
 }
 
 code {
@@ -19,31 +21,33 @@ code {
     monospace;
 }
 
-body {
+/* body {
   font-family: Roboto, sans-serif;
-  /* background-color: rgb(40, 44, 53); */
+  background-color: rgb(40, 44, 53);
   color: #757575;
-}
+} */
 
-.container {
+.container-fluid {
   display: flex;
   flex-direction: column;
   max-height: 80em;
   max-width: 30em;
   justify-content: space-around;
-  background-color: #dcdcdc;
+  /* background-color: rgb (256, 256, 256);  */
+  /* background-color: #dcdcdc; */
 }
-
+/* 
 .containerForDataVis {
   display: flex;
   flex-direction: column;
   height: 40em;
   max-width: 30em;
   justify-content: space-around;
+  background-color:	#DCDCDC;
   background-color: #dcdcdc;
   text-align: center;
   margin: auto;
-}
+} */
 
 .buttons {
   display: flex;
@@ -106,6 +110,7 @@ input[type='file'] {
   position: absolute;
 }
 
+
 img {
   max-height: 20em;
   max-width: 20em;
@@ -114,7 +119,14 @@ img {
 }
 
 .jumbotron {
-  margin-top: 48px;
+  background: url(./images/andrej-lisakov-568541-unsplash-1280.png);
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; 
+}
+
+.logo {
 }
 
 /* Loading */
@@ -133,7 +145,7 @@ img {
 
 .loading .background {
   border-radius: 50%;
-  background: #6762a6;
+  /* background: #6762a6; */
   border: 3px solid #c9c3e6;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
   width: 200px;
@@ -174,12 +186,12 @@ footer .small-button {
 }
 
 footer .small-button:hover {
-  background: #767676;
+  /* background: #767676; */
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.45);
 }
 
 footer .small-button.github {
-  background: #6e5494;
+  /* background: #6e5494; */
 }
 
 footer .small-button.medium {
@@ -190,11 +202,11 @@ footer .small-button.medium {
 
 @keyframes pulse-colors {
   from {
-    background: #c9c3e6;
+    /* background: #c9c3e6; */
     border: 3px solid #a29ccc;
   }
   to {
-    background: #6762a6;
+    /* background: #6762a6; */
     border: 3px solid #c9c3e6;
   }
 }
@@ -218,7 +230,7 @@ footer .small-button.medium {
 }
 
 .spinner svg {
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
   border-radius: 50%;
 }
 
@@ -257,8 +269,8 @@ footer .small-button.medium {
 
 .colorRecsList {
   text-align: center;
-  background-color:	#DCDCDC; 
-  max-width: 30em;
+  /* background-color: #dcdcdc; */
+  width: 79.5vw;
   margin: auto;
 }
 
@@ -275,6 +287,7 @@ footer .small-button.medium {
   text-align: center;
 }
 
+/* .login{
 .login {
   text-align: center;
   width: 20em;
@@ -330,39 +343,14 @@ footer .small-button.medium {
 
 .logBox {
   border: 5px solid green;
-
   padding: 10em; 
-}
-.uploadList{
-  margin: 0 auto;
-  text-align: center;
-  max-width:  30em;
-  border: 1px solid purple
-}
 
-.userData{
-  margin: 0 auto;
-  max-width: 30em;
-  height: 10em;
-  font-size: 1em; 
-border: 1px solid purple
+*/
+
+.p-3 {
+  padding: $spacer !important;
 }
 
-.uploadHeader{
-  margin: 0 auto;
-  max-width: 30em;
-border: 1px solid purple
-}
-
-.colorDataHeader{
-  font-size: 2em; 
-}
-
-.container-fluid{
-
-  display: flex;
-  flex-direction: column; 
-  height: 100vh;
-  justify-content: space-around;
-
+.cardOpacity {
+  opacity: .75;
 }
