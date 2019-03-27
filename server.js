@@ -13,6 +13,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(helmet());
+app.use(express.static(__dirname + '/client/build'));
 
 // image stuff below
 // configuring cloudinary to user specific cloud name, API_KEY, and API_SECRET
@@ -62,7 +63,11 @@ const signupLimiter = new RateLimit({
 });
 
 // connects to the MongoDB
+// For Dev
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+// For Production
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+
 const db = mongoose.connection;
 db.once('open', () => {
   console.log(`Connected to mongo on ${db.host}:${db.port}`);
@@ -82,6 +87,10 @@ app.use(
   expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }),
   require('./routes/locked')
 );
+
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/client/build/index.html');
+});
 
 app.listen(process.env.PORT, () => {
   console.log(
