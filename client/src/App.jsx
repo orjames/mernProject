@@ -6,6 +6,8 @@ import UserProfile from './UserProfile';
 import axios from 'axios';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faIgloo } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -151,12 +153,9 @@ class App extends Component {
         <Router>
           <div>
             <Link to='/'>
-              {' '}
-              Home
+              <FontAwesomeIcon icon={faIgloo} size='3x' color='#000000' />{' '}
             </Link>
-            <Link to={`/profile/${this.state.user._id}`}>
-              Profile
-            </Link>
+            <Link to={`/profile/${this.state.user._id}`}>Profile</Link>
             <Route
               path='/'
               exact
