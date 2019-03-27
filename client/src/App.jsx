@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import './App.css';
 import Signup from './Signup';
@@ -8,6 +9,17 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+=======
+import React, { Component } from "react";
+import "./App.css";
+import Signup from "./Signup";
+import Login from "./Login";
+import UserProfile from "./UserProfile";
+import axios from "axios";
+import Home from "./Home";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Row, Col, Container, Jumbotron } from "react-bootstrap";
+>>>>>>> 13898c7fdc8c5c75b5da87876423cfa0089a7f69
 
 class App extends Component {
   // if you refresh the browser, you lose the state, so we save token in both state and local storage
@@ -17,11 +29,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: '',
+      token: "",
       user: null,
-      errorMessage: '',
-      lockedResult: '',
-      loginSelected: false,
+      errorMessage: "",
+      lockedResult: "",
+      loginSelected: false
     };
     this.liftTokenToState = this.liftTokenToState.bind(this);
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
@@ -33,27 +45,27 @@ class App extends Component {
 
   checkForLocalToken = () => {
     // look in local storage for the token
-    let token = localStorage.getItem('mernToken');
-    if (!token || token === 'undefined') {
+    let token = localStorage.getItem("mernToken");
+    if (!token || token === "undefined") {
       // there is no token
-      localStorage.removeItem('mernToken');
+      localStorage.removeItem("mernToken");
       this.setState({
-        token: '',
-        user: null,
+        token: "",
+        user: null
       });
     } else {
       // found a token, send it to be verified
-      axios.post('/auth/me/from/token', { token }).then((res) => {
-        if (res.data.type === 'error') {
-          localStorage.removerItem('mernToken');
+      axios.post("/auth/me/from/token", { token }).then(res => {
+        if (res.data.type === "error") {
+          localStorage.removerItem("mernToken");
           this.setState({ errorMessage: res.data.message });
         } else {
           // put token in local storage
-          localStorage.setItem('mernToken', res.data.token);
+          localStorage.setItem("mernToken", res.data.token);
           // put token in state
           this.setState({
             token: res.data.token,
-            user: res.data.user,
+            user: res.data.user
           });
         }
       });
@@ -64,20 +76,20 @@ class App extends Component {
     this.checkForLocalToken();
   }
 
-  liftTokenToState = (data) => {
+  liftTokenToState = data => {
     this.setState({
       token: data.token,
-      user: data.user,
+      user: data.user
     });
   };
 
   logout = () => {
     // Remove the token from localStorage
-    localStorage.removeItem('mernToken');
+    localStorage.removeItem("mernToken");
     // Remove the user and token from state
     this.setState({
-      token: '',
-      user: null,
+      token: "",
+      user: null
     });
   };
 
@@ -88,25 +100,25 @@ class App extends Component {
     // }`; // this applies globally to all axios calls, sends token, otherwise do the config below for specific axios call
     let config = {
       headers: {
-        Authorization: `Bearer ${this.state.token}`,
-      },
+        Authorization: `Bearer ${this.state.token}`
+      }
     };
-    axios.get('/locked/test', config).then((res) => {
+    axios.get("/locked/test", config).then(res => {
       this.setState({
-        lockedResult: res.data,
+        lockedResult: res.data
       });
     });
   }
 
-  loginClick = (e) => {
+  loginClick = e => {
     this.setState({
-      loginSelected: true,
+      loginSelected: true
     });
   };
 
-  signUpClick = (e) => {
+  signUpClick = e => {
     this.setState({
-      loginSelected: false,
+      loginSelected: false
     });
   };
 
@@ -114,36 +126,47 @@ class App extends Component {
     let logbox;
     if (this.state.loginSelected === true) {
       logbox = (
-        <div className='ifConRender'>
-          <div className='insideDiv'>
-            <p className='loginConrender' onClick={this.loginClick}>
-              {' '}
-              Login{' '}
-            </p>
-            <p className='registerConrender' onClick={this.signUpClick}>
-              {' '}
-              Register{' '}
-            </p>
-            <Login
-              className='liftStateLogin'
-              liftTokenToState={this.liftTokenToState}
-            />
-          </div>
-        </div>
+          <>
+            <Container>
+              <Row>
+                <Col sm={4}>
+                  <p className="loginConrender" onClick={this.loginClick}> {" "} Login{" "}</p>
+                </Col>
+                <Col sm={4}>
+                  <p className="registerConrender" onClick={this.signUpClick}> {" "} Register{" "}</p>
+                    <Login className="liftStateLogin" liftTokenToState={this.liftTokenToState} />
+                </Col>
+              </Row>
+            </Container>
+          </>
       );
     } else {
       logbox = (
-        <div className='elseConRender'>
-          <p className='SecondloginConRender' onClick={this.loginClick}>
-            {' '}
-            Login{' '}
-          </p>
-          <p className='SecondregisterConRender' onClick={this.signUpClick}>
-            {' '}
-            Register{' '}
-          </p>
-          <Signup liftTokenToState={this.liftTokenToState} />
-        </div>
+        <>
+          <Container>
+            <Row>
+              <Col sm={4}>
+                <p
+                  className="SecondloginConRender"
+                  onClick={this.loginClick}
+                >
+                  {" "}
+                  Login{" "}
+                </p>
+              </Col>
+              <Col sm={4}>
+                <p
+                  className="SecondregisterConRender"
+                  onClick={this.signUpClick}
+                >
+                  {" "}
+                  Register{" "}
+                </p>
+              </Col>
+              <Signup liftTokenToState={this.liftTokenToState} />
+            </Row>
+          </Container>
+        </>
       );
     }
     let user = this.state.user;
@@ -152,12 +175,17 @@ class App extends Component {
       contents = (
         <Router>
           <div>
+<<<<<<< HEAD
             <Link to='/'>
               <FontAwesomeIcon icon={faIgloo} size='3x' color='#000000' />{' '}
             </Link>
+=======
+            {/* *****************  DO NOT TOUCH PLEASE FOR NOW ******************************* */}
+            <Link to="/"> Home </Link>
+>>>>>>> 13898c7fdc8c5c75b5da87876423cfa0089a7f69
             <Link to={`/profile/${this.state.user._id}`}>Profile</Link>
             <Route
-              path='/'
+              path="/"
               exact
               render={() => <Home user={this.state.user} />}
             />
@@ -171,17 +199,21 @@ class App extends Component {
         </Router>
       );
     } else {
-      contents = <div className='logBox'>{logbox}</div>;
+      contents = <div className="logBox">{logbox}</div>;
     }
 
     return (
-      <div className='App'>
-        {contents}{' '}
-        <p>
-          <button onClick={this.handleClick}>test the protected route</button>
-        </p>
-        <p>{this.state.lockedResult}</p>
-      </div>
+      <>
+        <Jumbotron>
+          <div className="App">
+            {contents}{" "}
+            <p>
+              <button onClick={this.handleClick}>test the protected route</button>
+            </p>
+            <p>{this.state.lockedResult}</p>
+          </div>
+        </Jumbotron>
+      </>
     );
   }
 }
