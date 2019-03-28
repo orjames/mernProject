@@ -29,6 +29,26 @@ router.post('/:userId/uploads', (req, res) => {
   });
 });
 
+// PUT /profile/:userId - UPDATE one profile
+// not in use yet, must add two more fields to user profile
+// router.put('/:userId/profile', (req, res) => {
+//   User.findByIdAndUpdate(
+//     req.params.userId,
+//     {
+//       profilePicture: req.body.profilePicture,
+//       bio: req.body.bio,
+//     },
+//     { new: true },
+//     (err, profile) => {
+//       if (err) {
+//         return res.status(500).send(err);
+//       } else {
+//         return res.status(203).json(profile);
+//       }
+//     }
+//   );
+// });
+
 // GET /profile/:userId/uploads - GET ALL uploads associated with given user
 router.get('/:userId/uploads', (req, res) => {
   console.log('hitting the get route to profile\n\n');
@@ -43,7 +63,7 @@ router.get('/:userId/uploads', (req, res) => {
     });
 });
 
-// GET profile/:userId/uploads/:uid - GET ONE upload associated with specific user
+// GET /profile/:userId/uploads/:uid - GET ONE upload associated with specific user
 router.get('/:userId/uploads/:uid', (req, res) => {
   User.findById(req.params.userId)
     .populate('uploads')
