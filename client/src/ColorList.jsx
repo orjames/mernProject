@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Row, Col, Jumbotron, Card} from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 const ColorList = (props) => {
   console.log(props, 'this is your props');
@@ -28,7 +28,6 @@ const ColorList = (props) => {
     <div id='container-fluid'>
       <div className='userProfileRecommendationBoxOutputs'>{colors}</div>
     </div>
- 
   );
 };
 

@@ -160,7 +160,6 @@ app.get('/cloudinary-data', function(req, res) {
 <img src="client/src/images/ERD-Diagram.png">
 
 ### Components
-
 - Screenshot of the components:
 
 <img src="client/src/images/component-list.png">
@@ -169,7 +168,6 @@ The main functionality of the app, when simplified, is three components: the upl
 
 
 ### Trello  
-
 <img src="client/src/images/Trello.png">
 
 

@@ -1,13 +1,6 @@
 /* Colors: red: rgb(65,56,56) */
 
 body {
-  background-image: url("./images/andrej-lisakov-568541-unsplash-1280.png"); 
-  max-width: 100%;
-  height: 100%;
-  text-align: center; 
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat; 
   margin: 0 auto;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -33,21 +26,23 @@ code {
 .container-fluid {
   display: flex;
   flex-direction: column;
-  max-width: 30em; 
+  max-height: 80em;
+  max-width: 30em;
   justify-content: space-around;
   /* background-color: rgb (256, 256, 256);  */
   /* background-color: #dcdcdc; */
 }
-
-/* .containerForDataVis {
+/* 
+.containerForDataVis {
   display: flex;
   flex-direction: column;
-  max-height: 35em;
-  max-width: 40em;
+  height: 40em;
+  max-width: 30em;
   justify-content: space-around;
+  background-color:	#DCDCDC;
+  background-color: #dcdcdc;
   text-align: center;
   margin: auto;
-  text-align: center;
 } */
 
 .buttons {
@@ -57,10 +52,7 @@ code {
   flex-wrap: wrap;
   height: 50vh;
 }
-.dataButton{
-  text-align: center;
-  margin: auto;
-}
+
 .button {
   margin: 0 10vw;
   max-width: 15em;
@@ -117,6 +109,7 @@ img {
   max-height: 20em;
   max-width: 20em;
   padding: 10px;
+  border: 1px dashed #999;
 }
 
 /* Loading */
@@ -243,21 +236,22 @@ footer .small-button {
 }
 
 .colorRecsList {
-margin: auto;
+  text-align: center;
+  /* background-color: #dcdcdc; */
+  width: 79.5vw;
+  margin: auto;
 }
 
 .imageColor {
   margin: auto;
-  text-align: center;
 }
 
 .RadialChartOfficial {
+  text-align: center;
   margin: auto;
-  text-align: center
 }
 
-.compleColorName, .compleColorHex{
-  margin: auto;
+.Colors {
   text-align: center;
 }
 
@@ -270,7 +264,6 @@ margin: auto;
   top: 27em;
   position: absolute;
 }
-
 .signup {
   text-align: center;
   width: 20em;
@@ -279,7 +272,6 @@ margin: auto;
   top: 30em;
   position: relative;
 }
-
 .loginConrender {
   position: relative;
   text-align: center;
@@ -287,14 +279,12 @@ margin: auto;
   left: 35em;
   width: 5em;
 }
-
 .registerConrender {
   position: relative;
   top: 27.5em;
   left: 40em;
   width: 5em;
 }
-
 .SecondregisterConRender {
   position: absolute;
   border: 1px solid pink;
@@ -302,7 +292,6 @@ margin: auto;
   left: 13em;
   width: 5em;
 }
-
 .SecondloginConRender {
   position: absolute;
   border: 2px sold magenta;
@@ -310,47 +299,23 @@ margin: auto;
   left: 35em;
   width: 5em;
 }
-
 .elseConRender {
   height: 100vh;
 }
-
 .logBox {
   border: 5px solid green;
   padding: 10em; 
- */
-
-
-
-.logOutButton{
-  border: 3px solid purple;
-}
-
+*/
 
 .p-3 {
   padding: $spacer !important;
 }
 
-.carDataVis, .cardUpload, .cardOpacity, .cardColorCircle  {
-  background: rgba(255, 255, 255, 0.75);
-  margin: 0 auto; 
-}
-
-/* .DataVis{
-  text-align: center;
-  margin: auto;
-} */
 .cardOpacity {
   opacity: 0.75;
 }
 
 /* where Owen's CSS begins 
-
-
-
-
-
-
 Owen's CSS
 */
 a {
@@ -358,6 +323,29 @@ a {
 }
 a:hover {
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.45);
+}
+
+.radioButtonDiv {
+  font-size: 1.5rem;
+}
+
+:focus {
+  outline: none;
+}
+.radio {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  border: 4px solid #ccc;
+  border-top-color: #bbb;
+  border-left-color: #bbb;
+  background: #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.radio:checked {
+  border: 0.5rem solid #4099ff;
 }
 
 .logoImage {

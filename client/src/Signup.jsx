@@ -74,7 +74,6 @@ class Signup extends Component {
 
   render() {
     return (
-    
       <Container>
         <Card className = "cardOpacity" style={{ width: "30 em", height: "90 em" }}>
           <Card.Body>

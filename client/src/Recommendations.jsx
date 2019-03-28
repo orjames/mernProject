@@ -1,9 +1,10 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
 import ModeSelector from './ModeSelector';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {withRouter} from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import UserProfile from './UserProfile';
 
 class Recommendations extends Component {
@@ -26,7 +27,6 @@ class Recommendations extends Component {
     };
     this.saveRecommendations = this.saveRecommendations.bind(this);
     this.changeMode = this.changeMode.bind(this);
-   
   }
 
   // when the component mounts, it looks at the primary color and then recommends complementary ones
@@ -86,7 +86,6 @@ class Recommendations extends Component {
   }
 
   postUpload = (object) => {
-    console.log('axios should e posting this');
     axios
       .post(`/profile/${object.userId}/uploads`, {
         publicId: object.publicId,
@@ -96,7 +95,7 @@ class Recommendations extends Component {
       })
       .then((res) => {
         console.log(res);
-        this.props.history.push(`profile/${this.props.user._id}`)
+        this.props.history.push(`profile/${this.props.user._id}`);
       })
       .catch(function(error) {
         console.log(error);
@@ -115,13 +114,13 @@ class Recommendations extends Component {
     };
     this.postUpload(postObject);
   };
+
   changeMode = (e) => {
     this.setState({
       mode: e.target.value,
       currentRec: this.state.colorRec[e.target.value],
     });
   };
-
 
   render() {
     if (Object.keys(this.state.colorRec).length > 0) {
@@ -131,23 +130,14 @@ class Recommendations extends Component {
             <ModeSelector mode={this.state.mode} changeMode={this.changeMode} />
           </div>
           <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
+
           <Router>
-            <Route
-              path={`/profile/${this.props.user._id}`}
-              render={() => (
-                <UserProfile
-                  user={this.props.user}
-                  logout={this.props.logout}
-                />
-              )}
-            />
-            <Link to={`/profile/${this.props.user._id}`}>
-              <div className='addToProfileButtonDiv'>
-                <button onClick={this.saveRecommendations}>
-                  Add to Profile
-                </button>
-              </div>
-            </Link>
+            <div className='addToProfileButtonDiv'>
+              <button onClick={this.saveRecommendations}>
+                {' '}
+                Add to Profile
+              </button>
+            </div>
           </Router>
         </div>
       );
@@ -162,14 +152,3 @@ class Recommendations extends Component {
 }
 
 export default withRouter(Recommendations);
-
-
-{/* <Route exact path="/Procedures" */}
-
-{/* <Link to={`/profile/${this.state.user._id}`}><button className="btnProfile"><i class="fa fa-male"></i></button></Link> */}
-
-
-
-
-{/* <button onClick={() => hashHistory.push(`/profile/${this.props.user._id}`})}></button> */}
- 

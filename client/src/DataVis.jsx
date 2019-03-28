@@ -1,7 +1,5 @@
 import React from 'react';
 import { RadialChart } from 'react-vis';
-import {Jumbotron, Container, Row, Col, Card} from "react-bootstrap"; 
-
 
 export default (props) => {
   // To Do click functionality
