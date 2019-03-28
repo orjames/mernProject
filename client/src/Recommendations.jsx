@@ -152,3 +152,4 @@ class Recommendations extends Component {
 }
 
 export default withRouter(Recommendations);
+
