@@ -3,6 +3,7 @@ import axios from 'axios';
 import ColorList from './ColorList';
 import ModeSelector from './ModeSelector';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import UserProfile from './UserProfile';
 
 class Recommendations extends Component {
@@ -84,7 +85,6 @@ class Recommendations extends Component {
   }
 
   postUpload = (object) => {
-    console.log('axios should e posting this');
     axios
       .post(`/profile/${object.userId}/uploads`, {
         publicId: object.publicId,
@@ -94,6 +94,7 @@ class Recommendations extends Component {
       })
       .then((res) => {
         console.log(res);
+        this.props.history.push(`profile/${this.props.user._id}`);
       })
       .catch(function(error) {
         console.log(error);
@@ -130,22 +131,12 @@ class Recommendations extends Component {
           <ColorList mode={this.state.mode} colorRec={this.state.currentRec} />
 
           <Router>
-            <Route
-              path={`/profile/${this.props.user._id}`}
-              render={() => (
-                <UserProfile
-                  user={this.props.user}
-                  logout={this.props.logout}
-                />
-              )}
-            />
-            <Link to={`/profile/${this.props.user._id}`}>
-              <div className='addToProfileButtonDiv'>
-                <button onClick={this.saveRecommendations}>
-                  Add to Profile
-                </button>
-              </div>
-            </Link>
+            <div className='addToProfileButtonDiv'>
+              <button onClick={this.saveRecommendations}>
+                {' '}
+                Add to Profile
+              </button>
+            </div>
           </Router>
         </div>
       );
@@ -159,4 +150,4 @@ class Recommendations extends Component {
   }
 }
 
-export default Recommendations;
+export default withRouter(Recommendations);

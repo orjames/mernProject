@@ -9,7 +9,6 @@ import DataVis from './DataVis';
 import Spinner from './Spinner';
 import { API_URL } from './config';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
 
 const toastColor = {
   background: '#ff0000',
@@ -143,14 +142,9 @@ class Home extends Component {
     };
     if (this.state.images.length > 0) {
       uploadButton = (
-        <Button
-          className='getDataButton'
-          variant='primary'
-          size='large'
-          onClick={this.getPhotoData}
-        >
+        <button className='getDataButton' onClick={this.getPhotoData}>
           Get Data
-        </Button>
+        </button>
       );
     } else {
       // no image uploaded

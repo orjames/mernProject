@@ -44,7 +44,7 @@ class UserProfile extends Component {
 
   removeUpload = (id) => {
     console.log('clikc lcik click');
-    this.setState({ uploads: this.filter(id), currentUpload: { colors: [] } });
+    this.setState({ uploads: this.filter(id), currentUpload: null });
     axios
       .delete(`/profile/${this.props.user._id}/uploads/${id}`)
       .then((res) => {
@@ -81,7 +81,7 @@ class UserProfile extends Component {
             width: '80vw',
           };
           return (
-            <div className='userProfileRecommendation'>
+            <div key={index} className='userProfileRecommendation'>
               <div style={imgStyle} />
               <h3 className='userProfileColorName'>
                 {color.name.value} <small>{color.hex.value}</small>
@@ -94,71 +94,89 @@ class UserProfile extends Component {
     if (this.state.currentUpload) {
       radioButton = (
         <div className='radioButtonDiv'>
-          <form>
+          <form className='radioButtonForm'>
             <input
               checked={this.state.mode === 'monochrome'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='monochrome'
+              id='monochrome'
             />
-            monochrome{'  '}
+            <label htmlFor='monochrome'>monochrome{'  '}</label>
             <input
               checked={this.state.mode === 'monochromeDark'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='monochromeDark'
+              id='monochromeDark'
             />
-            monochrome-dark{'  '}
+            <label htmlFor='monochromeDark'>monochrome dark{'  '}</label>
             <input
               checked={this.state.mode === 'monochromeLight'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='monochromeLight'
+              id='monochromeLight'
             />
-            monochrome-light{'  '}
+            <label htmlFor='monochromeLight'>monochrome -light{'  '}</label>
             <input
               checked={this.state.mode === 'analogic'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='analogic'
+              id='analogic'
             />
-            analogic{'  '}
+            <label htmlFor='analogic'>analogic{'  '}</label>
             <input
               checked={this.state.mode === 'complement'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='complement'
+              id='complement'
             />
-            complement{'  '}
+            <label htmlFor='complement'>complement{'  '}</label>
             <input
               checked={this.state.mode === 'analogicComplement'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='analogicComplement'
+              id='analogicComplement'
             />
-            analogic-complement{'  '}
+            <label htmlFor='analogicComplement'>
+              analogic complement{'  '}
+            </label>
             <input
               checked={this.state.mode === 'triad'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='triad'
+              id='triad'
             />
-            triad{'  '}
+            <label htmlFor='triad'>triad{'  '}</label>
             <input
               checked={this.state.mode === 'quad'}
               onChange={this.changeMode}
               type='radio'
               name='mode'
+              className='radio'
               value='quad'
+              id='quad'
             />
-            quad
+            <label htmlFor='quad'>quad{'  '}</label>
           </form>
         </div>
       );
