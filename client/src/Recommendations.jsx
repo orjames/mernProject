@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
@@ -151,3 +152,4 @@ class Recommendations extends Component {
 }
 
 export default withRouter(Recommendations);
+

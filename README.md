@@ -160,17 +160,21 @@ app.get('/cloudinary-data', function(req, res) {
 <img src="client/src/images/ERD-Diagram.png">
 
 ### Components
-
 - Screenshot of the components:
 
 <img src="client/src/images/component-list.png">
 ## App Development
 The main functionality of the app, when simplified, is three components: the upload/image analysis widget, the data visualization and the recommendations.
 
+
+### Trello  
+<img src="client/src/images/Trello.png">
+
+
 ### Image Analysis & Upload
 This was the crux of our app, to get the upload functionality working, I built a custom widget based on cloudinary. This ended up being a massive time sink, and the most difficult part of the app. A LOT more was involved but an the code that does the analyis is shown below
 
-Front End:
+- Front End:
 ```javascript
 getPhotoData = () => {
     axios
@@ -182,7 +186,7 @@ getPhotoData = () => {
       });
   };
 ```
-Back End:
+- Back End:
 ```javascript
 router.get('/cloudinary-data/:pid', function(req, res) {
   cloudinary.v2.api.resource(
@@ -200,7 +204,32 @@ React-vis is a React visualization library created by Uber. With it you can easi
 
 - Code Snippet:
 
-  <img src="client/src/images/dataVisCode.png">
+```javascript 
+export default (props) => {
+  // To Do click functionality
+  let dataArr = props.cloudColors.map((color, index) => {
+    // console.log(color)
+    return {
+      angle: color[1],
+      color: color[0],
+    };
+  });
+  return (
+    <div className='containerForDataVis'>
+      <div className='radialChart'>
+        <RadialChart
+          data={dataArr}
+          className='RadialChartOfficial'
+          width={350}
+          height={350}
+          padAngle={0.004}
+          showLabels={true}
+          colorType='literal'
+        />
+      </div>
+    </div>
+  );
+};
 
 - React Vis Example:
 

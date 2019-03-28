@@ -264,7 +264,6 @@ footer .small-button {
   top: 27em;
   position: absolute;
 }
-
 .signup {
   text-align: center;
   width: 20em;
@@ -273,7 +272,6 @@ footer .small-button {
   top: 30em;
   position: relative;
 }
-
 .loginConrender {
   position: relative;
   text-align: center;
@@ -281,14 +279,12 @@ footer .small-button {
   left: 35em;
   width: 5em;
 }
-
 .registerConrender {
   position: relative;
   top: 27.5em;
   left: 40em;
   width: 5em;
 }
-
 .SecondregisterConRender {
   position: absolute;
   border: 1px solid pink;
@@ -296,7 +292,6 @@ footer .small-button {
   left: 13em;
   width: 5em;
 }
-
 .SecondloginConRender {
   position: absolute;
   border: 2px sold magenta;
@@ -304,15 +299,12 @@ footer .small-button {
   left: 35em;
   width: 5em;
 }
-
 .elseConRender {
   height: 100vh;
 }
-
 .logBox {
   border: 5px solid green;
   padding: 10em; 
-
 */
 
 .p-3 {
@@ -324,12 +316,6 @@ footer .small-button {
 }
 
 /* where Owen's CSS begins 
-
-
-
-
-
-
 Owen's CSS
 */
 a {
