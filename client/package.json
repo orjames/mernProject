@@ -2,9 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "installConfig": {
-    "pnp": true
-  },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.17",

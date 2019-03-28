@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "start": "node server.js"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Owen R. James",
   "license": "ISC",
@@ -19,11 +18,8 @@
     "express-form-data": "^2.0.8",
     "express-jwt": "^5.3.1",
     "express-rate-limit": "^3.4.0",
-    "fontawesome": "^5.6.3",
     "helmet": "^3.16.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.19",
-    "react-bootstrap": "^1.0.0-beta.6",
-    "react-vis": "^1.11.6"
   }
 }
