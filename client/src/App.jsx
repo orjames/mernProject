@@ -172,10 +172,10 @@ class App extends Component {
             <div className='navBarDiv'>
               <div className='navButtonDiv'>
                 <Link to='/'>
-                  <FontAwesomeIcon icon={faHome} size='3x' color='#000080' />{' '}
+                  <FontAwesomeIcon icon={faHome} size='3x' color='#3B5998' />{' '}
                 </Link>
                 <Link to={`/profile/${this.state.user._id}`}>
-                  <FontAwesomeIcon icon={faIdBadge} size='3x' color='#000080' />{' '}
+                  <FontAwesomeIcon icon={faIdBadge} size='3x' color='#3B5998' />{' '}
                 </Link>
               </div>
             </div>

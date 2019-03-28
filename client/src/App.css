@@ -218,7 +218,7 @@ a:hover {
 }
 
 button {
-  background-color: #233142;
+  background-color: rgb(35, 49, 66);
   border: none;
   border-radius: 4px;
   color: #ccc;
@@ -234,7 +234,7 @@ button {
 }
 
 .loginContainer {
-  background-color: rgba(19, 56, 160, 0.25);
+  background-color: rgba(35, 49, 66, 0.25);
   padding: 0.2rem;
   padding-top: 1rem;
   display: flex;
@@ -244,34 +244,42 @@ button {
 }
 
 .loginText {
+  letter-spacing: 1.5px;
   padding-right: 1rem;
+  padding-left: 1rem;
   margin-bottom: 0;
   text-decoration: underline;
-  background-color: rgba(19, 56, 160, 0.25);
+  background-color: rgba(35, 49, 66, 0.25);
   border-top-left-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
   cursor: pointer;
 }
 
 .loginTextSelected {
+  letter-spacing: 1.5px;
+  padding-left: 1rem;
   padding-right: 1rem;
   margin-bottom: 0;
   cursor: pointer;
 }
 
 .signupText {
+  letter-spacing: 1.5px;
   margin-bottom: 0;
   margin: 0;
   padding-right: 1rem;
+  padding-left: 1rem;
   cursor: pointer;
 }
 
 .signupTextSelected {
+  letter-spacing: 1.5px;
   margin-right: 1rem;
   padding-right: 1rem;
+  padding-left: 1rem;
   margin: 0;
   text-decoration: underline;
-  background-color: rgba(19, 56, 160, 0.25);
+  background-color: rgba(35, 49, 66, 0.25);
   border-top-left-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
   cursor: pointer;
