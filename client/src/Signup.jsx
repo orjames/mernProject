@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Container, Button, Form, Row, Card} from "react-bootstrap"
-
 
 class Signup extends Component {
   constructor(props) {
@@ -74,83 +72,62 @@ class Signup extends Component {
 
   render() {
     return (
-      <Container>
-        <Card className = "cardOpacity" style={{ width: "30 em", height: "90 em" }}>
-          <Card.Body>
-            <Form className="signupForm" onSubmit={this.handleSubmit}>
-              {/* Form.Control is needed for the Form Styling */}
-              <Form.Group>
-                <Row>
-                  <Form.Label>
-                    <h3 className="signupHeader">Create a New Account:</h3>
-                  </Form.Label>
-                </Row>
-                <Row>
-                  <Form.Control
-                    onChange={this.handleFirstNameChange}
-                    value={this.state.firstName}
-                    type="text"
-                    name="firstName"
-                    placeholder="your first name..."
-                    minLength="1"
-                    maxLength="99"
-                  />
-                </Row>
-                <br />
-                <Row>
-                  <Form.Control
-                    onChange={this.handleLastNameChange}
-                    value={this.state.lastName}
-                    type="text"
-                    name="lastName"
-                    placeholder="your last name..."
-                    minLength="1"
-                    maxLength="99"
-                  />
-                </Row>
-                <br />
-                <Row>
-                  <Form.Control
-                    onChange={this.handleEmailChange}
-                    value={this.state.email}
-                    type="email"
-                    name="email"
-                    placeholder="your email..."
-                    minLength="5"
-                    maxLength="99"
-                  />
-                </Row>
-                <br />
-                <Row>
-                  <Form.Control
-                    onChange={this.handlePasswordChange}
-                    value={this.state.password}
-                    type="password"
-                    name="password"
-                    placeholder="choose a password..."
-                    minLength="8"
-                    maxLength="128"
-                  />
-                </Row>
-                <br />
-                {/* This is your Signup Button */}
-                <Row>
-                  <Button
-                    variant="primary"
-                    size="large"
-                    type="submit"
-                    value="signup"
-                    active
-                  >
-                    {" "}
-                    Register{" "}
-                  </Button>
-                </Row>
-                </Form.Group>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Container>
+      <div className='loginContainer'>
+        <form className='loginForm' onSubmit={this.handleSubmit}>
+          <input
+            type='text'
+            onChange={this.handleFirstNameChange}
+            value={this.state.firstName}
+            type='text'
+            name='firstName'
+            placeholder='your first name...'
+            minLength='1'
+            maxLength='99'
+          />
+          <br />
+
+          <input
+            type='text'
+            onChange={this.handleLastNameChange}
+            value={this.state.lastName}
+            type='text'
+            name='lastName'
+            placeholder='your last name...'
+            minLength='1'
+            maxLength='99'
+          />
+          <br />
+
+          <input
+            type='text'
+            onChange={this.handleEmailChange}
+            value={this.state.email}
+            type='email'
+            name='email'
+            placeholder='enter your email...'
+            minLength='5'
+            maxLength='99'
+            name=''
+            id=''
+          />
+          <br />
+
+          <input
+            type='text'
+            onChange={this.handlePasswordChange}
+            value={this.state.password}
+            type='password'
+            name='password'
+            placeholder='enter your password...'
+            minLength='8'
+            maxLength='128'
+          />
+          <br />
+          <button type='submit' value='login'>
+            Register
+          </button>
+        </form>
+      </div>
     );
   }
 }

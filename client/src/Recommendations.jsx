@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
 import ModeSelector from './ModeSelector';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import UserProfile from './UserProfile';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 class Recommendations extends Component {
   constructor(props) {
@@ -133,7 +134,11 @@ class Recommendations extends Component {
           <Router>
             <div className='addToProfileButtonDiv'>
               <button onClick={this.saveRecommendations}>
-                {' '}
+                <FontAwesomeIcon
+                  icon={faPlusSquare}
+                  size='1x'
+                  color='#f5f5f5'
+                />{' '}
                 Add to Profile
               </button>
             </div>

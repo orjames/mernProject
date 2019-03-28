@@ -1,5 +1,3 @@
-/* Colors: red: rgb(65,56,56) */
-
 body {
   margin: 0 auto;
   padding: 0;
@@ -12,7 +10,7 @@ body {
   align-items: center;
   justify-content: center;
   background: url(./images/andrej-lisakov-568541-unsplash-1280.png);
-  height: 100vh;
+  height: 100%;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -22,28 +20,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.container-fluid {
-  display: flex;
-  flex-direction: column;
-  max-height: 80em;
-  max-width: 30em;
-  justify-content: space-around;
-  /* background-color: rgb (256, 256, 256);  */
-  /* background-color: #dcdcdc; */
-}
-/* 
-.containerForDataVis {
-  display: flex;
-  flex-direction: column;
-  height: 40em;
-  max-width: 30em;
-  justify-content: space-around;
-  background-color:	#DCDCDC;
-  background-color: #dcdcdc;
-  text-align: center;
-  margin: auto;
-} */
 
 .buttons {
   display: flex;
@@ -149,36 +125,6 @@ img {
   position: absolute;
 }
 
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  width: 96vw;
-  margin: 0 2vw;
-}
-
-footer .small-button {
-  border-radius: 50%;
-  border: 1px solid #fff;
-  width: 3.2em;
-  height: 3.2em;
-  padding: 5px;
-  transition: 0.3s;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-
-@keyframes pulse-colors {
-  from {
-    /* background: #c9c3e6; */
-    border: 3px solid #a29ccc;
-  }
-  to {
-    /* background: #6762a6; */
-    border: 3px solid #c9c3e6;
-  }
-}
-
 /* Animations */
 .fadein {
   animation: fadein 2s;
@@ -194,7 +140,7 @@ footer .small-button {
 }
 
 .spinner {
-  animation: spin 1.2s infinite linear;
+  animation: spin 1.3s infinite linear;
 }
 
 .spinner svg {
@@ -255,74 +201,6 @@ footer .small-button {
   text-align: center;
 }
 
-/* .login{
-.login {
-  text-align: center;
-  width: 20em;
-  margin: 0 auto;
-  border: 3px solid grey;
-  top: 27em;
-  position: absolute;
-}
-
-.signup {
-  text-align: center;
-  width: 20em;
-  margin: 0 auto;
-  border: 3px solid grey;
-  top: 30em;
-  position: relative;
-}
-
-.loginConrender {
-  position: relative;
-  text-align: center;
-  top: 30em; 
-  left: 35em;
-  width: 5em;
-}
-
-.registerConrender {
-  position: relative;
-  top: 27.5em;
-  left: 40em;
-  width: 5em;
-}
-
-.SecondregisterConRender {
-  position: absolute;
-  border: 1px solid pink;
-  top: 38em;
-  left: 13em;
-  width: 5em;
-}
-
-.SecondloginConRender {
-  position: absolute;
-  border: 2px sold magenta;
-  top: 20em;
-  left: 35em;
-  width: 5em;
-}
-
-.elseConRender {
-  height: 100vh;
-}
-
-.logBox {
-  border: 5px solid green;
-  padding: 10em; 
-
-*/
-
-.p-3 {
-  padding: $spacer !important;
-}
-
-.cardOpacity {
-  opacity: 0.75;
-}
-
 /* where Owen's CSS begins 
 
 
@@ -339,6 +217,102 @@ a:hover {
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.45);
 }
 
+button {
+  background-color: #233142;
+  border: none;
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.loginTitle {
+  /* border: 3px solid violet; */
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loginCard {
+  /* border: 3px solid navajowhite; */
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loginContainer {
+  /* border: 3px solid teal; */
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loginText {
+  margin-right: 1rem;
+  margin-bottom: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.loginTextSelected {
+  margin-right: 1rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.signupText {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.signupTextSelected {
+  margin-right: 1rem;
+  margin-bottom: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.logboxContainer {
+  background-color: rgba(255, 255, 255, 0.75);
+  /* border: 3px solid teal; */
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logboxLoginDiv {
+  /* border: 3px solid red; */
+  margin: 3px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.buttonStyle {
+  cursor: pointer;
+  transition: box-shadow 0.1s linear;
+}
+
+.buttonStyle:hover {
+  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.2);
+}
 .radioButtonDiv {
   font-size: 1.5rem;
 }
@@ -354,24 +328,24 @@ a:hover {
   border-top-color: #bbb;
   border-left-color: #bbb;
   background: #fff;
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
 }
 .radio:checked {
-  border: 0.5rem solid #4099ff;
+  border: 0.25rem solid #4099ff;
 }
 
 .logoImage {
   border: 0;
+  border-radius: 0.5rem;
   margin: 0 auto;
   padding: 0;
-  width: 1920px;
 }
 
 .bannerLogo {
   margin-top: 1rem;
-  border: 3px solid lightcyan;
+  /* border: 3px solid lightcyan; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -380,7 +354,7 @@ a:hover {
 }
 
 .navButtonDiv {
-  border: 3px solid lightgreen;
+  /* border: 3px solid lightgreen; */
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -390,7 +364,7 @@ a:hover {
 }
 
 .navBarDiv {
-  border: 3px solid rosybrown;
+  /* border: 3px solid rosybrown; */
   z-index: 10;
   position: fixed;
   right: 2rem;
@@ -399,7 +373,7 @@ a:hover {
 }
 
 .addToProfileButtonDiv {
-  border: 3px solid teal;
+  /* border: 3px solid teal; */
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -408,7 +382,7 @@ a:hover {
 }
 
 .getDataButtonDiv {
-  border: 3px solid teal;
+  /* border: 3px solid teal; */
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -417,7 +391,9 @@ a:hover {
 }
 
 .uploadWidget {
-  border: 3px solid black;
+  /* border: 3px solid black; */
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 2rem;
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -426,7 +402,7 @@ a:hover {
 }
 
 .radialChart {
-  border: 3px solid purple;
+  /* border: 3px solid purple; */
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -435,7 +411,7 @@ a:hover {
 }
 
 .userProfileUploadPage {
-  border: 3px solid pink;
+  /* border: 3px solid pink; */
   margin: 3px;
   display: flex;
   flex-direction: column;
@@ -444,7 +420,7 @@ a:hover {
 }
 
 .userProfileName {
-  border: 3px solid pink;
+  /* border: 3px solid pink; */
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   margin-bottom: 0;
@@ -456,7 +432,7 @@ a:hover {
 }
 
 .userProfileUploadImages {
-  border: 3px solid brown;
+  /* border: 3px solid brown; */
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   margin-top: 0;
@@ -467,17 +443,18 @@ a:hover {
 }
 
 .userProfileRecommendationRadioButtons {
-  border: 3px solid orangered;
+  /* border: 3px solid orangered; */
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .userProfileRecommendationBoxOutputs {
-  border: 3px solid navy;
+  /* border: 3px solid navy; */
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   display: flex;
@@ -487,7 +464,7 @@ a:hover {
 }
 
 .userProfileRecommendation {
-  border: 3px solid maroon;
+  /* border: 3px solid maroon; */
   background-color: rgba(255, 255, 255, 0.75);
   margin: 3px;
   display: flex;

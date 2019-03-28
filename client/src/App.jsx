@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
-import { Container, Col, Row, Jumbotron } from 'react-bootstrap';
 import Logo from './Logo';
 
 class App extends Component {
@@ -118,51 +117,49 @@ class App extends Component {
     if (this.state.loginSelected === true) {
       logbox = (
         <>
-          <Container>
-            <Row>
-              <Col sm={4}>
-                <p className='loginConrender' onClick={this.loginClick}>
-                  {' '}
-                  Login{' '}
-                </p>
-              </Col>
-              <Col sm={4}>
-                <p className='registerConrender' onClick={this.signUpClick}>
-                  {' '}
-                  Register{' '}
-                </p>
-                <Login
-                  className='liftStateLogin'
-                  liftTokenToState={this.liftTokenToState}
-                />
-              </Col>
-            </Row>
-          </Container>
+          <div className='logboxContainer'>
+            <div className='logboxLoginDiv'>
+              <p className='loginText' onClick={this.loginClick}>
+                {' '}
+                Login{' '}
+              </p>
+
+              <p className='signupText' onClick={this.signUpClick}>
+                {' '}
+                Register{' '}
+              </p>
+            </div>
+            <Login
+              className='liftStateLogin'
+              liftTokenToState={this.liftTokenToState}
+            />
+          </div>
         </>
       );
     } else {
       logbox = (
         <>
-          <Container>
-            <Row>
-              <Col sm={4}>
-                <p className='SecondloginConRender' onClick={this.loginClick}>
-                  {' '}
-                  Login{' '}
-                </p>
-              </Col>
-              <Col sm={4}>
-                <p
-                  className='SecondregisterConRender'
-                  onClick={this.signUpClick}
-                >
-                  {' '}
-                  Register{' '}
-                </p>
-              </Col>
-              <Signup liftTokenToState={this.liftTokenToState} />
-            </Row>
-          </Container>
+          <div className='logboxContainer'>
+            <div className='logboxLoginDiv'>
+              <p
+                className={`${
+                  this.state.loginSelected ? 'loginText' : 'loginTextSelected'
+                }`}
+                onClick={this.loginClick}
+              >
+                Login
+              </p>
+              <p
+                className={`${
+                  this.state.loginSelected ? 'signupText' : 'signupTextSelected'
+                }`}
+                onClick={this.signUpClick}
+              >
+                Register
+              </p>
+            </div>
+            <Signup liftTokenToState={this.liftTokenToState} />
+          </div>
         </>
       );
     }
@@ -175,10 +172,10 @@ class App extends Component {
             <div className='navBarDiv'>
               <div className='navButtonDiv'>
                 <Link to='/'>
-                  <FontAwesomeIcon icon={faHome} size='3x' color='#000000' />{' '}
+                  <FontAwesomeIcon icon={faHome} size='3x' color='#000080' />{' '}
                 </Link>
                 <Link to={`/profile/${this.state.user._id}`}>
-                  <FontAwesomeIcon icon={faIdBadge} size='3x' color='#000000' />{' '}
+                  <FontAwesomeIcon icon={faIdBadge} size='3x' color='#000080' />{' '}
                 </Link>
               </div>
             </div>

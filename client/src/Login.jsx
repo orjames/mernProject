@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Button, Form} from "react-bootstrap"
-
 
 class Login extends Component {
   constructor(props) {
@@ -51,25 +49,29 @@ class Login extends Component {
             'maximum login attempts exceeded. Please try again later. (begone hacker!)',
         });
       });
-    };
-    
-    render() {
-      return (
-      <div className='container-fluid'>
-        <h3 className="loginHeader">Log in to Your Account:</h3>
-        <form className="loginForm" onSubmit={this.handleSubmit}>
-        {/* Form.Control is needed for the Form Styling */}
-            <Form.Control  
-              onChange={this.handleEmailChange}
-              value={this.state.email}
-              type='email'
-              name='email'
-              placeholder='enter your email...'
-              minLength='5'
-              maxLength='99'
-            />
+  };
+
+  render() {
+    return (
+      <div className='loginContainer'>
+        <form className='loginForm' onSubmit={this.handleSubmit}>
+          <input
+            type='text'
+            onChange={this.handleEmailChange}
+            value={this.state.email}
+            type='email'
+            name='email'
+            placeholder='enter your email...'
+            minLength='5'
+            maxLength='99'
+            name=''
+            id=''
+          />
+
           <br />
-          <Form.Control 
+
+          <input
+            type='text'
             onChange={this.handlePasswordChange}
             value={this.state.password}
             type='password'
@@ -78,17 +80,16 @@ class Login extends Component {
             minLength='8'
             maxLength='128'
           />
+
           <br />
-          {/* This is your login button */}
-          <Button variant="primary" size="large" type='submit' value='login' active > Login </Button> 
-          
+
+          <button type='submit' value='login'>
+            Login
+          </button>
         </form>
       </div>
     );
   }
 }
-
-
-
 
 export default Login;

@@ -9,6 +9,8 @@ import DataVis from './DataVis';
 import Spinner from './Spinner';
 import { API_URL } from './config';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 const toastColor = {
   background: '#ff0000',
@@ -140,13 +142,15 @@ class Home extends Component {
           return <Buttons onChange={this.onChange} />;
       }
     };
-    if (this.state.images.length > 0) {
+    if (this.state.images.length > 0 && this.state.cloudColors.length < 1) {
       uploadButton = (
-        <button className='getDataButton' onClick={this.getPhotoData}>
-          Get Data
+        <button className='buttonStyle' onClick={this.getPhotoData}>
+          <FontAwesomeIcon icon={faChartPie} size='1x' color='#f5f5f5' /> get
+          data
         </button>
       );
     } else {
+      uploadButton = null;
       // no image uploaded
     }
     let recommendations;

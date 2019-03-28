@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
+import { CloudinaryContext, Image } from 'cloudinary-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -104,7 +104,7 @@ class UserProfile extends Component {
               value='monochrome'
               id='monochrome'
             />
-            <label htmlFor='monochrome'>monochrome{'  '}</label>
+            <label htmlFor='monochrome'>monochrome</label>{' '}
             <input
               checked={this.state.mode === 'monochromeDark'}
               onChange={this.changeMode}
@@ -114,7 +114,7 @@ class UserProfile extends Component {
               value='monochromeDark'
               id='monochromeDark'
             />
-            <label htmlFor='monochromeDark'>monochrome dark{'  '}</label>
+            <label htmlFor='monochromeDark'>monochrome dark</label>{' '}
             <input
               checked={this.state.mode === 'monochromeLight'}
               onChange={this.changeMode}
@@ -124,7 +124,7 @@ class UserProfile extends Component {
               value='monochromeLight'
               id='monochromeLight'
             />
-            <label htmlFor='monochromeLight'>monochrome -light{'  '}</label>
+            <label htmlFor='monochromeLight'>monochrome -light</label>{' '}
             <input
               checked={this.state.mode === 'analogic'}
               onChange={this.changeMode}
@@ -134,7 +134,7 @@ class UserProfile extends Component {
               value='analogic'
               id='analogic'
             />
-            <label htmlFor='analogic'>analogic{'  '}</label>
+            <label htmlFor='analogic'>analogic</label>{' '}
             <input
               checked={this.state.mode === 'complement'}
               onChange={this.changeMode}
@@ -144,7 +144,7 @@ class UserProfile extends Component {
               value='complement'
               id='complement'
             />
-            <label htmlFor='complement'>complement{'  '}</label>
+            <label htmlFor='complement'>complement</label>{' '}
             <input
               checked={this.state.mode === 'analogicComplement'}
               onChange={this.changeMode}
@@ -154,9 +154,7 @@ class UserProfile extends Component {
               value='analogicComplement'
               id='analogicComplement'
             />
-            <label htmlFor='analogicComplement'>
-              analogic complement{'  '}
-            </label>
+            <label htmlFor='analogicComplement'>analogic complement</label>{' '}
             <input
               checked={this.state.mode === 'triad'}
               onChange={this.changeMode}
@@ -166,7 +164,7 @@ class UserProfile extends Component {
               value='triad'
               id='triad'
             />
-            <label htmlFor='triad'>triad{'  '}</label>
+            <label htmlFor='triad'>triad</label>{' '}
             <input
               checked={this.state.mode === 'quad'}
               onChange={this.changeMode}
@@ -176,7 +174,7 @@ class UserProfile extends Component {
               value='quad'
               id='quad'
             />
-            <label htmlFor='quad'>quad{'  '}</label>
+            <label htmlFor='quad'>quad</label>{' '}
           </form>
         </div>
       );
@@ -226,14 +224,7 @@ class UserProfile extends Component {
         <div className='userProfileRecommendationBoxOutputs'>
           {selectedUpload}
         </div>
-        <Button
-          variant='primary'
-          size='medium'
-          value='logout'
-          onClick={this.props.logout}
-        >
-          Logout
-        </Button>
+        <button onClick={this.props.logout}>Logout</button>
       </div>
     );
   }

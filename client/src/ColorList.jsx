@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
 
 const ColorList = (props) => {
   console.log(props, 'this is your props');
@@ -15,7 +14,7 @@ const ColorList = (props) => {
         width: '80vw',
       };
       return (
-        <div className='userProfileRecommendation'>
+        <div key={index} className='userProfileRecommendation'>
           <div style={imgStyle} />
           <h3 className='userProfileColorName'>
             {color.name.value} <small>{color.hex.value}</small>
@@ -25,7 +24,7 @@ const ColorList = (props) => {
     });
 
   return (
-    <div id='container-fluid'>
+    <div>
       <div className='userProfileRecommendationBoxOutputs'>{colors}</div>
     </div>
   );

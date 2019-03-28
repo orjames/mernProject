@@ -13,7 +13,8 @@ const ModeSelector = (props) => {
           value='monochrome'
           id='monochrome'
         />
-        <label htmlFor='monochrome'>monochrome{'  '}</label>
+        <label htmlFor='monochrome'>monochrome</label>
+        {'  '}
         <input
           checked={props.mode === 'monochromeDark'}
           onChange={props.changeMode}
@@ -23,7 +24,8 @@ const ModeSelector = (props) => {
           value='monochromeDark'
           id='monochromeDark'
         />
-        <label htmlFor='monochromeDark'>monochrome dark{'  '}</label>
+        <label htmlFor='monochromeDark'>monochrome dark</label>
+        {'  '}
         <input
           checked={props.mode === 'monochromeLight'}
           onChange={props.changeMode}
@@ -33,7 +35,8 @@ const ModeSelector = (props) => {
           value='monochromeLight'
           id='monochromeLight'
         />
-        <label htmlFor='monochromeLight'>monochrome -light{'  '}</label>
+        <label htmlFor='monochromeLight'>monochrome -light</label>
+        {'  '}
         <input
           checked={props.mode === 'analogic'}
           onChange={props.changeMode}
@@ -43,7 +46,8 @@ const ModeSelector = (props) => {
           value='analogic'
           id='analogic'
         />
-        <label htmlFor='analogic'>analogic{'  '}</label>
+        <label htmlFor='analogic'>analogic</label>
+        {'  '}
         <input
           checked={props.mode === 'complement'}
           onChange={props.changeMode}
@@ -53,7 +57,8 @@ const ModeSelector = (props) => {
           value='complement'
           id='complement'
         />
-        <label htmlFor='complement'>complement{'  '}</label>
+        <label htmlFor='complement'>complement</label>
+        {'  '}
         <input
           checked={props.mode === 'analogicComplement'}
           onChange={props.changeMode}
@@ -63,7 +68,8 @@ const ModeSelector = (props) => {
           value='analogicComplement'
           id='analogicComplement'
         />
-        <label htmlFor='analogicComplement'>analogic complement{'  '}</label>
+        <label htmlFor='analogicComplement'>analogic complement</label>
+        {'  '}
         <input
           checked={props.mode === 'triad'}
           onChange={props.changeMode}
@@ -73,7 +79,8 @@ const ModeSelector = (props) => {
           value='triad'
           id='triad'
         />
-        <label htmlFor='triad'>triad{'  '}</label>
+        <label htmlFor='triad'>triad</label>
+        {'  '}
         <input
           checked={props.mode === 'quad'}
           onChange={props.changeMode}
@@ -83,7 +90,8 @@ const ModeSelector = (props) => {
           value='quad'
           id='quad'
         />
-        <label htmlFor='quad'>quad{'  '}</label>
+        <label htmlFor='quad'>quad</label>
+        {'  '}
       </form>
     </div>
   );
