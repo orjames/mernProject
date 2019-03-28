@@ -226,15 +226,6 @@ button {
   letter-spacing: 2px;
 }
 
-.loginTitle {
-  /* border: 3px solid violet; */
-  margin: 3px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .loginForm {
   display: flex;
   flex-direction: column;
@@ -242,18 +233,10 @@ button {
   flex-wrap: wrap;
 }
 
-.loginCard {
-  /* border: 3px solid navajowhite; */
-  margin: 3px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .loginContainer {
-  /* border: 3px solid teal; */
-  margin: 3px;
+  background-color: rgba(19, 56, 160, 0.25);
+  padding: 0.2rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -261,33 +244,44 @@ button {
 }
 
 .loginText {
-  margin-right: 1rem;
+  padding-right: 1rem;
   margin-bottom: 0;
   text-decoration: underline;
+  background-color: rgba(19, 56, 160, 0.25);
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
   cursor: pointer;
 }
 
 .loginTextSelected {
-  margin-right: 1rem;
+  padding-right: 1rem;
   margin-bottom: 0;
   cursor: pointer;
 }
 
 .signupText {
   margin-bottom: 0;
+  margin: 0;
+  padding-right: 1rem;
   cursor: pointer;
 }
 
 .signupTextSelected {
   margin-right: 1rem;
-  margin-bottom: 0;
+  padding-right: 1rem;
+  margin: 0;
   text-decoration: underline;
+  background-color: rgba(19, 56, 160, 0.25);
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
   cursor: pointer;
 }
 
 .logboxContainer {
   background-color: rgba(255, 255, 255, 0.75);
   /* border: 3px solid teal; */
+  padding: 1rem;
+  border-radius: 0.2rem;
   margin: 3px;
   display: flex;
   flex-direction: column;
