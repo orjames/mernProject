@@ -23,11 +23,11 @@ cloudinary.config({
   api_secret: process.env.REACT_APP_CLOUDINARY_API_SECRET,
 });
 
-// app.use(
-//   cors({
-//     origin: CLIENT_ORIGIN,
-//   })
-// );
+app.use(
+  cors({
+    origin: CLIENT_ORIGIN,
+  })
+);
 
 app.use(formData.parse());
 
