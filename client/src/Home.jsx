@@ -66,7 +66,7 @@ class Home extends Component {
 
     this.setState({ uploading: true });
 
-    fetch(`${API_URL}/image-upload`, {
+    fetch(`/image-upload`, {
       method: 'POST',
       body: formData,
     })
