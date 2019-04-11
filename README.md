@@ -245,7 +245,7 @@ export default (props) => {
 ### Recommendations
 Recommedations required me to use another API - humbly named The Color API. This took an input of one color and returned complementary colors depending on some parameters selected. This was fairly smooth sailing, and I was able to do it all on the front end. The string template literal used to access the URI is shown below.
 ```javascript
-let colorApi = `http://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=complement&count=6`;
+let colorApi = `https://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=complement&count=6`;
 ````
 
 ## Back End Routes
