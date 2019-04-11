@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import ColorList from './ColorList';
@@ -49,7 +48,7 @@ class Recommendations extends Component {
     // fetch a color complementary color thing
     const getRequests = modes.map((mode) => {
       return axios.get(
-        `http://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=${mode}&count=6`
+        `https://www.thecolorapi.com/scheme?hex=${primaryColorHex}&format=json&mode=${mode}&count=6`
       );
     });
     axios
@@ -157,4 +156,3 @@ class Recommendations extends Component {
 }
 
 export default withRouter(Recommendations);
-
